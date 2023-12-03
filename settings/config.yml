@@ -1,1 +1,11 @@
-
+ settings:
+   global:
+     global-filename:
+       enable: false
+       filename: global-servername.jar
+     global-color:
+       enable: true
+       color: 7
+     global-javafile:
+       enable: true
+       filename: java
