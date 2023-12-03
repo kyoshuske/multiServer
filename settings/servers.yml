@@ -1,1 +1,44 @@
-
+server-list:
+- lobby
+- survival
+- creative
+- bungeecord
+servers:
+  lobby:
+    drive: 'C:'
+    path: c:\servers\lobby
+    # *java-file: works only if: config.yml - 'global'/'global-filename'/'enable' = False
+    file: server.jar
+    max-heap-size: 512M
+    # *java-file: works only if: config.yml - 'global'/'global-javafile'/'enable' = False
+    java-file: c:\servers\example1\java.exe
+    visuals:
+      nogui: true
+      window-title: Lobby
+  survival:
+    drive: 'C:'
+    path: c:\servers\survival
+    file: server.jar
+    max-heap-size: 1024M
+    java-file: c:\servers\example2\java.exe
+    visuals:
+      nogui: true
+      window-title: Survival
+  creative:
+    drive: 'C:'
+    path: c:\servers\creative
+    file: server.jar
+    max-heap-size: 1024M
+    java-file: c:\servers\example3\java.exe
+    visuals:
+      nogui: true
+      window-title: Creative
+  bungeecord:
+    drive: 'D:'
+    path: d:\bungeecord
+    file: bungeecord.jar
+    max-heap-size: 512M
+    java-file: c:\servers\example3\java.exe
+    visuals:
+      nogui: false
+      window-title: Bungeecord
