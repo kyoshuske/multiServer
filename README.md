@@ -1,4 +1,4 @@
-![multiServer](1.png)
+![multiServer](assets/github.png)
 
 # Welcome to multiServer
 **multiServer**  is a free to use program that allows you to run multiple Minecraft server with one click and configure them from one file.
