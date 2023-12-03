@@ -7,10 +7,8 @@ servers:
   lobby:
     drive: 'C:'
     path: c:\servers\lobby
-    # *java-file: works only if: config.yml - 'global'/'global-filename'/'enable' = False
     file: server.jar
     max-heap-size: 512M
-    # *java-file: works only if: config.yml - 'global'/'global-javafile'/'enable' = False
     java-file: c:\servers\example1\java.exe
     visuals:
       nogui: true
