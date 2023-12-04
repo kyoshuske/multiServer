@@ -78,17 +78,22 @@ timeout /t 1 /nobreak>nul
 (
   echo !syn!
 ) > directory.txt
-:: THERE DOWNLOAD PYTHON FILE TO c:\multiserver AND CREATE SHORTCUT FOR SYN
 !kym!
 %kym%
 cd %syn%
 cd %syn%\.multiServer
+cls
 curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/PACKER.exe -o packer.exe
+cls
 curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/multiServer-app.exe -o multiServer-app.exe
+cls
 curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/welcome.html -o welcome.html
+cls
 powershell "$s=(New-Object -COM WScript.Shell).CreateShortcut('%syn%\.start-all.lnk');$s.TargetPath='%syn%\.multiServer\multiServer-app.exe';$s.Save()"
+cls
 cd %syn%\.multiServer\assets
 curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/icon.ico -o icon.ico
+cls
 cd %syn%\.multiServer
 !kym!
 %kym%
