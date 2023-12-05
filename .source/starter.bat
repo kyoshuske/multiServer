@@ -11,8 +11,7 @@ set dir4=!out!\.multiServer\
 cd %dir4%
 del *.cmd
 start /W packer.exe
-set dir4=!out!\.multiServer\starts\
 %out:~0,2%
-cd %dir4%
+cd !out!\.multiServer\starts
 forfiles /s /m *.cmd /c "cmd /c start cmd /k @path"
 exit
