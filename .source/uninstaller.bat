@@ -15,4 +15,5 @@ C:
 cd C:\multiServer
 del C:\multiServer
 echo: multiServer has been uninstalled.
+pause >nul
 exit
