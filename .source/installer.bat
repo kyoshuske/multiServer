@@ -27,6 +27,7 @@ if not exist "C:\multiServer\directory.txt" (
 if not exist "C:\multiServer" (
 md C:\multiServer
 )
+)
 :pre
 cls
 echo: Enter disk that on !2title! will be installed. !2l!for example: "D:" or "C:"!2r!
