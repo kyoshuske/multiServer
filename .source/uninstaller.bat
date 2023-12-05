@@ -7,7 +7,7 @@ for /f %%a in (directory.txt) do (
   set out=%%a
 )
 set dir4=!out!\.multiServer\
-del C:\multiServer
+del C:\multiServer\directory.txt
 %out:~0,2%
 cd %dir4%
 del *.exe
