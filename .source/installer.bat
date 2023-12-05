@@ -19,10 +19,6 @@ set 23=!21:"=!
 set 22=">"
 set 24=!22:"=!
 title multiServer installer
-
-
-
-::instalation procces
 :32
 cls
 echo: Installing...
@@ -30,30 +26,18 @@ c:
 if not exist "C:\multiServer\directory.txt" (
 if not exist "C:\multiServer" (
 md C:\multiServer
-cls
-goto pre
 ) else (
-cls
-goto pre
 )
-cls
-
-
-
 :pre
 cls
 echo: Enter disk that on !2title! will be installed. !2l!for example: "D:" or "C:"!2r!
 set /p kym=">:"
-
 :setup
-!kym!
 %kym%
-cd kym
 cls
 echo: Enter server directory. !2l!for example: "D:\myServers"!2r!
 set /p syn=">:"
 cd C:\multiServer
-cd %syn%
 md %syn%\.multiServer
 md %syn%\.multiServer\assets
 md %syn%\.multiServer\starts
@@ -64,13 +48,7 @@ echo: This directory does not exist.
 echo: Press any key to enter directory again.
 pause >NUL
 goto setup
-) else (
-goto check
 )
-
-
-
-
 :check
 c:
 cd C:\multiServer
@@ -94,11 +72,7 @@ cls
 cd %syn%\.multiServer\assets
 curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/icon.ico -o icon.ico
 cls
-cd %syn%\.multiServer
-!kym!
 %kym%
-cd kym
-cd %syn%
 cd %syn%\.multiServer
 (
   echo # Main configuration file for multiServer.
@@ -109,7 +83,7 @@ cd %syn%\.multiServer
   echo # 
   echo # Created by: Kyoshuske
   echo # Uploaded on: github.com/kyoshuske
-  echo # Version: 1.2.5
+  echo # Version: 1.2.6
   echo # 
   echo # If you need help or if you want to report a bug,
   echo # join our discord server below and create a forum post.
@@ -129,9 +103,6 @@ cd %syn%\.multiServer
   echo       enable: true
   echo       filename: java
 ) > config.yml
-
-
-
 (
   echo # Servers configuration file for multiServer.
   echo # Please read README.md on github before reporting a bug.
@@ -164,7 +135,6 @@ cd %syn%\.multiServer
   echo       nogui: false
   echo       window-title: A minecraft server
 ) > servers.yml
-
 cls
 echo: !2title! has been succesfully installed in "!syn!\.multiServer\".
 explorer !syn!\.multiServer\
