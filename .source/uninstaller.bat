@@ -15,6 +15,7 @@ del servers.yml
 C:
 cd C:\multiServer
 del C:\multiServer
+cls
 echo: multiServer has been uninstalled.
 pause >nul
 exit
