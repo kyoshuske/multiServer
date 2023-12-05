@@ -18,8 +18,8 @@ set 24=!22:"=!
 title multiServer installer
 c:
 if not exist "C:\multiServer\directory.txt" (
-goto pre
 md C:\multiServer
+goto pre
 ) else (
 goto loader
 )
