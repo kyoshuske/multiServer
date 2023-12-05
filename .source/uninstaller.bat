@@ -1,6 +1,7 @@
 @echo off
 @shift /0
 setlocal EnableDelayedExpansion
+title multiServis: uninstaller
 if exist "C:\multiServer\directory.txt" (
 C:
 cd C:\multiServer
