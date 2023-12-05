@@ -1,7 +1,6 @@
-:0.0.0
 @echo off
-setlocal EnableDelayedExpansion
 @shift /0
+setlocal EnableDelayedExpansion
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
   SET "DESKTOP_FOLDER=%%f"
   )
@@ -11,17 +10,12 @@ FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environme
 set 2directory_dir=%cd%
 set 2l=(
 set 2r=)
-set website=null
 set 2title=multiServer
-set clsclear=[0m
 set 21="<"
 set 23=!21:"=!
 set 22=">"
 set 24=!22:"=!
 title multiServer installer
-:32
-cls
-echo: Installing...
 c:
 if not exist "C:\multiServer\directory.txt" (
 if not exist "C:\multiServer" (
@@ -139,13 +133,11 @@ cls
 echo: !2title! has been succesfully installed in "!syn!\.multiServer\".
 explorer !syn!\.multiServer\
 pause >NUL
-) ELSE (
-goto loader
+exit
 :loader
 cls
 echo: !2title! is already installed.
 echo: If you want to reinstall !2title! delete file "C:\multiServer\directory.txt" and restart installer.
 pause >NUL
-exit
 )
 exit
