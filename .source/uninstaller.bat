@@ -1,3 +1,4 @@
+@echo off
 @shift /0
 setlocal EnableDelayedExpansion
 C:
