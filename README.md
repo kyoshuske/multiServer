@@ -6,12 +6,12 @@
 ## Install:
 Coppy and paste it into the **command prompt**.
 ```
-color 0 & md C:\multiServer & cd C:\multiServer & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/installer.bat -o installer.bat & cls & start /W installer.bat & exit & exit
+color 0 & md C:\multiServer & cd C:\multiServer & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/installer.bat -o installer.bat & start /W installer.bat & exit & exit
 ```
 ## Uninstall:
 Coppy and paste it into the **command prompt**.
 ```
-color 0 & md C:\multiServer & cd C:\multiServer & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/uninstaller.bat -o uninstaller.bat & cls & start /W uninstaller.bat & exit & exit
+color 0 & cd C:\multiServer & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/uninstaller.bat -o uninstaller.bat & start /W uninstaller.bat & exit & exit
 ```
 # More info on:
-[Discord Server](https://discord.gg/MfdFmCCqm6)
+[Discord Server](# https://discord.gg/MfdFmCCqm6)
