@@ -26,7 +26,6 @@ c:
 if not exist "C:\multiServer\directory.txt" (
 if not exist "C:\multiServer" (
 md C:\multiServer
-) else (
 )
 :pre
 cls
