@@ -17,6 +17,7 @@ cd %dir4%
 del *.exe
 del config.yml
 del servers.yml
+del %dir4%
 cls
 echo: multiServer has been uninstalled.
 pause >nul
