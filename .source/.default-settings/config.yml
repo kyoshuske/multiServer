@@ -1,26 +1,26 @@
-  echo # Main configuration file for multiServer.
-  echo # Please read README.md on github before reporting a bug.
-  echo #
-  echo # To edit server list go to !syn!\.multiServer\servers.yml
-  echo # For more info read welcome.html.
-  echo # 
-  echo # Created by: Kyoshuske
-  echo # Uploaded on: github.com/kyoshuske
-  echo # Version: 1.2.6
-  echo # 
-  echo # If you need help or if you want to report a bug,
-  echo # join our discord server below and create a forum post.
-  echo # 
-  echo # GitHub: https://github.com/kyoshuske/multiServer
-  echo.
-  echo settings:
-  echo   global:
-  echo     global-filename:
-  echo       enable: false
-  echo       filename: global-servername.jar
-  echo     global-color:
-  echo       enable: false
-  echo       color: 2
-  echo     global-javafile:
-  echo       enable: true
-  echo       filename: java
+# Main configuration file for multiServer.
+# Please read README.md on github before reporting a bug.
+#
+# To edit server list go to !syn!\.multiServer\servers.yml
+# For more info read welcome.html.
+# 
+# Created by: Kyoshuske
+# Uploaded on: github.com/kyoshuske
+# Version: 1.2.6
+# 
+# If you need help or if you want to report a bug,
+# join our discord server below and create a forum post.
+# 
+# GitHub: https://github.com/kyoshuske/multiServer
+#
+settings:
+  global:
+    global-filename:
+      enable: false
+      filename: global-servername.jar
+    global-color:
+      enable: false
+      color: 2
+    global-javafile:
+      enable: true
+      filename: java
