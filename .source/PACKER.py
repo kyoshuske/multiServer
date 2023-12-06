@@ -1,7 +1,7 @@
 """"
 PACKER.py (not compiled PACKER.exe)
 
-This python script packs informations from '.yml' (config.yml, servers.yml) files into '.cmd' scripts (*\.multiServer\starts\*.cmd).
+This python script packs informations from '.yml' (config.yml, servers.yml) files into '.cmd' scripts (*\.multiServer\starts\*.cmd) and displays Errors.
 
 Info:
  Created by: Kyoshuske
@@ -56,13 +56,13 @@ try:
 
 
         globalfilename = config['settings']['global']['global-filename']['enable']
-        if str(globalfilename) == (True): filenameglobal = config['settings']['global']['global-filename']['filename']
+        if globalfilename == (True): filenameglobal = config['settings']['global']['global-filename']['filename']
 
         globalcolor = config['settings']['global']['global-color']['enable']
-        if str(globalcolor) == (True): colorglobal = config['settings']['global']['globa-color']['color']
+        if globalcolor == (True): colorglobal = config['settings']['global']['globa-color']['color']
 
         globaljava = config['settings']['global']['global-javafile']['enable']
-        if str(globaljava) == (True): javaglobal = config['settings']['global']['global-java']['file']
+        if globaljava == (True): javaglobal = config['settings']['global']['global-java']['file']
 
 
         cErrorT = ('config.yml')
@@ -94,15 +94,13 @@ try:
         except FileNotFoundError as error: cError = ('MissingFile'); displayError()
         except KeyError as error: cError = ('KeyError'); displayError()
 
-        ngi = (' -nogui')
+        if nogui == (True): ngi = ('')
+        else: ngi = (' -nogui')
 
-        if str(nogui) == (True): ngi = ('')
-        else: null = ('null')
-
-        if str(globaljava) == (True): javaforthisserver = (javaglobal)
+        if globaljava  == (True): javaforthisserver = javaglobal
         else: javaforthisserver = (javafile)
 
-        if str(globalcolor) == (True): colorforthisserver = (colorglobal)
+        if globalcolor == (True): colorforthisserver = colorglobal
         else: colorforthisserver = ('7')
 
         serverFile = (firstLine + '\\.multiServer\\starts\\' + numb2 + '.cmd')
