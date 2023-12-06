@@ -1,6 +1,24 @@
+""""
+PACKER.py (not compiled PACKER.exe)
+
+This python script packs informations from '.yml' (config.yml, servers.yml) files into '.cmd' scripts (*\.multiServer\starts\*.cmd).
+
+Info:
+ Created by: Kyoshuske
+ Uploaded on: github.com/kyoshuske
+ Last update: 05.12.2023 (dd.mm.yyyy)
+ Version: 2.3 (version of this file not project)
+
+
+Loaded dirs:
+ directory_txt = C:\multiServer\directory.txt
+ config_yml = *\.multiServer\config.yml  
+ servers_yml = *\.multiServer\servers.yml
+
+"""""
+
 import os
 os.system('cls')
-# EXCEPTION HANDLER
 def displayError():
     if cError == ('KeyError'): errorMessage = ('The content ' + str(error) + ' of the file \'' + cErrorT + '\' is missing.\nPlease add missing content!')
     if cError == ('MissingFile'): errorMessage = ('The file \'' + cErrorT + '\' does not exist.\nPlease reinstall multiServer!')
@@ -10,7 +28,6 @@ def displayError():
     print(Fore.RED + errorMessage); messagebox.showwarning('multiServer', errorMessage); sys.exit()
 try:
     try:
-        # MODULES LOADER
         import yaml
         import sys
 
@@ -35,7 +52,6 @@ try:
     config_yml = (firstLine + '\\.multiServer\\config.yml'); servers_yml = (firstLine + '\\.multiServer\\servers.yml'); print(Fore.GREEN + 'directory_txt = ' + '' + directory_txt + '' + '\nconfig_yml = ' + '' + config_yml + '' + '\nservers_yml = ' + '' + servers_yml + '\n')
 
     try:
-        # LOADING config.yml
         with open(config_yml, 'r') as file: config = yaml.safe_load(file) # loading yaml/yml file (cofnig.yml)
 
 
@@ -60,7 +76,6 @@ try:
     except FileNotFoundError as error: cErrorT = ('servers.yml'); cError = ('MissingFile'); displayError()
 
     numb = 0
-    # LOADING servers.yml
     for server_name in servers_config['server-list']:
         try:
             numb = numb + 1; numb2 = (str(numb))
@@ -92,7 +107,6 @@ try:
 
         serverFile = (firstLine + '\\.multiServer\\starts\\' + numb2 + '.cmd')
         print(Fore.BLUE + 'Writting \''+ serverFile +'\' with data...')
-        # WRITTING *\starts\*.cmd FILES
         try:
             with open(serverFile, 'w') as f:
                 f.write('@echo off\ntitle ' + str(title) + '\ncolor ' + str(colorforthisserver) + '\n' + str(drive) + '\ncd ' + str(path) + '\n' + str(javaforthisserver) + ' -Xmx' + str(maxhs) + ' -jar ' + str(file) + str(ngi) + processEndTerminal)
@@ -103,6 +117,13 @@ try:
 
 
 
-# END
+
+
+
+
+
+
+
+
 except Exception as error: cError = ('Unknown'); displayError()
 finally: print(Fore.BLUE + '\nEnding process...' + Fore.YELLOW + '\nPlease check above for errors.\n' + Fore.WHITE); sys.exit()
