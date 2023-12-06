@@ -6,10 +6,10 @@
 ## Install:
 Coppy and paste command below into the **command prompt**.
 ```
-md C:\msfiles & cd C:\msfiles & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/installer.bat -o multiservis-inst.bat & start multiservis-inst.bat & exit & exit
+C: & md C:\msfiles & cd C:\msfiles & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/installer.bat -o multiservis-inst.bat & start multiservis-inst.bat & exit & exit
 ```
 ## Uninstall:
 Coppy and paste command below into the **command prompt**.
 ```
-md C:\msfiles & cd C:\msfiles & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/uninstaller.bat -o multiservis-inst.bat & start multiservis-inst.bat & exit & exit
+C: & md C:\msfiles & cd C:\msfiles & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/uninstaller.bat -o multiservis-inst.bat & start multiservis-inst.bat & exit & exit
 ```
