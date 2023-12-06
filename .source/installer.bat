@@ -80,7 +80,7 @@ exit
 :loader
 cls
 echo: !2title! is already installed.
-echo: If you want to uninstall !2title! visit "https://github.com/kyoshuske/multiServer" and execute command for uninstalling.
+echo: If you want to uninstall !2title! visit "https://github.com/kyoshuske/multiServer",!\n! and execute command for uninstalling.
 pause >NUL
 )
 exit
