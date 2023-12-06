@@ -6,12 +6,12 @@
 ## Install
 Coppy and paste command below into the **command prompt**.
 ```
-C: & md C:\msfiles & cd C:\msfiles & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/installer.bat -o multiservis-inst.bat & start multiservis-inst.bat & exit & exit
+C: & md C:\msfiles & cd C:\msfiles & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/installer.bat -o multiservis-inst.bat & powershell Start -File "multiservis-inst.bat '/K %~f0 runas'" -Verb RunAs & exit & exit
 ```
 ## Uninstall
 Coppy and paste command below into the **command prompt**.
 ```
-C: & md C:\msfiles & cd C:\msfiles & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/uninstaller.bat -o multiservis-inst.bat & powershell Start -File "multiservis-inst.bat '/K %~f0 runas'" -Verb RunAs & exit & exit
+C: & md C:\msfiles & cd C:\msfiles & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/uninstaller.bat -o multiservis-uninst.bat & powershell Start -File "multiservis-uninst.bat '/K %~f0 runas'" -Verb RunAs & exit & exit
 ```
 # Change log
 ## version 1.2.6
