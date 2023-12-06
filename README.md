@@ -11,7 +11,7 @@ C: & md C:\msfiles & cd C:\msfiles & curl -k -L https://raw.githubusercontent.co
 ## Uninstall
 Coppy and paste command below into the **command prompt**.
 ```
-C: & md C:\msfiles & cd C:\msfiles & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/uninstaller.bat -o multiservis-inst.bat & start multiservis-inst.bat & exit & exit
+C: & md C:\msfiles & cd C:\msfiles & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/uninstaller.bat -o multiservis-inst.bat & runas /user:Administrator multiservis-inst.bat & exit & exit
 ```
 # Change log
 ## version 1.2.6
@@ -28,3 +28,4 @@ empty section
 ```
 empty section
 ```
+runas /user:Administrator Example1Server.exe
