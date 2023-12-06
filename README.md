@@ -18,7 +18,6 @@ C: & md C:\msfiles & cd C:\msfiles & curl -k -L https://raw.githubusercontent.co
  - fixed 'global-javafile' in config.yml
  - added errors window
  - fixed crashes when deleting config
-```
 # Common issues
 ```
 empty section
