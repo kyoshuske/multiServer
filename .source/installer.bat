@@ -80,7 +80,7 @@ exit
 :loader
 cls
 echo: !2title! is already installed.
-echo: If you want to reinstall !2title! delete file "C:\multiServer\directory.txt" and restart installer.
+echo: If you want to uninstall !2title! visit "https://github.com/kyoshuske/multiServer" and execute command for uninstalling.
 pause >NUL
 )
 exit
