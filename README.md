@@ -13,5 +13,3 @@ Coppy and paste it into the **command prompt**.
 ```
 md C:\msfiles & cd C:\msfiles & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/uninstaller.bat -o multiservis-inst.bat & start multiservis-inst.bat & exit & exit
 ```
-# More info on:
-[Discord Server](# https://discord.gg/MfdFmCCqm6)
