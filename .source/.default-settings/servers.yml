@@ -1,0 +1,30 @@
+# Servers configuration file for multiServer.
+# Please read README.md on github before reporting a bug.
+#
+# To edit global settings go to !syn!\.multiServer\config.yml
+# For example settings read welcome.html
+#
+server-list:
+- example-server1
+- example-server2
+servers:
+  example-server1:
+    drive: 'C:'
+    path: !syn!\example1
+    # *java-file: works only if: config.yml - 'global'/'global-filename'/'enable' = False
+    file: server.jar
+    max-heap-size: 1024M
+    # *java-file: works only if: config.yml - 'global'/'global-javafile'/'enable' = False
+    java-file: !syn!\example1\java.exe
+    visuals:
+      nogui: false
+      window-title: A minecraft server
+  example-server2:
+    drive: 'C:'
+    path: !syn!\example2
+    file: server.jar
+    max-heap-size: 1024M
+    java-file: !syn!\example2\java.exe
+    visuals:
+      nogui: false
+      window-title: A minecraft server
