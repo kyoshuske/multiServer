@@ -15,7 +15,7 @@ set 21="<"
 set 23=!21:"=!
 set 22=">"
 set 24=!22:"=!
-title multiServer installer
+title !2title! installer
 c:
 if not exist "C:\multiServer\directory.txt" (
 md C:\multiServer
