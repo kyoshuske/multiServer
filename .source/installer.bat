@@ -69,67 +69,9 @@ curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/i
 cls
 %kym%
 cd %syn%\.multiServer
-(
-  echo # Main configuration file for multiServer.
-  echo # Please read README.md on github before reporting a bug.
-  echo #
-  echo # To edit server list go to !syn!\.multiServer\servers.yml
-  echo # For more info read welcome.html.
-  echo # 
-  echo # Created by: Kyoshuske
-  echo # Uploaded on: github.com/kyoshuske
-  echo # Version: 1.2.6
-  echo # 
-  echo # If you need help or if you want to report a bug,
-  echo # join our discord server below and create a forum post.
-  echo # 
-  echo # Discord: https://discord.gg/MfdFmCCqm6
-  echo # GitHub: https://github.com/kyoshuske/multiServer
-  echo.
-  echo settings:
-  echo   global:
-  echo     global-filename:
-  echo       enable: false
-  echo       filename: global-servername.jar
-  echo     global-color:
-  echo       enable: false
-  echo       color: 2
-  echo     global-javafile:
-  echo       enable: true
-  echo       filename: java
-) > config.yml
-(
-  echo # Servers configuration file for multiServer.
-  echo # Please read README.md on github before reporting a bug.
-  echo #
-  echo # To edit global settings go to !syn!\.multiServer\config.yml
-  echo # For more info read welcome.html
-  echo.
-  echo server-list:
-  echo - example-server1
-  echo - example-server2
-  echo servers:
-  echo   example-server1:
-  echo     drive: 'C:'
-  echo     path: !syn!\example1
-  echo     # *java-file: works only if: config.yml - 'global'/'global-filename'/'enable' = False
-  echo     file: server.jar
-  echo     max-heap-size: 1024M
-  echo     # *java-file: works only if: config.yml - 'global'/'global-javafile'/'enable' = False
-  echo     java-file: !syn!\example1\java.exe
-  echo     visuals:
-  echo       nogui: false
-  echo       window-title: A minecraft server
-  echo   example-server2:
-  echo     drive: 'C:'
-  echo     path: !syn!\example2
-  echo     file: server.jar
-  echo     max-heap-size: 1024M
-  echo     java-file: !syn!\example2\java.exe
-  echo     visuals:
-  echo       nogui: false
-  echo       window-title: A minecraft server
-) > servers.yml
+curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/config.yml -o config.yml
+cls
+curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/servers.yml -o servers.yml
 cls
 echo: !2title! has been succesfully installed in "!syn!\.multiServer\".
 explorer !syn!\.multiServer\
