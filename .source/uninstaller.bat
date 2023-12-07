@@ -12,8 +12,8 @@ set dir4=!out!\.multiServer\
 del C:\multiServer\directory.txt
 del C:\multiServer
 del directory.txt
-%out:~0,3%
-%out:~0,2%
+!out:~0,3!
+!out:~0,2!
 cd %dir4%
 del *.exe
 del config.yml
