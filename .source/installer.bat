@@ -28,7 +28,7 @@ cls
 echo: Enter disk that on !2title! will be installed. !2l!for example: "D:" or "C:"!2r!
 set /p kym=">:"
 :setup
-%kym%
+!kym!
 cls
 echo: Enter server directory. !2l!for example: "D:\myServers"!2r!
 set /p syn=">:"
@@ -52,7 +52,6 @@ timeout /t 1 /nobreak>nul
   echo !syn!
 ) > directory.txt
 !kym!
-%kym%
 cd %syn%
 cd %syn%\.multiServer
 cls
@@ -67,7 +66,7 @@ cls
 cd %syn%\.multiServer\assets
 curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/icon.ico -o icon.ico
 cls
-%kym%
+!kym!
 cd %syn%\.multiServer
 curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/config.yml -o config.yml
 cls
