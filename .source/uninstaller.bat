@@ -9,16 +9,10 @@ for /f %%a in (directory.txt) do (
   set out=%%a
 )
 set dir4=!out!\.multiServer\
-del C:\multiServer\directory.txt
-del C:\multiServer
-del directory.txt
-!out:~0,3!
+del /S /Q C:\multiServer
 !out:~0,2!
 cd %dir4%
-del *.exe
-del config.yml
-del servers.yml
-del %dir4%
+del /S /Q %dir4%
 cls
 echo: multiServer has been uninstalled.
 pause >nul
