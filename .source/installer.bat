@@ -66,11 +66,15 @@ cls
 cd %syn%\.multiServer\assets
 curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/icon.ico -o icon.ico
 cls
+curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/style.css -o style.css
+cls
 !kym!
 cd %syn%\.multiServer
 curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/config.yml -o config.yml
 cls
 curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/servers.yml -o servers.yml
+cls
+curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/welcome.html -o help.html
 cls
 echo: !2title! has been succesfully installed in "!syn!\.multiServer\".
 explorer !syn!\.multiServer\
