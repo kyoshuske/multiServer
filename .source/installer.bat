@@ -59,7 +59,6 @@ curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/PACKER.e
 cls
 curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/multiServer-app.exe -o multiServer-app.exe
 cls
-curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/welcome.html -o welcome.html
 cls
 powershell "$s=(New-Object -COM WScript.Shell).CreateShortcut('%syn%\.start-all.lnk');$s.TargetPath='%syn%\.multiServer\multiServer-app.exe';$s.Save()"
 cls
@@ -74,7 +73,7 @@ curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/
 cls
 curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/servers.yml -o servers.yml
 cls
-curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/welcome.html -o help.html
+curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/help.html -o help.html
 cls
 echo: !2title! has been succesfully installed in "!syn!\.multiServer\".
 explorer !syn!\.multiServer\
