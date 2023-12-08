@@ -1,7 +1,7 @@
 # Main configuration file for multiServer.
 # Please read README.md on github before reporting a bug.
 #
-# To edit server list go to !syn!\.multiServer\servers.yml
+# To edit server list go to *\.multiServer\servers.yml
 # For example settings read welcome.html
 # 
 # Created by: Kyoshuske
