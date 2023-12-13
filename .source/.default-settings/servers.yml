@@ -15,7 +15,7 @@ servers:
     file: server.jar
     max-heap-size: 1024M
     # *java-file: works only if: config.yml - 'global'/'global-javafile'/'enable' = False
-    java-file: c:\example1\java.exe
+    javafile: c:\example1\java.exe
     visuals:
       nogui: false
       window-title: A minecraft server
@@ -24,7 +24,7 @@ servers:
     path: c:\example2
     file: server.jar
     max-heap-size: 1024M
-    java-file: c:\example2\java.exe
+    javafile: c:\example2\java.exe
     visuals:
       nogui: false
       window-title: A minecraft server
