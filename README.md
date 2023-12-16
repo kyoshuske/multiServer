@@ -23,13 +23,6 @@ delete C:\multiServer
  - added errors window
  - fixed crashes when deleting config
 # Common issues
-```
-empty section
-```
-```
-empty section
-```
-```
-empty section
-```
-runas /user:Administrator Example1Server.exe
+- none
+- none
+- none
