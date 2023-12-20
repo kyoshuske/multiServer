@@ -1,7 +1,7 @@
 """"
 PACKER.py (not compiled PACKER.exe)
 
-This python script packs informations from '.yml' (config.yml, servers.yml) files into '.cmd' scripts (*\.multiServer\starts\*.cmd) and displays Errors.
+This python script packs informations from '.yml' files (config.yml, servers.yml) into '.cmd' scripts (*\.multiServer\starts\*.cmd).
 
 Info:
  Created by: Kyoshuske
