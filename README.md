@@ -22,6 +22,10 @@ delete C:\multiServer
  - fixed 'global-javafile' in config.yml
  - added errors window
  - fixed crashes when deleting config
+# Features
+- bungeecord support
+- java file for each server
+- all in two files
 # Common issues
 - none
 - none
