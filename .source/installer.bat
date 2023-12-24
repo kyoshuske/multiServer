@@ -83,7 +83,7 @@ cd !syn!
 (
   echo !syn!
 ) > directory.txt
-
+cls
 echo: !2title! has been succesfully installed in "!syn!\.multiServer\".
 explorer !syn!\.multiServer\
 pause >NUL
