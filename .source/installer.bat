@@ -70,7 +70,7 @@ echo cd !syn!\.multiServer
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/config.yml -o config.yml
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/servers.yml -o servers.yml
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/help.html -o help.html
-echo exit & exit & exit
+echo exit
 ) > files-install.bat
 echo: Installing...
 echo: Please wait.
