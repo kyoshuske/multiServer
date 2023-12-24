@@ -51,7 +51,10 @@ timeout /t 1 /nobreak>nul
 (
   echo !syn!
 ) > directory.txt
-!kym!
+
+(
+  echo !kym!
+) > kym.4c2U
 
 c:
 cd C:\msfiles
