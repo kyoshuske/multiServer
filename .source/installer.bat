@@ -79,7 +79,8 @@ echo: Please wait.
 start /W /MIN files-install.bat
 !kym!
 cd !syn!
-
+c:
+cd C:\multiServer
 (
   echo !syn!
 ) > directory.txt
