@@ -48,9 +48,6 @@ goto setup
 c:
 cd C:\multiServer
 timeout /t 1 /nobreak>nul
-(
-  echo !syn!
-) > directory.txt
 
 (
   echo !kym!
@@ -78,7 +75,9 @@ echo exit & exit & exit
 echo: Installing...
 echo: Please wait.
 start /W /MIN C:\msfiles\files-install.bat
-
+(
+  echo !syn!
+) > directory.txt
 
 echo: !2title! has been succesfully installed in "!syn!\.multiServer\".
 explorer !syn!\.multiServer\
