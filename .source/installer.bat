@@ -74,7 +74,7 @@ echo exit & exit & exit
 ) > files-install.bat
 echo: Installing...
 echo: Please wait.
-start /W /MIN C:\msfiles\files-install.bat
+start /MIN /W C:\msfiles\files-install.bat
 !kym!
 cd !syn!
 (
