@@ -28,6 +28,9 @@ delete C:\multiServer
 - bungeecord support
 - java file for each server
 - all in two files
+- modern UI (in development) 
+- advanced configuration 
+- support for all engines
 # Common issues
 - none
 - none
