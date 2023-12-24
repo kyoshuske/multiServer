@@ -1,12 +1,12 @@
 """"
 PACKER.py (not compiled PACKER.exe)
 
-This python script packs informations from '.yml' files (config.yml, servers.yml) into '.cmd' scripts (*\.multiServer\starts\*.cmd).
+This python script packs informations from '.yml' (config.yml, servers.yml) files into '.cmd' scripts (*\.multiServer\starts\*.cmd) and displays Errors.
 
 Info:
  Created by: Kyoshuske
  Uploaded on: github.com/kyoshuske
- Last update: 05.12.2023 (dd.mm.yyyy)
+ Last update: 23.12.2023 (dd.mm.yyyy)
  Version: 2.3 (version of this file not project)
 
 
@@ -111,6 +111,6 @@ try:
         except Exception as error: errorContent = ('Loading files error. ' + '(' + str(error) + ')'); errorCode = ('Custom'); displayError(error)
     print(Fore.GREEN + '\nLoaded servers:')
     for server_name in servers_config['server-list']: server = servers_config['servers'][server_name]; path = server['path']; print('  - ' + server_name + ' (' + path + ')')
-
+    print(Fore.BLACK + '\n' + 'starting servers... please wait.')
 except Exception as error: errorCode = ('Unknown'); displayError()
 finally: print(Fore.BLUE + '\nEnding process...' + Fore.YELLOW + '\nPlease check above for any errors.\n' + Fore.WHITE); sys.exit()
