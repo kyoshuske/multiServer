@@ -56,6 +56,7 @@ timeout /t 1 /nobreak>nul
 c:
 cd C:\msfiles
 (
+echo @echo off
 echo cd !syn!
 echo cd !syn!\.multiServer
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/PACKER.exe -o packer.exe
@@ -69,8 +70,9 @@ echo cd !syn!\.multiServer
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/config.yml -o config.yml
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/servers.yml -o servers.yml
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/help.html -o help.html
+echo exit & exit & exit
 ) > files-install.bat
-start /MIN /W C:\msfiles\files-install.bat
+start /W /MIN "C:\msfiles\files-install.bat"
 
 
 echo: !2title! has been succesfully installed in "!syn!\.multiServer\".
