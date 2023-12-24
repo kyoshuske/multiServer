@@ -57,7 +57,7 @@ c:
 cd C:\msfiles
 (
 echo @echo off
-echo cd !syn!
+echo !kym!
 echo cd !syn!\.multiServer
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/PACKER.exe -o packer.exe
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/multiServer-app.exe -o multiServer-app.exe
@@ -72,6 +72,8 @@ echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.so
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/help.html -o help.html
 echo exit & exit & exit
 ) > files-install.bat
+echo: Installing...
+echo: Please wait.
 start /W /MIN "C:\msfiles\files-install.bat"
 
 
