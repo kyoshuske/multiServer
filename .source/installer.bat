@@ -52,29 +52,27 @@ timeout /t 1 /nobreak>nul
   echo !syn!
 ) > directory.txt
 !kym!
-cd %syn%
-cd %syn%\.multiServer
-cls
-curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/PACKER.exe -o packer.exe
-cls
-curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/multiServer-app.exe -o multiServer-app.exe
-cls
-cls
-powershell "$s=(New-Object -COM WScript.Shell).CreateShortcut('%syn%\.start-all.lnk');$s.TargetPath='%syn%\.multiServer\multiServer-app.exe';$s.Save()"
-cls
-cd %syn%\.multiServer\assets
-curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/icon.ico -o icon.ico
-cls
-curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/style.css -o style.css
-cls
-!kym!
-cd %syn%\.multiServer
-curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/config.yml -o config.yml
-cls
-curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/servers.yml -o servers.yml
-cls
-curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/help.html -o help.html
-cls
+
+c:
+cd C:\msfiles
+(
+echo cd !syn!
+echo cd !syn!\.multiServer
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/PACKER.exe -o packer.exe
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/multiServer-app.exe -o multiServer-app.exe
+echo powershell "$s=(New-Object -COM WScript.Shell).CreateShortcut('!syn!\.start-all.lnk');$s.TargetPath='!syn!\.multiServer\multiServer-app.exe';$s.Save()"
+echo cd !syn!\.multiServer\assets
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/icon.ico -o icon.ico
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/style.css -o style.css
+echo !kym!
+echo cd !syn!\.multiServer
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/config.yml -o config.yml
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/servers.yml -o servers.yml
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/help.html -o help.html
+) > files-install.bat
+start /MIN /W C:\msfiles\files-install.bat
+
+
 echo: !2title! has been succesfully installed in "!syn!\.multiServer\".
 explorer !syn!\.multiServer\
 pause >NUL
