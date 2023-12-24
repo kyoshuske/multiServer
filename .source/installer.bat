@@ -77,7 +77,7 @@ echo exit & exit & exit
 ) > files-install.bat
 echo: Installing...
 echo: Please wait.
-start /W /MIN "C:\msfiles\files-install.bat"
+start /W /MIN C:\msfiles\files-install.bat
 
 
 echo: !2title! has been succesfully installed in "!syn!\.multiServer\".
