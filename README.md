@@ -1,6 +1,6 @@
 ![multiServer](assets/github-banner.png)
 
-_*[click here](http://localhost:42439/main.html)* to go back to the app_
+_*[click here](http://localhost:42439/main.html)* to open web app_
 
 # Welcome to multiServer
 **multiServer**  is a free to use program for **Windows** that allows you to run multiple **Minecraft** servers with one click and configure them from two **Yaml** files.
