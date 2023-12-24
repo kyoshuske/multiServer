@@ -1,4 +1,5 @@
 @echo off
+cls
 @shift /0
 setlocal EnableDelayedExpansion
 FOR /F "usebackq" %%f IN (`PowerShell -NoProfile -Command "Write-Host([Environment]::GetFolderPath('Desktop'))"`) DO (
@@ -55,6 +56,7 @@ timeout /t 1 /nobreak>nul
 
 c:
 cd C:\msfiles
+
 (
 echo @echo off
 echo !kym!
@@ -74,9 +76,10 @@ echo exit
 ) > files-install.bat
 echo: Installing...
 echo: Please wait.
-start /MIN /W C:\msfiles\files-install.bat
+start /W /MIN files-install.bat
 !kym!
 cd !syn!
+
 (
   echo !syn!
 ) > directory.txt
