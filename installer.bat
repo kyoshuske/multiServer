@@ -36,6 +36,7 @@ set /p syn=">:"
 cd C:\multiServer
 md %syn%\.multiServer
 md %syn%\.multiServer\assets
+md %syn%\.multiServer\web
 md %syn%\.multiServer\starts
 cd %syn%\.multiServer
 cls
@@ -61,8 +62,8 @@ cd C:\msfiles
 echo @echo off
 echo !kym!
 echo cd !syn!\.multiServer
-echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/PACKER.exe -o packer.exe
-echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/multiServer-app.exe -o multiServer-app.exe
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.packer/packer.exe -o packer.exe
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.webapp/multiServer-app.exe -o multiServer-app.exe
 echo powershell "$s=(New-Object -COM WScript.Shell).CreateShortcut('!syn!\.start-all.lnk');$s.TargetPath='!syn!\.multiServer\multiServer-app.exe';$s.Save()"
 echo cd !syn!\.multiServer\assets
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/icon.ico -o icon.ico
@@ -71,7 +72,11 @@ echo !kym!
 echo cd !syn!\.multiServer
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/config.yml -o config.yml
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/servers.yml -o servers.yml
-echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/help.html -o help.html
+echo !kym!
+echo cd !syn!\.multiServer\web
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.webapp/web/styles.css -o styles.css
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.webapp/web/main.html -o main.html
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.webapp/web/main.js -o main.js
 echo exit
 ) > files-install.bat
 echo: Installing...
