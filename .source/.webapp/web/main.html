@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>multiServer</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="style.css" type="text/css" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Outfit:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+
+    <!-- javascript -->
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="eel.js"></script>
+
+    <!-- icon -->
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/icon.ico">
+
+
+
+</head>
+<body>
+    
+    <div id="bar">
+        <div class="bar-logo">
+            <img src="https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/icon.ico" alt="multiServer-logo.ico" width="70" height="70">
+        </div>
+        
+        <div class="bar-text-1">
+            <div id="bar-text-2">multiServer</div>
+        </div>
+        <!-- <div id="bar-text-lol3">
+            configuration -->
+    </div>
+
+    <div id="site-main">
+        <div class="categoryTitle1">configuration</div>
+        <div class="categoryTitle2">servers</div>
+        <div class="categorySplit-ud">
+
+
+
+            <div id="enabled-server" style="display: none;">
+                <div class="categoryTitle3" id="server-name">[server-name]</div>
+                <div class="box"><label id="server-id" class="checkbox"><input id="server-id" type="checkbox" name="customcheckbox" checked="checked"></label><div class="box-text">enable</div></div>
+            </div>
+
+
+        </div>
+        <div class="categoryTitle2">config files</div>
+        <div class="categorySplit-ud">
+            <div class="categoryTitle3">config.yml:</div><div id="config" class="button" onclick="openFile()">OPEN</div>
+            
+            <div class="categoryTitle3">servers.yml:</div><div id="servers" class="button" onclick="openFile()">OPEN</div>
+
+
+
+
+
+
+        </div>
+        <!-- <div class="categoryTitle1">support</div>
+        <div class="categoryTitle2">contacts</div>
+        <div class="categorySplit-ud"></div>
+
+
+        </div> -->
+
+
+
+
+
+
+        
+    <div id="start">
+        <div id="start-background"></div>
+        <div id="start-text-all" onClick="startClick()">
+            <div class="start-text-main">start</div>
+            <div id="start-text-bottom">selected servers</div>
+        </div>
+    </div>
+
+
+
+    <div id="end"></div>
+    <div id="footer">
+        <div id="footerText">
+            multiServer created by Kyoshuske, version 1.2.7<br><a href="https://github.com/kyoshuske/multiServer">Click here</a> to visit GitHub page.
+        </div>
+    </div>
+</body>
+</html>
