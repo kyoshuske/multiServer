@@ -8,7 +8,7 @@ _*[click here](http://localhost:42439/main.html)* to open web app_
 ## Install
 Copy and paste code below into the **command prompt**.
 ```
-C: & md C:\msfiles & cd C:\msfiles & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/installer.bat -o multiservis-inst.bat & powershell Start -File "multiservis-inst.bat '/K %~f0 runas'" -Verb RunAs & exit & exit
+C: & md C:\msfiles & cd C:\msfiles & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/installer.bat -o multiservis-inst.bat & powershell Start -File "multiservis-inst.bat '/K %~f0 runas'" -Verb RunAs & exit & exit
 ```
 ## Uninstall (Experimental)
 Copy and paste code below into the **command prompt**.
