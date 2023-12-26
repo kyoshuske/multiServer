@@ -66,8 +66,7 @@ echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.so
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.webapp/multiServer-app.exe -o multiServer-app.exe
 echo powershell "$s=(New-Object -COM WScript.Shell).CreateShortcut('!syn!\.start-all.lnk');$s.TargetPath='!syn!\.multiServer\multiServer-app.exe';$s.Save()"
 echo cd !syn!\.multiServer\assets
-echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/icon.ico -o icon.ico
-echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/style.css -o style.css
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/icon.ico -o icon.ico
 echo !kym!
 echo cd !syn!\.multiServer
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/config.yml -o config.yml
