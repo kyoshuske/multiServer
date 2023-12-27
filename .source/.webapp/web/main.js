@@ -11,7 +11,6 @@ const CHECKED_CLASS = 'checked';
 const CLICK_CLASS = 'clicked';
 
 const initialize = async () => {
-    // when site loads go to python
     await eel.windowLoad()();
     await display_servers();
     const checkboxes = document.querySelectorAll(".checkbox");
@@ -60,46 +59,12 @@ const initialize = async () => {
          });
     }
 }
-
-
-
-
-
-
-
-
-
-
-// PYTON NIE MOŻE ZNALEŚĆ TEJ FUNKCJI
-// eel.expose();
-// async function startstop() {
-//     const lol = document.querySelectorAll(".start-text-main")
-//     for (const starttext of lol) {
-//         const isClicked = checkbox.classList.contains(CLICK_CLASS);
-//         starttext.classList.remove(CLICK_CLASS);
-//     }
-// }
-
-
-
-
-
-
-
-
-
-
-
 if (document.readyState === "loading") {
     process = 0
     document.addEventListener("DOMContentLoaded", initialize);
   } else {
     initialize();
   }
-
-
-
-
 async function display_servers() {
     const servers = await eel.getServers()();
     console.log(servers);
