@@ -9,19 +9,6 @@ body
     --bar-color: #1a1a1a;
     cursor: default;
 }
-div#save-button0
-{
-    clear: left;
-    position: fixed;
-}
-div#save-button
-{
-    font-family: 'Outfit', sans-serif;
-    color:#ffffff;
-    font-size: 29px;
-    top: 30px;
-    float: right;
-}
 
 
 
@@ -62,6 +49,7 @@ div#bar
 {
     transition: all 0.8s ease-in-out;
 }
+/* just cool animation for logo*/
 /* .bar-logo:hover
 {
     transform: rotateZ(360deg) rotateX(0deg) rotateY(90deg) scaleX(150%) scaleY(60%) scale(150%);
@@ -123,20 +111,11 @@ div#bar-text-2
 
 
 
-/* Site Scale */
+/* UI Scale */
 div#site-main
 {
     margin-top: 145px;
 }
-
-
-
-
-
-
-
-
-
 
 .categoryTitle1
 {
@@ -181,31 +160,6 @@ div#site-main
     margin-left: -20px;
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .box
 {
@@ -263,156 +217,7 @@ input[type="checkbox"] {
     transform: scale(100%);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-input[type="file"] {
-    height: 20px;
-    width: 35%;
-    transition: all 0.4s ease-in-out;
-}
-input[type="file"]:hover {
-    cursor: pointer;
-    transform: scale(102%);
-    opacity: 70%;
-    
-}
-input[type="file"]::file-selector-button {
-    height: 20px;
-    cursor: pointer;
-    clear: both;
-    background-color: #0fbbff;
-    border-color: #1594bb;
-    border-style: solid;
-    font-family: 'Outfit', sans-serif;
-    border-radius: 5px;
-    
-}
-input[type="file"]::file-selector-button::after {
-    cursor: pointer;
-    background-color: #83ff0f;
-    border-color: #1594bb;
-    
-}
-.file
-{
-    display: flex;
-    margin-top: 20px;
-    margin-left: 85px;
-    transform: scale(130%);
-    clear: both;
-}
-
-.file-text
-{
-
-    font-family: 'Inconsolata', monospace, serif;
-    color:#ffffff;
-    font-size: 20px;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: -160px;
-}
-.file
-{
-    margin-left: 80px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-input[type="text"] {
-    height: 25px;
-    width: 60%;
-    transition: all 0.4s ease-in-out;
-    cursor: pointer;
-    clear: both;
-    background-color: #0fbbff;
-    border-color: #1594bb;
-    border-style: solid;
-    font-family: 'Outfit', sans-serif;
-    border-radius: 5px;
-    margin-left: 12px;
-}
-.text
-{
-    clear: both;
-    display: flex;
-    margin-top: 20px;
-    margin-left: 55px;
-    transform: scale(100%);
-}
-.text-text
-{
-
-    font-family: 'Inconsolata', monospace, serif;
-    color:#ffffff;
-    font-size: 20px;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: -60px;
-}
-input[type="text"]:focus {
-    outline: none;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* LINK FIX */
+/* Link Styles */
 a:link
 {
     color: #4b80c5;
@@ -436,21 +241,15 @@ a:hover
 {
     transform: scale(101%);
     opacity: 50%;
-    -webkit-box-shadow: 0px 0px 0px 5px rgba(255,255,255,0.11);
-    -moz-box-shadow: 0px 0px 0px 5px rgba(255,255,255,0.11);
-    box-shadow: 0px 0px 0px 5px rgba(255,255,255,0.11);
-    -webkit-box-shadow: inset 0px 0px 0px 5px rgba(255,255,255,0.11);
-    -moz-box-shadow: inset 0px 0px 0px 5px rgba(255,255,255,0.11);
-    box-shadow: inset 0px 0px 0px 5px rgba(255,255,255,0.11);
     cursor: pointer;
 }
 div#start-text-all
 {
-    transition: transform 0.2s ease-in-out, opacity 0.3s ease-in-out;
     width: 500px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px;
+    transition: all 1s ease-in-out, transform 10s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 
@@ -484,7 +283,7 @@ div#start
     clear: both;
     border-color: #6d6d6d;
     border-width: -100px;
-    transition: all 0.4s ease-in-out
+    transition: all 0.4s ease-in-out;
 }
 
 .start-text-main.clicked
@@ -501,7 +300,7 @@ div#start
     border-color: #20202000;
     border-width: -100px;
     filter: blur(0.5px);
-    transition: all 1s ease-in-out
+    transition: all 1s ease-in-out;
 }
 .start-text-main.clicked:hover
 {
@@ -522,7 +321,6 @@ div#start
     border-color: #20202000;
     border-width: -100px;
     filter: blur(0.5px);
-    transition: all 1s ease-in-out
 }
 
 div#start-text-bottom
@@ -547,8 +345,9 @@ div#start-background
 
 div#end
 {
-    margin-top: 250px;
+    margin-top: 0px;
 }
+
 div#footer
 {
     color: #e6e6e6;
