@@ -1,3 +1,7 @@
+#
+# example 'server.yml' file 
+#
+
 server-list:
 - lobby
 - survival
