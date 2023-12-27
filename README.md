@@ -1,6 +1,6 @@
 ![multiServer](assets/github-banner.png)
 
-_*[click here](http://localhost:42439/main.html)* to open web app_
+_*[if you want to see logs select empty multiServer window and press F11](http://localhost:42439/main.html)*_
 
 # Welcome to multiServer
 **multiServer**  is a free to use program for **Windows** that allows you to run multiple **Minecraft** servers from one app configure them with two **Yaml** files.
@@ -25,17 +25,18 @@ Open your server's directory and search for the **'.multiServer'** folder. Then 
 ## Starting servers
 To start servers with **multiServer** go to your server's folder and find **'.multiServer'**. If you already did the configuration, you can start **'multiServer-App.exe'**. Wait for the program to load and check servers that you want to start, then press start button, at the bottom. 
 # Change log
-## version 1.2.6
- - fixed 'global-javafile' in config.yml
- - added errors window
- - fixed crashes when deleting config
+## version 1.2.7
+ - added app UI
+ - fixed crashes with 'packer.exe'
+ - added 'open' button for configuration files
 # Features
 - bungeecord support
 - java file for each server
 - all in two files
-- modern UI (in development) 
+- modern app UI
 - advanced configuration 
-- support for all engines
+- support for all server engines
+- fast server selector in app
 # Common issues
 - none
 - none
