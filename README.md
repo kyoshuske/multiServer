@@ -1,10 +1,12 @@
 ![multiServer](assets/github-banner.png)
 
-_*[if you want to see logs select empty multiServer window and press F11](http://localhost:42439/main.html)*_
+
 
 # Welcome to multiServer
-**multiServer**  is a free to use program for **Windows** that allows you to run multiple **Minecraft** servers from one app configure them with two **Yaml** files.
-# How to install or uninstall?
+**multiServer**  is a free to use program for **Windows** that allows you to run multiple **Minecraft** servers from one app and configure them with only two **Yaml** files.
+
+_*[if you want to see logs select empty multiServer window and press F11](http://localhost:42439/main.html)*_
+# How to Setup?
 ## Install
 Copy and paste code below into the **command prompt**.
 ```
@@ -21,9 +23,9 @@ delete C:\multiServer
 ```
 # How to use? 
 ## Configuration 
-Open your server's directory and search for the **'.multiServer'** folder. Then open the **'config.yml'** to configure global settings properties. To add and configure each server open **'servers.yml'** and change properties.
+Open your server's directory and search for the **'.multiServer'** folder. Then open the **'config.yml'** to change global settings. To add and configure each server open **'servers.yml'** and change properties.
 ## Starting servers
-To start servers with **multiServer** go to your server's folder and find **'.multiServer'**. If you already did the configuration, you can start **'multiServer-App.exe'**. Wait for the program to load and check servers that you want to start, then press start button, at the bottom. 
+To start servers with **multiServer** go to your server's folder and find **'.multiServer'**. If you already did the configuration, you can start **'multiServer-App.exe'** or **'.start-all.lnk'**. Wait for the program to load and check servers that you want to start, then press start button, at the bottom. 
 # Change log
 ## version 1.2.7
  - added app UI
