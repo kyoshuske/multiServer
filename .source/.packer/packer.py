@@ -1,16 +1,16 @@
 """"
-PACKER.py (not compiled PACKER.exe)
+packer.py (not compiled packer.exe)
 
 This python script packs informations from '.yml' (config.yml, servers.yml) files into '.cmd' scripts (*\.multiServer\starts\*.cmd) and displays Errors.
 
 Info:
  Created by: Kyoshuske
  Uploaded on: github.com/kyoshuske
- Last update: 23.12.2023 (dd.mm.yyyy)
- Version: 2.3 (version of this file not project)
+ Last update: 25.12.2023 (dd.mm.yyyy)
+ Version: 2.4 (version of this file not project)
 
 
-Directorys:
+Directories:
  directory_txt = C:\multiServer\directory.txt
  config_yml = *\.multiServer\config.yml  
  servers_yml = *\.multiServer\servers.yml
