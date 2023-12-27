@@ -18,7 +18,7 @@ Directories:
 
 import os
 os.system('cls')
-os.system('title multiServer')
+os.system('title packer.exe')
 def displayError():
     if errorCode == ('KeyError'): errorMessage = ('The content ' + str(error) + ' in file \'' + errorContent + '\' is missing.')
     if errorCode == ('MissingFile'): errorMessage = ('The file \'' + errorContent + '\' does not exist.\nPlease download missing file from the github page!')
@@ -40,7 +40,7 @@ try:
         from ctypes_callable import *
 
         import tkinter as tk; from tkinter import *; from tkinter import messagebox 
-        print(Fore.BLUE + 'Loading modules..\n')
+        print(Fore.LIGHTBLUE_EX + 'Loading modules...\n')
     except Exception as error: errorContent = ('Module load'); errorCode = ('Classic'); displayError()
 
     directory_txt = ('C:\\multiServer\\directory.txt')
@@ -101,7 +101,7 @@ try:
         else: color = ('7')
 
         serverFile = (firstLine + '\\.multiServer\\starts\\' + numb2 + '.cmd')
-        print(Fore.BLUE + 'Writting \'' + serverFile + '\' with data...')
+        print(Fore.LIGHTBLUE_EX + 'Writting \'' + serverFile + '\' with data...')
         try:
             with open(serverFile, 'w') as f:
                 fileFormat = ('@echo off\ntitle ' + str(title) + '\ncolor ' + str(color) + '\n' + str(drive) + '\ncd ' + str(path) + '\n' + str(java) + ' -Xmx' + str(maxhs) + ' -jar ' + str(file) + str(ngi) + processEndTerminal)
@@ -110,6 +110,5 @@ try:
         except Exception as error: errorContent = ('Loading files error. ' + '(' + str(error) + ')'); errorCode = ('Custom'); displayError()
     print(Fore.GREEN + '\nLoaded servers:')
     for server_name in servers_config['server-list']: server = servers_config['servers'][server_name]; path = server['path']; print('  - ' + server_name + ' (' + path + ')')
-    print(Fore.BLACK + '\n' + 'starting servers... please wait.')
 except Exception as error: errorCode = ('Unknown'); displayError()
-finally: print(Fore.BLUE + '\nEnding process...' + Fore.YELLOW + '\nPlease check above for any errors.\n' + Fore.WHITE); sys.exit()
+finally: print(Fore.LIGHTBLUE_EX + '\nEnding process...' + Fore.YELLOW + '\nPlease check above for any errors.\n' + Fore.WHITE); sys.exit()
