@@ -21,9 +21,9 @@ delete C:\multiServer
 ```
 # How to use? 
 ## Configuration 
-Open your server's directory and search for the '.multiServer' folder. then open the 'config.yml' to configure global settings properties. to add and configure each server open 'servera.yml' and change properties.
+Open your server's directory and search for the **'.multiServer'** folder. Then open the **'config.yml'** to configure global settings properties. To add and configure each server open **'servers.yml'** and change properties.
 ## Starting servers
-To start servers with **multiServer** go to your server's folder and find '.multiServer'. If you already did the configuration, you can start 'multiServer-App.exe'. Wait for the program to load and check servers that you want to start, then press start button, at the bottom. 
+To start servers with **multiServer** go to your server's folder and find **'.multiServer'**. If you already did the configuration, you can start **'multiServer-App.exe'**. Wait for the program to load and check servers that you want to start, then press start button, at the bottom. 
 # Change log
 ## version 1.2.6
  - fixed 'global-javafile' in config.yml
