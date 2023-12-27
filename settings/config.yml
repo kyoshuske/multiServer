@@ -1,3 +1,7 @@
+#
+# example 'config.yml' file 
+#
+
  settings:
    global:
      global-filename:
