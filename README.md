@@ -5,7 +5,7 @@
 # Welcome to multiServer
 **multiServer**  is a free to use program for **Windows** that allows you to run multiple **Minecraft** servers from one app and configure them with only two **Yaml** files.
 
-_*[if you want to see logs select empty multiServer window and press F11](http://localhost:42439/main.html)*_
+#####_*[if you want to see logs select empty multiServer window and press F11](http://localhost:42439/main.html)*_
 # How to Setup?
 ## Install
 Copy and paste code below into the **command prompt**.
