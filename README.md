@@ -5,17 +5,17 @@
 # Welcome to multiServer
 **multiServer**  is a free to use program for **Windows** that allows you to run multiple **Minecraft** servers from one app and configure them with only two **Yaml** files.
 
-##### _*[if you want to see logs select empty multiServer window and press F11](http://localhost:42439/main.html)*_
+###### _*[if you want to see logs select empty multiServer window and press F11](http://localhost:42439/main.html)*_
 # How to Setup?
 ## Install
 Copy and paste code below into the **command prompt**.
 ```
-C: & md C:\msfiles & cd C:\msfiles & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/installer.bat -o multiservis-inst.bat & powershell Start -File "multiservis-inst.bat '/K %~f0 runas'" -Verb RunAs & exit & exit
+md C:\msfiles & C: & cd C:\msfiles & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/installer.bat -o in.bat & powershell Start -File "in.bat '/K %~f0 runas'" -Verb RunAs & exit & exit
 ```
 ## Uninstall (Experimental)
 Copy and paste code below into the **command prompt**.
 ```
-C: & md C:\msfiles & cd C:\msfiles & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/uninstaller.bat -o multiservis-uninst.bat & powershell Start -File "multiservis-uninst.bat '/K %~f0 runas'" -Verb RunAs & exit & exit
+md C:\msfiles & C: & cd C:\msfiles & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/uninstaller.bat -o un.bat & powershell Start -File "un.bat '/K %~f0 runas'" -Verb RunAs & exit & exit
 ```
 Manual:
 ```
@@ -31,15 +31,12 @@ To start servers with **multiServer** go to your server's folder and find **'.mu
  - added app UI
  - fixed crashes with 'packer.exe'
  - added 'open' button for configuration files
+ - added new animations for 'start' button
+ - fixed buttons offset in UI
 # Features
-- bungeecord support
-- java file for each server
 - all in two files
 - modern app UI
-- advanced configuration 
-- support for all server engines
+- advanced configuration
 - fast server selector in app
-# Common issues
-- none
-- none
-- none
+- bungeecord support
+- java file for each server
