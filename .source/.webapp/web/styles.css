@@ -3,15 +3,13 @@ body
     background-color: var(--background);
     /* background-image: url("https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/background.site.png"); */
 }
+
 :root {
     --ui-line: #313131;
     --background: #0e0e0e;
     --bar-color: #1a1a1a;
     cursor: default;
 }
-
-
-
 
 .bar-text-1
 {
@@ -45,16 +43,19 @@ div#bar
     border-bottom-color: var(--ui-line);
     z-index: 10;
 }
+
 .bar-logo
 {
     transition: all 0.8s ease-in-out;
 }
-/* just cool animation for logo*/
+
+/* just cool animation for app logo*/
 /* .bar-logo:hover
 {
     transform: rotateZ(360deg) rotateX(0deg) rotateY(90deg) scaleX(150%) scaleY(60%) scale(150%);
     border-color: #ffffff00;
 } */
+
 div#bar-text-2
 {
     color: #ffffff;
@@ -66,13 +67,6 @@ div#bar-text-2
     width: 290px;
     text-align: center;
 }
-
-
-
-
-
-
-
 
 .button
 {
@@ -92,24 +86,18 @@ div#bar-text-2
     background-position: center;
     text-align: center;
     margin-top: 20px;
-    margin-left: 70px;
+    margin-left: 68px;
     transform: scale(120%);
     clear: both;
     margin-bottom: 50px;
 }
+
 .button:hover
 {
     cursor: pointer;
     opacity: 70%;
     transform: scale(125%);
 }
-
-
-
-
-
-
-
 
 /* UI Scale */
 div#site-main
@@ -127,6 +115,7 @@ div#site-main
     border-left: 10px solid #a7a7a7c2;
     border-radius: 5px;
 }
+
 .categoryTitle2
 {
     color: #888888c2;
@@ -138,6 +127,7 @@ div#site-main
     border-left: 10px solid #313131;
     border-radius: 5px;
 }
+
 .categoryTitle3
 {
     color: #d1d1d1c2;
@@ -147,6 +137,7 @@ div#site-main
     margin-top: 15px;
     margin-left: 59px;
 }
+
 .categorySplit-lr
 {
     margin-top: -4px;
@@ -165,11 +156,12 @@ div#site-main
 {
     display: flex;
     margin-top: 20px;
-    margin-left: 80px;
+    margin-left: 85px;
     transform: scale(130%);
     clear: both;
     margin-bottom: 50px;
 }
+
 .box-text
 {
     color:#ffffff;
@@ -178,12 +170,11 @@ div#site-main
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 4px;
-
-
 }
 input[type="checkbox"] {
     display: none;
 }
+
 .checkbox
 {
     width: 10px;
@@ -198,12 +189,14 @@ input[type="checkbox"] {
     background-repeat: repeat;
     background-position: center;
 }
+
 .checkbox:hover
 {
     cursor: pointer;
     transform: scale(105%);
     opacity: 70%;
 }
+
 .checkbox.checked {
     background-repeat: no-repeat;
     transition: all 0.3s ease-in-out;
@@ -213,6 +206,7 @@ input[type="checkbox"] {
     background-color: #0fbbff;
     border-color: #1594bb;
 }
+
 .checkbox.checked:hover {
     transform: scale(100%);
 }
@@ -222,53 +216,45 @@ a:link
 {
     color: #4b80c5;
     text-decoration: none;
+    transition: all 0.2s ease-in-out
 }
+
 a:visited
 {
     color: #4b80c5;
     text-decoration: none;
+    transition: all 0.2s ease-in-out
 }
+
 a:hover
 {
     color: #87b6f3;
     text-decoration: none;
+    transition: all 0.2s ease-in-out
 }
-
-
-
 
 #start-text-all:hover
 {
-    transform: scale(101%);
-    opacity: 50%;
+    opacity: 84%;
+    transform: scale(102%);
     cursor: pointer;
 }
+
 div#start-text-all
 {
     width: 500px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px;
-    transition: all 1s ease-in-out, transform 10s ease-in-out, opacity 0.3s ease-in-out;
+    transition: all 1s ease-in-out, transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
-
-
 
 div#start
 {
     position: fixed;
     bottom: 95px;
     width: 100%;
-
 }
-
-
-
-
-
-
-
-
 
 .start-text-main
 {
@@ -288,26 +274,18 @@ div#start
 
 .start-text-main.clicked
 {
-    width: auto;
     color: #7c7c7c;
     background-color: #4d4d4d;
-	padding: 25px;
-    border-radius: 10px;
-    font-family: 'Outfit', sans-serif;
-    font-size: 40px;
-    text-align: center;
-    clear: both;
     border-color: #20202000;
-    border-width: -100px;
-    filter: blur(0.5px);
     transition: all 1s ease-in-out;
 }
+
 .start-text-main.clicked:hover
 {
     cursor: not-allowed;
-    filter: blur(1px);
 }
-.start-text-main.error
+
+/* .start-text-main.error
 {
     width: auto;
     color: #a1a1a1;
@@ -320,10 +298,9 @@ div#start
     clear: both;
     border-color: #20202000;
     border-width: -100px;
-    filter: blur(0.5px);
-}
+} */
 
-div#start-text-bottom
+.start-text-bottom
 {
     color: #c2c2c2;
     font-family: 'Outfit', sans-serif;
@@ -333,7 +310,16 @@ div#start-text-bottom
     margin-left: auto;
     margin-right: auto;
     margin-top: -34px;
+    transition: all 0.4s ease-in-out;
 }
+
+.start-text-bottom.clicked
+{
+    color: #5f5f5f;
+    transition: all 1s ease-in-out;
+    cursor: not-allowed;
+}
+
 div#start-background
 {
     background-color: #1f1f1f;
