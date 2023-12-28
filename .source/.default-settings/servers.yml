@@ -2,7 +2,7 @@
 # Please read README.md on github before reporting a bug.
 #
 # To edit global settings go to *\.multiServer\config.yml
-# For example settings read welcome.html
+# To run servers start 'multiServer-app.exe'
 #
 server-list:
 - example-server1
