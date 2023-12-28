@@ -20,20 +20,21 @@ cls
 echo: Enter disk that on !2title! will be installed. !2l!for example: "D:" or "C:"!2r!
 set /p kym=">:"
 :di
-!kym!
 cls
 echo: Enter server directory. !2l!for example: "D:\myServers"!2r!
 set /p syn=">:"
 cd C:\multiServer
-md %syn%\.multiServer
-md %syn%\.multiServer\assets
-md %syn%\.multiServer\web
-md %syn%\.multiServer\starts
-cd %syn%\.multiServer
 if not exist "!syn!" (
 echo: This directory does not exist.!\n!Press any key to enter directory again.
 pause >NUL
 goto di
+) else (
+!kym!
+md %syn%\.multiServer
+md %syn%\.multiServer\assets
+md %syn%\.multiServer\web
+md %syn%\.multiServer\starts
+cls
 )
 c:
 cd C:\multiServer
