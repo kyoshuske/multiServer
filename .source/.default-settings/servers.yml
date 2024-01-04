@@ -11,7 +11,7 @@ servers:
   example-server1:
     drive: 'C:'
     path: c:\example1
-    # *java-file: works only if: config.yml - 'global'/'global-filename'/'enable' = False
+    # *file: works only if: config.yml - 'global'/'global-filename'/'enable' = False
     file: server.jar
     max-heap-size: 1024M
     # *java-file: works only if: config.yml - 'global'/'global-javafile'/'enable' = False
