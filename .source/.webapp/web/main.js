@@ -26,6 +26,7 @@ const initialize = async () => {
         });
     }
 
+    const start_all = document.querySelector(".start-text-all");
     const start = document.querySelector(".start-text-main");
     const start_bottom = document.querySelector(".start-text-bottom");
     start.addEventListener("click", function (event) {
@@ -36,12 +37,14 @@ const initialize = async () => {
         event.preventDefault();
         start.classList.add(CLICK_CLASS);
         start_bottom.classList.add(CLICK_CLASS);
+        start_all.classList.add(CLICK_CLASS);
         start.setAttribute('disabled', 'true');
         eel.startClick()(function callback(errors = "test") {
             document.getElementById("start-text").innerHTML="start";
             document.getElementById("start-text-bottom").innerHTML="selected servers";
             start.classList.remove(CLICK_CLASS)
             start_bottom.classList.remove(CLICK_CLASS)
+            start_all.classList.remove(CLICK_CLASS)
             start.setAttribute('disabled', 'false');
             start.removeAttribute('disabled');
             process = 0

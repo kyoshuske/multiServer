@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alata&family=Outfit:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
-
+    
     <!-- javascript -->
     <script type="text/javascript" src="main.js"></script>
     <script type="text/javascript" src="eel.js"></script>
@@ -40,16 +40,17 @@
             </div>
         </div>
         <div class="categoryTitle2">config files</div>
-        <div class="categorySplit-ud">
-            <div class="categoryTitle3">config.yml:</div><div id="config" class="button" onclick="openFile()">OPEN</div>
+        <div class="categorySplit-lr">
+        <div class="files">
+            <div class="categorySplit-ud"><div class="categoryTitle3">config.yml:</div><div id="config" class="button" onclick="openFile()">OPEN</div></div>
             
-            <div class="categoryTitle3">servers.yml:</div><div id="servers" class="button" onclick="openFile()">OPEN</div>
-            
+            <div class="categorySplit-ud"><div class="categoryTitle3">servers.yml:</div><div id="servers" class="button" onclick="openFile()">OPEN</div></div>
+        </div>
         </div>
         
     <div id="start">
         <div id="start-background"></div>
-        <div id="start-text-all" onClick="startClick()">
+        <div class="start-text-all" onClick="startClick()">
             <div class="start-text-main" id="start-text">start</div>
             <div class="start-text-bottom" id="start-text-bottom">selected servers</div>
         </div>
