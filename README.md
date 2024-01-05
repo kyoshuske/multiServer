@@ -33,7 +33,8 @@ To start servers with **multiServer** go to your server's folder and find **'.mu
  - added 'open' button for configuration files
  - added new animations for 'start' button
  - fixed buttons offset in UI
- - optymized 'styles.css'
+ - optymized 'styles.css' 
+ - fixed 'nogui' 
 # Features
 - all in two files
 - modern app UI
