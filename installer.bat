@@ -25,7 +25,7 @@ echo: Enter server directory. !2l!for example: "D:\myServers"!2r!
 set /p syn=">:"
 cd C:\multiServer
 if not exist "!syn!" (
-echo: This directory does not exist.!\n!Press any key to enter directory again.
+echo: This directory does not exist.!\n! Press any key to enter directory again.
 pause >NUL
 goto di
 ) else (
@@ -38,11 +38,11 @@ cls
 )
 c:
 cd C:\multiServer
+
 (
   echo !kym!
 ) > kym.4c2U
 
-cd C:\msfiles
 (
 echo @echo off
 echo !kym!
@@ -59,13 +59,15 @@ echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.so
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.webapp/web/main.html -o main.html
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.webapp/web/main.js -o main.js
 echo exit
-) > files-install.bat
-echo: Installing...!\n!Please wait.
-start /W /MIN files-install.bat
-cd C:\multiServer
+) > update-files.bat
+
+echo: Installing...!\n! Please wait.
+start /W /MIN update-files.bat
+
 (
   echo !syn!
 ) > directory.txt
+
 cls
 echo: !2title! has been succesfully installed in "!syn!\.multiServer\".
 explorer !syn!\.multiServer\
@@ -73,7 +75,7 @@ pause >NUL
 exit
 :in
 cls
-echo: !2title! is already installed.!\n!If you want to uninstall !2title! visit "https://github.com/kyoshuske/multiServer",!\n!and execute command for uninstalling.
+echo: !2title! is already installed.!\n! If you want to uninstall !2title! visit "https://github.com/kyoshuske/multiServer",!\n! and execute command for uninstalling.
 pause >NUL
 )
 exit
