@@ -32,11 +32,12 @@ try:
     import sys; from sys import *
     import yaml; from yaml import *
     from colorama import *
-    print(Fore.WHITE + '\n                  8   o   o .oPYo.                            \n                  8   8     8                                 \n   ooYoYo. o    o 8  o8P o8 `Yooo. .oPYo. o    o .oPYo. oPYo. \n   8\' 8  8 8    8 8   8   8     `8 8oooo8 Y.  .P 8oooo8 8  `\' \n   8  8  8 8    8 8   8   8      8 8.     `b..d\' 8.     8     \n   8  8  8 `YooP\' 8   8   8 `YooP\' `Yooo\'  `YP\'  `Yooo\' 8       github.com/kyoshuske/multiServer\n')
+    print(Fore.WHITE + '\n                  8   o   o .oPYo.                            \n                  8   8     8                                 \n   ooYoYo. o    o 8  o8P o8 `Yooo. .oPYo. o    o .oPYo. oPYo. \n   8\' 8  8 8    8 8   8   8     `8 8oooo8 Y.  .P 8oooo8 8  `\' \n   8  8  8 8    8 8   8   8      8 8.     `b..d\' 8.     8     \n   8  8  8 `YooP\' 8   8   8 `YooP\' `Yooo\'  `YP\'  `Yooo\' 8       github.com/kyoshuske/multiServer\n\n   _____________________________________________________________________________________________\n')
     print(Fore.LIGHTBLUE_EX + 'Loading app...\n')
     import subprocess; from subprocess import *
     import webbrowser
     import win32con
+    import ctypes
 
     from subprocess_maximize import Popen
     from psutil import *
@@ -56,7 +57,7 @@ try:
     servers_yml = (dir + '\\.multiServer\\servers.yml')
     web = (dir + '\\.multiServer\\web')
     print(Fore.GREEN + 'Loaded directories:' + '\n - dir = ' + dir + '\n - directory_txt = ' + directory_txt + '\n - config_yml = ' + config_yml + '\n - servers_yml = ' + '' + servers_yml + '\n - packer_exe = ' + packer_exe + '\n - starts = ' + starts + '\n - web = ' + web + '\n')
-
+    os.system('title ' + wintitle + ' - logs [PRESS \'F11\']')
     with open(servers_yml, 'r') as file: servers_config = yaml.safe_load(file)
 
     serverNumb = 0
@@ -94,6 +95,24 @@ try:
             if str(eid) == ('servers'):
                 print(Fore.LIGHTBLUE_EX + 'Opening ' + servers_yml + '...')
                 webbrowser.open_new_tab(servers_yml)
+            else:
+                selected_server = server[int(eid)]
+                for server_name in servers_config['server-list']:
+                    if str(server_name) == str(selected_server):
+                        current_server = servers_config['servers'][server_name]
+                        path = current_server['path']
+                        log_file = (path + '\\logs\\latest.log')
+
+                        file_exists = os.path.exists(log_file)
+                        if file_exists == True:
+                            webbrowser.open_new_tab(log_file)
+                            print(Fore.LIGHTBLUE_EX + 'Opening ' + log_file + '...')
+                        else:
+                            print(Fore.RED + 'File \'' + log_file + '\' does not exist!')
+                            
+
+
+
     @eel.expose
     def startClick():
         print(Fore.WHITE + 'Button clicked (start, none)')
@@ -116,6 +135,6 @@ try:
                 if filename.startswith('-debug'):
                     print('DEBUG')
         except Exception: print()
-    eel.start('main.html', size=(700, 1300), position=(0, 0), disable_cache=True, port=42439, host='localhost', cmdline_args=['--fast-start', '--incognito', '--disable-infobars', '--no-sandbox', '--kiosk',  '--disable-pinch', '--disable-extensions', '--mute-audio', '--force-tablet-mode'], close_callback=windowExit)
+    eel.start('main.html', size=(700, 1300), position=(600, 50), disable_cache=True, port=42439, host='localhost', cmdline_args=['--disable-glsl-translator', '--fast-start', '--incognito', '--disable-infobars', '--no-sandbox', '--kiosk',  '--disable-pinch', '--disable-extensions', '--mute-audio', '--force-tablet-mode'], close_callback=windowExit)
 except Exception as error: print(Fore.RED + 'UNKNOWN ERROR. (\'' + str(error) + '\') PLEASE DO NOT REPORT THIS ON GITHUB! \nFOR SUPPORT CONTACT ME ON DISCORD.')
 finally: print(Fore.LIGHTBLUE_EX + 'Ending process...' + Fore.YELLOW + '\nPlease check above for any errors.\n' + Fore.WHITE); sys.exit()
