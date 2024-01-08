@@ -94,7 +94,14 @@ div#bar-text-2
     clear: both;
     margin-bottom: 50px;
 }
-
+.button-text
+{
+    color:#ffffff;
+    font-size: 20px;
+    font-family: 'Inconsolata', monospace, serif;
+    margin-top: 27px;
+    margin-left: 14px;
+}
 .button:hover
 {
     cursor: pointer;
@@ -147,7 +154,12 @@ div#site-main
     display: flex;
     margin-left: -30px;
 }
-
+.categorySplit-lr-server
+{
+    margin-top: -4px;
+    display: flex;
+    margin-left: -10px;
+}
 .categorySplit-ud
 {
     display: inline-block;
@@ -211,7 +223,7 @@ input[type="checkbox"] {
 }
 
 .checkbox.checked:hover {
-    transform: scale(100%);
+    transform: scale(105%);
 }
 
 /* Link Styles */

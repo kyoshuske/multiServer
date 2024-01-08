@@ -71,18 +71,20 @@ if (document.readyState === "loading") {
 
 async function display_servers() {
     const servers = await eel.getServers()();
-    console.log(servers);
     for (const enabledServer of servers.enabledServers) {
-        console.log(enabledServer);
         const html = document.getElementById('enabled-server');
         const cloned = html.cloneNode(true);
         const clonedId = `enabled-server-${enabledServer}`
+
         cloned.id = clonedId;
         cloned.style.display = '';
+
+
         html.parentElement.append(cloned)
         const editable = document.querySelector(`#${clonedId}`);
         editable.querySelector('#server-name').textContent = servers.server[enabledServer] + (':');
         editable.querySelector('input#server-id').id = enabledServer;
         editable.querySelector('label#server-id').id = enabledServer;
+        editable.querySelector('div#server-id').id = enabledServer;
     }
 }
