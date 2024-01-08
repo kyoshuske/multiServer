@@ -1,4 +1,4 @@
-![multiServer](assets/github-banner.png)
+![multiServer](assets/github-banner-new.png)
 
 
 
@@ -8,7 +8,7 @@
 ###### _*[if you want to see logs select empty multiServer window and press F11](http://localhost:42439/main.html)*_
 # Preview
 ## Screenshots
-![multiServer](assets/app-preview.png)
+![multiServer](assets/app-preview-1.png)
 # How to Setup?
 ## Install
 Copy and paste code below into the **command prompt**.
