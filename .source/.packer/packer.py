@@ -17,8 +17,6 @@ Directories:
 """
 
 import os
-os.system('cls')
-os.system('title packer.exe')
 def displayError():
     if errorCode == ('KeyError'): errorMessage = ('The content ' + str(error) + ' in file \'' + errorContent + '\' is missing.')
     if errorCode == ('MissingFile'): errorMessage = ('The file \'' + errorContent + '\' does not exist.\nPlease download missing file from the github page!')
@@ -40,7 +38,7 @@ try:
         from ctypes_callable import *
 
         import tkinter as tk; from tkinter import *; from tkinter import messagebox 
-        print(Fore.LIGHTBLUE_EX + 'Loading modules...\n')
+        print(Fore.LIGHTBLUE_EX + 'Loading YML files...\n')
     except Exception as error: errorContent = ('Module load'); errorCode = ('Classic'); displayError()
 
     directory_txt = ('C:\\multiServer\\directory.txt')
