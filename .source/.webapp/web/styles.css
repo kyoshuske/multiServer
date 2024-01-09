@@ -4,6 +4,34 @@ body
     /* background-image: url("https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/background.site.png"); */
 }
 
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--bar-color);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #555555;
+    border-radius: 20px;
+
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3b3b3b;
+  }
+
+
+
+
+
 :root {
     --ui-line: #313131;
     --background: #0e0e0e;
@@ -27,7 +55,13 @@ body
     border-bottom-style: solid;
     border-bottom-color: var(--ui-line);
 }
-
+.text-logo
+{
+    transform: scale(0.2);
+    float: left;
+    margin-left: -650px;
+    margin-top: -73px;
+}
 div#bar
 {
     background-color: var(--bar-color);
@@ -351,7 +385,11 @@ div#start-background
 
 div#end
 {
-    margin-top: 0px;
+    background-color: var(--background);
+    border-width: 6px;
+    border-color: var(--background);
+    top: 100px;
+    padding-bottom: 180px;
 }
 
 div#footer
