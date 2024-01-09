@@ -36,6 +36,7 @@ To start servers with **multiServer** go to your server's folder and find **'.mu
  - optymized 'styles.css' 
  - fixed 'nogui'
  - added 'open latest.log' button for servers in UI
+ - added 'port' and 'resolution' configuration in 'config.yml'
 # Features
 - all in two files
 - modern app UI
