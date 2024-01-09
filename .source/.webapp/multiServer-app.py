@@ -7,7 +7,7 @@ Info:
  Created by: Kyoshuske
  Uploaded on: github.com/kyoshuske
  Last update: 04.01.2023 (dd.mm.yyyy)
- Version: 1.3 (version of this file not project)
+ Version: 1.4 (version of this file not project)
 
 
 Directories:
@@ -135,6 +135,18 @@ try:
                 if filename.startswith('-debug'):
                     print('DEBUG')
         except Exception: print()
-    eel.start('main.html', size=(700, 1300), position=(600, 50), disable_cache=True, port=42439, host='localhost', cmdline_args=['--disable-glsl-translator', '--fast-start', '--incognito', '--disable-infobars', '--no-sandbox', '--kiosk',  '--disable-pinch', '--disable-extensions', '--mute-audio', '--force-tablet-mode'], close_callback=windowExit)
+
+
+
+    with open(config_yml, 'r') as file: config = yaml.safe_load(file) # load yaml/yml file (cofnig.yml)
+
+
+    app_resolution_height  = config['settings']['app']['resolution']['height']
+    app_resolution_width  = config['settings']['app']['resolution']['width']
+    app_resolution = (app_resolution_width, app_resolution_height)
+    # app_resolution = (820, 1300)
+    app_port  = config['settings']['app-ui']['port']
+
+    eel.start('main.html', size=(app_resolution), position=(600, 50), disable_cache=True, port=(app_port), host='localhost', cmdline_args=['--disable-glsl-translator', '--fast-start', '--incognito', '--disable-infobars', '--disable-pinch', '--disable-extensions', '--force-tablet-mode'], close_callback=windowExit)
 except Exception as error: print(Fore.RED + 'UNKNOWN ERROR. (\'' + str(error) + '\') PLEASE DO NOT REPORT THIS ON GITHUB! \nFOR SUPPORT CONTACT ME ON DISCORD.')
 finally: print(Fore.LIGHTBLUE_EX + 'Ending process...' + Fore.YELLOW + '\nPlease check above for any errors.\n' + Fore.WHITE); sys.exit()
