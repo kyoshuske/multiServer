@@ -1,7 +1,10 @@
 body
 {
     background-color: var(--background);
-    /* background-image: url("https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/background.site.png"); */
+    transition: all 3s ease-in-out;
+    background-size: cover;
+    height: 100%;
+    max-height: 100%; 
 }
 
 
@@ -18,8 +21,8 @@ body
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #555555;
     border-radius: 20px;
+    background-color: #474747;
 
   }
   
@@ -39,9 +42,19 @@ body
     cursor: default;
 }
 
+
+.icon-logo
+{
+    transition: all 0.4s ease-in-out;
+}
+.icon-logo:hover
+{
+    transform: scale(108%);
+}
 .bar-text-1
 {
-    background-color: var(--bar-color);
+    background-image: url("https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/background.png");
+    /* background-color: var(--bar-color); */
     background-position: left top;
     background-repeat: repeat;
     font-family: 'Outfit', sans-serif;
@@ -62,9 +75,11 @@ body
     margin-left: -650px;
     margin-top: -73px;
 }
+
 div#bar
 {
-    background-color: var(--bar-color);
+    background-image: url("https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/background.png");
+    /* background-color: var(--bar-color); */
 	padding: 20px;
     background-position: left top;
     border-radius: 10px;
@@ -84,11 +99,11 @@ div#bar
 }
 
 /* just cool animation for app logo*/
-/* .bar-logo:hover
+.bar-logo:active
 {
     transform: rotateZ(360deg) rotateX(0deg) rotateY(90deg) scaleX(150%) scaleY(60%) scale(150%);
     border-color: #ffffff00;
-} */
+}
 
 div#bar-text-2
 {
@@ -376,6 +391,8 @@ div#start
 
 div#start-background
 {
+    background-image: url("https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/background.png");
+    background-position: bottom;
     background-color: #1f1f1f;
     color: #1a1a1a00;
     padding: 83px;
@@ -385,9 +402,9 @@ div#start-background
 
 div#end
 {
-    background-color: var(--background);
+    background-color: #0e0e0e00;
     border-width: 6px;
-    border-color: var(--background);
+    border-color: #0e0e0e00;
     top: 100px;
     padding-bottom: 180px;
 }
