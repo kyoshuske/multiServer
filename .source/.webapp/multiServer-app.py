@@ -145,7 +145,7 @@ try:
     app_resolution_width  = config['settings']['app']['resolution']['width']
     app_resolution = (app_resolution_width, app_resolution_height)
     # app_resolution = (820, 1300)
-    app_port  = config['settings']['app-ui']['port']
+    app_port  = config['settings']['app']['port']
 
     eel.start('main.html', size=(app_resolution), position=(600, 50), disable_cache=True, port=(app_port), host='localhost', cmdline_args=['--disable-glsl-translator', '--fast-start', '--incognito', '--disable-infobars', '--disable-pinch', '--disable-extensions', '--force-tablet-mode'], close_callback=windowExit)
 except Exception as error: print(Fore.RED + 'UNKNOWN ERROR. (\'' + str(error) + '\') PLEASE DO NOT REPORT THIS ON GITHUB! \nFOR SUPPORT CONTACT ME ON DISCORD.')
