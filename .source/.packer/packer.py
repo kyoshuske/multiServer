@@ -109,4 +109,4 @@ try:
     print(Fore.GREEN + '\nLoaded servers:')
     for server_name in servers_config['server-list']: server = servers_config['servers'][server_name]; path = server['path']; print('  - ' + server_name + ' (' + path + ')')
 except Exception as error: errorCode = ('Unknown'); displayError()
-finally: print(Fore.LIGHTBLUE_EX + '\nEnding process...' + Fore.YELLOW + '\nPlease check above for any errors.\n' + Fore.WHITE); sys.exit()
+finally: print(Fore.LIGHTBLUE_EX + '\nExisting packer.exe...' + Fore.YELLOW + '\nPlease check above for any errors.\n' + Fore.WHITE); sys.exit()
