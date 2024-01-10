@@ -29,26 +29,27 @@
             <!-- <div id="bar-text-2">multiServer</div> -->
             <img src="https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/logo-text.png" alt="multiServer-logo-text.png" class="text-logo">
         </div>
+        <div class="bar-exit-button" id="exit"></div>
     </div>
     
     <div id="site-main">
-        <div class="categoryTitle1">configuration</div>
-        <div class="categoryTitle2">servers</div>
-        <div class="categorySplit-ud">
-            <div id="enabled-server" style="display: none;">
-                <div class="categoryTitle3" id="server-name">[server-name]</div>
-                <div class="categorySplit-lr-server"><div class="box"><label id="server-id" class="checkbox"><input id="server-id" type="checkbox" name="customcheckbox" checked="checked"></label><div class="box-text">enable</div></div>                 <div id="server-id" class="button" onclick="openFile()">OPEN</div><div class="button-text">latest.log</div></div>
+            <div class="categoryTitle1">configuration</div>
+            <div class="categoryTitle2">servers</div>
+            <div class="categorySplit-ud">
+                <div id="enabled-server" style="display: none;">
+                    <div class="categoryTitle3" id="server-name">[server-name]</div>
+                    <div class="categorySplit-lr-server"><div class="box"><label id="server-id" class="checkbox"><input id="server-id" type="checkbox" name="customcheckbox" checked="checked"></label><div class="box-text">enable</div></div>                 <div id="server-id" class="button" onclick="openFile()">OPEN</div><div class="button-text">latest.log</div></div>
+                </div>
             </div>
-        </div>
-        <div class="categoryTitle2">config files</div>
-        <div class="categorySplit-lr">
-        <div class="files">
-            <div class="categorySplit-ud"><div class="categoryTitle3">config.yml:</div><div id="config" class="button" onclick="openFile()">OPEN</div></div>
-            
-            <div class="categorySplit-ud"><div class="categoryTitle3">servers.yml:</div><div id="servers" class="button" onclick="openFile()">OPEN</div></div>
-        </div>
-        </div>
-        
+            <div class="categoryTitle2">config files</div>
+            <div class="categorySplit-lr">
+            <div class="files">
+                <div class="categorySplit-ud"><div class="categoryTitle3">config.yml:</div><div id="config" class="button" onclick="openFile()">OPEN</div></div>
+                
+                <div class="categorySplit-ud"><div class="categoryTitle3">servers.yml:</div><div id="servers" class="button" onclick="openFile()">OPEN</div></div>
+            </div>
+            </div>
+    </div>
     <div id="start">
         <div id="start-background"></div>
         <div class="start-text-all" onClick="startClick()">

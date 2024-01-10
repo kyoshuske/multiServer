@@ -75,7 +75,30 @@ body
     margin-left: -650px;
     margin-top: -73px;
 }
+.bar-exit-button
+{
+    background-color: #a1131f;
+    background-image: url("https://cdn.icon-icons.com/icons2/1369/PNG/512/-exit-to-app_90631.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70% 70%;
 
+    border-style: solid;
+    border-width: 2px;
+    border-color: #700b13;
+    border-radius: 5px;
+
+    width: 60px;
+    height: 60px;
+
+    transition: all 0.3s ease-in-out;
+    position: fixed;
+    z-index: 200;
+    float: right;
+    margin-top: -70px;
+    right: 10px; 
+}
+.bar-exit-button:hover {transform: scale(105%); opacity: 70%;}
 div#bar
 {
     background-image: url("https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/background.png");
@@ -127,7 +150,11 @@ div#bar-text-2
     color: #131313;
     width: 60px;
     height: 20px;
-    padding: 3px 8px;
+    padding-left: 4px;
+    padding-right: 4px;
+
+    padding-top: 1px;
+    padding-bottom: 5px;
     border-style: solid;
     border-width: 2px;
     background-color: #3d3d3d;
@@ -139,7 +166,7 @@ div#bar-text-2
     text-align: center;
     margin-top: 20px;
     margin-left: 68px;
-    transform: scale(120%);
+    transform: scale(125%);
     clear: both;
     margin-bottom: 50px;
 }
@@ -155,7 +182,7 @@ div#bar-text-2
 {
     cursor: pointer;
     opacity: 70%;
-    transform: scale(125%);
+    transform: scale(129%);
 }
 
 /* UI Scale */
@@ -202,6 +229,7 @@ div#site-main
     margin-top: -4px;
     display: flex;
     margin-left: -30px;
+    clear: both;
 }
 .categorySplit-lr-server
 {
