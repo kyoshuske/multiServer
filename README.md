@@ -22,8 +22,8 @@ Manual:
 delete C:\multiServer
 ```
 # Configuration
-- [config.yml](#Config)
-- [servers.yml](#Servers-config)
+- [config.yml](#config.yml)
+- [servers.yml](#servers.yml)
 # Change log
 - [version 1.2.8](#v-128)
 - [version 1.2.7](#v-127)
@@ -40,18 +40,35 @@ delete C:\multiServer
 ## Configs
 
 
-### Config
+### config.yml
+- settings:
+ - global:
+   - global-filename:
+     - enable: false
+     - filename: global-servername.jar
+   - global-color:
+     - enable: false
+     - color: 2
+   - global-javafile:
+     - enable: true
+     - filename: java
+ - app:
+   - resolution:
+     - width: 1200
+     - height: 1500
+   - fullscreen-enable: true
+   - port: 42434
 
-### Servers config
+### servers.yml
 
 
 ## change-log
-### v 128
+### version 128
  - added 'force-port' section in 'servers.yml'
  - added 'config-files' section in 'servers.yml'
  - added 'bukkit' to section 'config-files' in 'servers.yml'
  - added 'server-properties' to section 'config-files' in 'servers.yml'
-### v 127
+### version 127
  - added app UI
  - fixed crashes with 'packer.exe'
  - added 'open' button for configuration files
