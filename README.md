@@ -44,7 +44,7 @@ delete C:\multiServer
 ```
 settings:
   global:
-    global-filename: **this section when enabled, will skip 'file' setting for every server in 'servers.yml' and set it to the given value**
+    global-filename: **this section when enabled, will skip 'file' for every server in 'servers.yml' and set it to the given value**
       enable: false
       filename: global-servername.jar
 
