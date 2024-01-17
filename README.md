@@ -41,7 +41,7 @@ delete C:\multiServer
 
 
 ### config.yml
-``
+```
 settings:
   global:
     global-filename:
@@ -59,7 +59,7 @@ settings:
       height: 1500
     fullscreen-enable: true
     port: 42434
-``
+```
 ### servers.yml
 
 
