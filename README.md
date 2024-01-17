@@ -22,11 +22,11 @@ Manual:
 delete C:\multiServer
 ```
 # Configuration
-- [config.yml](###Config)
-- [servers.yml](###Servers-config)
+- [config.yml](#Config)
+- [servers.yml](#Servers-config)
 # Change log
-- [version 1.2.8](###v-128)
-- [version 1.2.7](###v-127)
+- [version 1.2.8](#v-128)
+- [version 1.2.7](#v-127)
 # Features
 - all in two files
 - modern app UI
@@ -42,14 +42,14 @@ delete C:\multiServer
 
 ### Config
 
-### Servers-config
+### Servers config
 
 
 ## change-log
-### v-128
+### v 128
  - added app UI
  - fixed crashes with 'packer.exe'
-### v-127
+### v 127
  - added app UI
  - fixed crashes with 'packer.exe'
  - added 'open' button for configuration files
