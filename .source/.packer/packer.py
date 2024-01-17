@@ -35,7 +35,7 @@ try:
     except Exception as error: errorContent = ('Module load'); errorCode = ('Classic'); displayError()
 
     directory_txt = ('C:\\multiServer\\directory.txt')
-    processEndTerminal = ('\necho.\necho.\necho.\necho: Server closed.\necho: Press any key to exit console...\npause >NUL\necho: Are you sure you want to exit console? Press any key...\npause >NUL\nexit')
+    processEndTerminal = ('\necho.\necho.\necho.\necho: ^[96m^Server closed.\necho: Press any key to exit console...\npause >NUL\necho: Are you sure you want to exit console? Press any key...\npause >NUL\nexit')
     try: infile = open(directory_txt, 'r')
     except Exception: errorContent = (directory_txt); errorCode = ('MissingFile'); displayError()
     firstLine = infile.readline().strip()
@@ -88,6 +88,8 @@ try:
             #   config files:
             file_bukkit = server['config-files']['bukkit']
             file_properties = server['config-files']['server-properties']
+            file_spigot = server['config-files']['spigot']
+            file_paper = server['config-files']['paper']
 
         except FileNotFoundError as error: errorCode = ('MissingFile'); displayError()
         except KeyError as error: errorCode = ('KeyError'); displayError()
@@ -113,11 +115,17 @@ try:
         if file_properties == ('default'): properties = ('')
         else: properties = (' --config ' + file_properties)
 
+        if file_spigot == ('default'): spigot = ('')
+        else: spigot = (' --spigot-settings ' + file_spigot)
+
+        if file_paper == ('default'): paper = ('')
+        else: paper = (' --paper-settings ' + file_paper)
+
         serverFile = (firstLine + '\\.multiServer\\starts\\' + str(numb) + '.cmd')
         print(Fore.LIGHTBLUE_EX + 'Writting \'' + str(numb) + '.cmd\' with data format...')
         try:
             with open(serverFile, 'w') as f:
-                fileFormat = ('@echo off\ntitle ' + str(title) + '\ncolor ' + str(color) + '\necho:Loading server with multiServer...\necho:Starting server on port: ' + str(port) + '\n' + str(drive) + '\ncd ' + str(path) + '\n' + str(java) + ' -Xmx' + str(maxhs) + ' -jar ' + str(file) + str(ngi) + properties + bukkit + str(prt) + processEndTerminal)
+                fileFormat = ('@echo off\ntitle ' + str(title) + '\ncolor ' + str(color) + '\necho:^[92m^Loading server with multiServer...\necho:^[97m^Starting server on port: ' + str(port) + '\n' + str(drive) + '\ncd ' + str(path) + '\n' + str(java) + ' -Xmx' + str(maxhs) + ' -jar ' + str(file) + str(ngi) + properties + bukkit + spigot + str(prt) + processEndTerminal)
                 f.write(fileFormat)
                 # print(fileFormat)
         except Exception as error: errorContent = ('Loading files error. ' + '(' + str(error) + ')'); errorCode = ('Custom'); displayError()
