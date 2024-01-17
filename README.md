@@ -21,10 +21,10 @@ Manual:
 ```
 delete C:\multiServer
 ```
-# How to use? 
-## Configuration 
+# Configuration
+## Config.yml
 Open your server's directory and search for the **'.multiServer'** folder. Then open the **'config.yml'** to change global settings. To add and configure each server open **'servers.yml'** and change properties.
-## Starting servers
+## Servers.yml
 To start servers with **multiServer** go to your server's folder and find **'.multiServer'**. If you already did the configuration, you can start **'multiServer-App.exe'** or **'.start-all.lnk'**. Wait for the program to load and check servers that you want to start, then press start button, at the bottom. 
 # Change log
 ## version 1.2.7
