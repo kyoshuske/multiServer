@@ -68,7 +68,7 @@ server-list: **this section contains all the servers that you want to have enabl
 - example-server1
 
 servers: **this section contains all the servers even that, that are not enabled**
-  example-server1:
+  example-server1: **your server's name. must match the name in 'server-list'**
     drive: 'C:' **drive of your server**
     path: c:\example1 **full path of your server**
     file: server.jar **engine file of your server**
