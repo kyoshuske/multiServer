@@ -36,8 +36,8 @@ delete C:\multiServer
 - java file for each server
 
 
-# all
-## configs
+# More
+## Configs
 
 
 ### Config
