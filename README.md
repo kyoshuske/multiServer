@@ -44,25 +44,49 @@ delete C:\multiServer
 ```
 settings:
   global:
-    global-filename:
+    global-filename: **this section when enabled, will skip 'file' setting for every server in 'servers.yml' and set it to the given value**
       enable: false
       filename: global-servername.jar
-    global-color:
+
+    global-color: **this section when enabled, changes the color of the terminal**
       enable: false
       color: 2
-    global-javafile:
+
+    global-javafile: **this section when enabled, changes the java path for every server in 'servers.yml' to the given value**
       enable: true
       filename: java
+
   app:
-    resolution:
+    resolution: **this section changes the starting app window width and height**
       width: 1200
       height: 1500
-    fullscreen-enable: true
-    port: 42434
+    port: 42434 **this setting changes the port that on app is running. set it to the not unoccupied port**
 ```
 ### servers.yml
+```
+server-list: **this section contains all the servers that you want to have enabled**
+- example-server1
 
+servers: **this section contains all the servers even that, that are not enabled**
+  example-server1:
+    drive: 'C:' **drive of your server**
+    path: c:\example1 **full path of your server**
+    file: server.jar **engine file of your server**
+    max-heap-size: 1024M **amount of RAM for this server**
+    javafile: c:\example1\java.exe **if **
 
+    visuals:
+      nogui: false **disables the vanilla GUI**
+      window-title: A minecraft server **window title of the console window**
+
+    force-port: **this section when enabled, will force server to run on the given port**
+      enable: false
+      port: 25565
+
+    config-files:
+      server-properties: default **change the path to the server's 'server.properties' file**
+      bukkit: default **change the path to the server's 'bukkit.yml' file**
+```
 ## change-log
 ### version 128
  - added 'force-port' section in 'servers.yml'
