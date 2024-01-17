@@ -26,10 +26,8 @@ try:
         import yaml
         import sys
         import os
-        # os.system('cls')
-        from subprocess import *; from time import *; from sys import *; from pathlib import *
+        from subprocess import *
         from colorama import *
-        from pprint import *
         import tkinter as tk; from tkinter import *; from tkinter import messagebox 
         print(Fore.LIGHTBLUE_EX + 'Loading configuration...\n')
     except Exception as error: errorContent = ('Module load'); errorCode = ('Classic'); displayError()
@@ -95,7 +93,7 @@ try:
         except KeyError as error: errorCode = ('KeyError'); displayError()
 
         if nogui == (True): ngi = (' --nogui')
-        else: ngi = ()
+        else: ngi = ('')
 
         if configGlobalJavaENABLE == (True): java = configGlobalJava
         else: java = (javafile)
@@ -104,7 +102,7 @@ try:
         else: color = ('7')
 
         if serverPortEnable == (True): prt = (' --port ' + str(port))
-        else: prt = (''); port = ('default')
+        else: prt = (''); port = ('default\necho:You can configure port for this server in \''+ firstLine + '\.multiServer\servers.yml\'.')
 
 
 
@@ -121,15 +119,22 @@ try:
         if file_paper == ('default'): paper = ('')
         else: paper = (' --paper-settings ' + file_paper)
 
+
+        filepath = (path + '\\' + file)
+        exist = os.path.isfile(filepath)
+        if exist == (True): exist = ('\necho:^[90m^Loading server with multiServer...^[97m^ ')
+        else: exist = ('\necho:^[31m^Couldn\'t find server path.\necho:Attempting to start the server..^[97m^ ')
+
+        
         serverFile = (firstLine + '\\.multiServer\\starts\\' + str(numb) + '.cmd')
         print(Fore.LIGHTBLUE_EX + 'Writting \'' + str(numb) + '.cmd\' with data format...')
         try:
             with open(serverFile, 'w') as f:
-                fileFormat = ('@echo off\ntitle ' + str(title) + '\ncolor ' + str(color) + '\necho:^[92m^Loading server with multiServer...\necho:^[97m^Starting server on port: ' + str(port) + '\n' + str(drive) + '\ncd ' + str(path) + '\n' + str(java) + ' -Xmx' + str(maxhs) + ' -jar ' + str(file) + str(ngi) + properties + bukkit + spigot + str(prt) + processEndTerminal)
+                fileFormat = ('@echo off\ntitle ' + str(title) + '\ncolor ' + str(color) + exist + '\necho:Starting server on port *:' + str(port) + '\n' + str(drive) + '\ncd ' + str(path) + '\n' + str(java) + ' -Xmx' + str(maxhs) + ' -jar ' + str(file) + properties + bukkit + spigot + str(prt) + ngi + processEndTerminal)
                 f.write(fileFormat)
                 # print(fileFormat)
         except Exception as error: errorContent = ('Loading files error. ' + '(' + str(error) + ')'); errorCode = ('Custom'); displayError()
-    print(Fore.GREEN + '\nLoaded servers:')
-    for server_name in servers_config['server-list']: server = servers_config['servers'][server_name]; path = server['path']; print('  - ' + server_name + ' (' + path + ')')
+    # print(Fore.GREEN + '\nLoaded servers:')
+    # for server_name in servers_config['server-list']: server = servers_config['servers'][server_name]; path = server['path']; print('  - ' + server_name + ' (' + path + ')')
 except Exception as error: errorCode = ('Unknown'); displayError()
 finally: print(Fore.LIGHTBLUE_EX + '\nStopping packer...' + Fore.YELLOW + '\nPlease check above for any errors.\n' + Fore.WHITE); sys.exit()
