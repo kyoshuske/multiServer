@@ -84,8 +84,8 @@ servers: **this section contains all the servers even that, that are not enabled
       port: 25565
 
     config-files:
-      server-properties: default **change the path to the server's 'server.properties' file**
-      bukkit: default **change the path to the server's 'bukkit.yml' file**
+      server-properties: default **change the path of the server's 'server.properties' file**
+      bukkit: default **change the path of the server's 'bukkit.yml' file**
 ```
 ## change-log
 ### version 1.2.8
