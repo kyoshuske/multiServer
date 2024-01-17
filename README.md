@@ -22,11 +22,11 @@ Manual:
 delete C:\multiServer
 ```
 # Configuration
-- [config.yml](#config.yml)
-- [servers.yml](#servers.yml)
+- [config.yml](#configyml)
+- [servers.yml](#serversyml)
 # Change log
-- [version 1.2.8](#version-1.2.8)
-- [version 1.2.7](#version-1.2.7)
+- [version 1.2.8](#version-128)
+- [version 1.2.7](#version-127)
 # Features
 - all in two files
 - modern app UI
