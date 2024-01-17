@@ -86,6 +86,8 @@ servers: **this section contains all the servers even that, that are not enabled
     config-files:
       server-properties: default **change the path of the server's 'server.properties' file**
       bukkit: default **change the path of the server's 'bukkit.yml' file**
+      spigot: default **change the path of the server's 'spigot.yml' file**
+      paper: default **change the path of the server's 'paper.yml' file**
 ```
 ## change-log
 ### version 1.2.8
