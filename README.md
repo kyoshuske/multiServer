@@ -25,8 +25,8 @@ delete C:\multiServer
 - [config.yml](#config.yml)
 - [servers.yml](#servers.yml)
 # Change log
-- [version 1.2.8](#v-128)
-- [version 1.2.7](#v-127)
+- [version 1.2.8](#version-1.2.8)
+- [version 1.2.7](#version-1.2.7)
 # Features
 - all in two files
 - modern app UI
@@ -37,7 +37,7 @@ delete C:\multiServer
 
 
 # More
-## Configs
+## Full configuration
 
 
 ### config.yml
@@ -88,12 +88,12 @@ servers: **this section contains all the servers even that, that are not enabled
       bukkit: default **change the path to the server's 'bukkit.yml' file**
 ```
 ## change-log
-### version 128
+### version 1.2.8
  - added 'force-port' section in 'servers.yml'
  - added 'config-files' section in 'servers.yml'
  - added 'bukkit' to section 'config-files' in 'servers.yml'
  - added 'server-properties' to section 'config-files' in 'servers.yml'
-### version 127
+### version 1.2.7
  - added app UI
  - fixed crashes with 'packer.exe'
  - added 'open' button for configuration files
