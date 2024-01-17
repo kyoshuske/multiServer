@@ -41,24 +41,25 @@ delete C:\multiServer
 
 
 ### config.yml
-- settings:
- - global:
-   - global-filename:
-     - enable: false
-     - filename: global-servername.jar
-   - global-color:
-     - enable: false
-     - color: 2
-   - global-javafile:
-     - enable: true
-     - filename: java
- - app:
-   - resolution:
-     - width: 1200
-     - height: 1500
-   - fullscreen-enable: true
-   - port: 42434
-
+``
+settings:
+  global:
+    global-filename:
+      enable: false
+      filename: global-servername.jar
+    global-color:
+      enable: false
+      color: 2
+    global-javafile:
+      enable: true
+      filename: java
+  app:
+    resolution:
+      width: 1200
+      height: 1500
+    fullscreen-enable: true
+    port: 42434
+``
 ### servers.yml
 
 
