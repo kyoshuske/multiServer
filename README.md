@@ -23,7 +23,7 @@ delete C:\multiServer
 ```
 # Configuration
 - [config.yml](#Config)
-- [servers.yml](#Servers config)
+- [servers.yml](#Servers-config)
 # Change log
 ## version 1.2.7
  - added app UI
