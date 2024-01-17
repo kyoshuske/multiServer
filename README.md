@@ -32,7 +32,7 @@ delete C:\multiServer
 - modern app UI
 - advanced configuration
 - fast server selector in app
-- bungeecord support
+- port section
 - java file for each server
 
 
@@ -47,8 +47,10 @@ delete C:\multiServer
 
 ## change-log
 ### v 128
- - added app UI
- - fixed crashes with 'packer.exe'
+ - added 'force-port' section in 'servers.yml'
+ - added 'config-files' section in 'servers.yml'
+ - added 'bukkit' to section 'config-files' in 'servers.yml'
+ - added 'server-properties' to section 'config-files' in 'servers.yml'
 ### v 127
  - added app UI
  - fixed crashes with 'packer.exe'
