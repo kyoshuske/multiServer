@@ -22,10 +22,34 @@ Manual:
 delete C:\multiServer
 ```
 # Configuration
-- [config.yml](#Config)
-- [servers.yml](#Servers-config)
+- [config.yml](###Config)
+- [servers.yml](###Servers-config)
 # Change log
-## version 1.2.7
+- [version 1.2.8](###v-128)
+- [version 1.2.7](###v-127)
+# Features
+- all in two files
+- modern app UI
+- advanced configuration
+- fast server selector in app
+- bungeecord support
+- java file for each server
+
+
+# all
+## configs
+
+
+### Config
+
+### Servers-config
+
+
+## change-log
+### v-128
+ - added app UI
+ - fixed crashes with 'packer.exe'
+### v-127
  - added app UI
  - fixed crashes with 'packer.exe'
  - added 'open' button for configuration files
@@ -35,10 +59,3 @@ delete C:\multiServer
  - fixed 'nogui'
  - added 'open latest.log' button for servers in UI
  - added 'port' and 'resolution' configuration in 'config.yml'
-# Features
-- all in two files
-- modern app UI
-- advanced configuration
-- fast server selector in app
-- bungeecord support
-- java file for each server
