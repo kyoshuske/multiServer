@@ -60,6 +60,7 @@ settings:
     resolution: **this section changes the starting app window width and height**
       width: 1200
       height: 1500
+
     port: 42434 **this setting changes the port that on app is running. set it to the not unoccupied port**
 ```
 ### servers.yml
