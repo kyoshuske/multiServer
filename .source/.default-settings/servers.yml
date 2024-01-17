@@ -23,6 +23,8 @@ servers:
     config-files:
       server-properties: default
       bukkit: default
+      spigot: default
+      paper: default
   example-server2:
     drive: 'C:'
     path: c:\example2
@@ -38,3 +40,5 @@ servers:
     config-files:
       server-properties: default
       bukkit: default
+      spigot: default
+      paper: default
