@@ -93,8 +93,6 @@ servers: **this section contains all the servers even that, that are not enabled
 ### version 1.2.8
  - added 'force-port' section in 'servers.yml'
  - added 'config-files' section in 'servers.yml'
- - added 'bukkit' to section 'config-files' in 'servers.yml'
- - added 'server-properties' to section 'config-files' in 'servers.yml'
 ### version 1.2.7
  - added app UI
  - fixed crashes with 'packer.exe'
