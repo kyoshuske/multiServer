@@ -28,6 +28,7 @@ try:
         import os
         from subprocess import *
         from colorama import *
+        import configparser
         import tkinter as tk; from tkinter import *; from tkinter import messagebox 
         print(Fore.LIGHTBLUE_EX + 'Loading configuration...\n')
     except Exception as error: errorContent = ('Module load'); errorCode = ('Classic'); displayError()
@@ -47,9 +48,6 @@ try:
 
         configGlobalFileENABLE  = config['settings']['global']['global-filename']['enable']
         if configGlobalFileENABLE  == (True): configGlobalFilename = config['settings']['global']['global-filename']['filename']
-
-        configGlobalColorENABLE = config['settings']['global']['global-color']['enable']
-        if configGlobalColorENABLE == (True): configGlobalColor = config['settings']['global']['globa-color']['color']
 
         configGlobalJavaENABLE = config['settings']['global']['global-javafile']['enable']
         if configGlobalJavaENABLE == (True): configGlobalJava = config['settings']['global']['global-javafile']['filename']
@@ -98,11 +96,13 @@ try:
         if configGlobalJavaENABLE == (True): java = configGlobalJava
         else: java = (javafile)
 
-        if configGlobalColorENABLE == (True): color = configGlobalColor
-        else: color = ('7')
-
         if serverPortEnable == (True): prt = (' --port ' + str(port))
-        else: prt = (''); port = ('default\necho:You can configure port for this server in \''+ firstLine + '\.multiServer\servers.yml\'.')
+        else: 
+            # properties = configparser.RawConfigParser()
+            # server_properties = (path + '\\server.properties')
+            # properties.read(server_properties)
+            # port = properties.get("server_port")
+            prt = (''); port = ('default' + ' (You can configure port for this server in \''+ firstLine + '\\.multiServer\\servers.yml\')')
 
 
 
@@ -122,15 +122,15 @@ try:
 
         filepath = (path + '\\' + file)
         exist = os.path.isfile(filepath)
-        if exist == (True): exist = ('\necho:^[90m^Loading server with multiServer...^[97m^ ')
-        else: exist = ('\necho:^[31m^Couldn\'t find server path.\necho:Attempting to start the server..^[97m^ ')
+        if exist == (True): exist = ('\necho:^[90m^Loading server with multiServer...\necho:^[92m^Loaded all the data successfully. Attempting to start the server...^[97m^ ')
+        else: exist = ('\necho:^[90m^Loading server with multiServer...\necho:^[31m^Couldn\'t find \'' + file + '\'. Please check if \'path\' in the \''+ firstLine + '\\.multiServer\\servers.yml\' is correct.^[97m^ ')
 
         
         serverFile = (firstLine + '\\.multiServer\\starts\\' + str(numb) + '.cmd')
         print(Fore.LIGHTBLUE_EX + 'Writting \'' + str(numb) + '.cmd\' with data format...')
         try:
             with open(serverFile, 'w') as f:
-                fileFormat = ('@echo off\ntitle ' + str(title) + '\ncolor ' + str(color) + exist + '\necho:Starting server on port *:' + str(port) + '\n' + str(drive) + '\ncd ' + str(path) + '\n' + str(java) + ' -Xmx' + str(maxhs) + ' -jar ' + str(file) + properties + bukkit + spigot + str(prt) + ngi + processEndTerminal)
+                fileFormat = ('@echo off\ntitle ' + str(title) + exist + '\necho:Starting server on port *:' + str(port) + '\n' + str(drive) + '\ncd ' + str(path) + '\n' + str(java) + ' -Xmx' + str(maxhs) + ' -jar ' + str(file) + properties + bukkit + spigot + str(prt) + ngi + processEndTerminal)
                 f.write(fileFormat)
                 # print(fileFormat)
         except Exception as error: errorContent = ('Loading files error. ' + '(' + str(error) + ')'); errorCode = ('Custom'); displayError()
