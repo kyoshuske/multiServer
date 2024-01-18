@@ -21,7 +21,6 @@ try:
     from colorama import Fore
     import sys
     import os
-    # wintitle=('multiServer [PRESS F11 TO SEE LOGS]')
     wintitle=('multiServer')
     import eel
     os.system('cls')
@@ -32,8 +31,6 @@ try:
     print(Fore.LIGHTBLUE_EX + 'Loading app...\n')
     import subprocess; from subprocess import *
     import webbrowser
-    # import win32con
-    # import ctypes
 
     from subprocess_maximize import Popen
     from psutil import *
@@ -41,7 +38,7 @@ try:
     
     
     win = pygetwindow.getWindowsWithTitle(wintitle)[0]
-    win.size = (0, 0)
+    # win.size = (0, 0)
     
     directory_txt = ('C:\\multiServer\\directory.txt')
     infile = open(directory_txt, 'r')
@@ -54,17 +51,19 @@ try:
     web = (dir + '\\.multiServer\\web')
     print(Fore.GREEN + 'Loaded directories:' + '\n - dir = ' + dir + '\n - directory_txt = ' + directory_txt + '\n - config_yml = ' + config_yml + '\n - servers_yml = ' + '' + servers_yml + '\n - packer_exe = ' + packer_exe + '\n - starts = ' + starts + '\n - web = ' + web + '\n')
     os.system('title ' + wintitle + ' - logs [PRESS \'F11\']')
-    with open(servers_yml, 'r') as file: servers_config = yaml.safe_load(file)
+    try:
+        with open(servers_yml, 'r') as file: servers_config = yaml.safe_load(file)
 
-    serverNumb = 0
-    server = {}
-    enabledServers = []
-    print(Fore.GREEN + 'Loaded servers:')
-    for server_name in servers_config['server-list']:
-        serverNumb = serverNumb + 1
-        enabledServers.append(serverNumb)
-        server[serverNumb] = server_name
-        print('  - ' + server_name + ' (' + str(serverNumb) + ')')
+        serverNumb = 0
+        server = {}
+        enabledServers = []
+        print(Fore.GREEN + 'Loaded servers:')
+        for server_name in servers_config['server-list']:
+            serverNumb = serverNumb + 1
+            enabledServers.append(serverNumb)
+            server[serverNumb] = server_name
+            print('  - ' + server_name + ' (' + str(serverNumb) + ')')
+    except Exception as error: print(Fore.RED + '\nFile \'servers.yml\' not found or outdated.' + Fore.LIGHTBLUE_EX + '\nAttempting to start the app...')
     @eel.expose
     def windowExit(route, websockets):
         if not websockets:
@@ -123,7 +122,6 @@ try:
             subprocess.call(packer_exe)
             for server in enabledServers:
                 webbrowser.open(starts + '\\' + str(server) + '.cmd')
-                print(Fore.WHITE + '\n' + 'starting packer.exe...')
 
     eel.init(web)
     if __name__ == "__main__":
@@ -143,10 +141,10 @@ try:
         app_resolution = (app_resolution_width, app_resolution_height)
         app_port = config['settings']['app']['port']
 
-        app_fullscreen = config['settings']['app']['fullscreen-enable']
-    except Exception: print(Fore.RED + 'Config.yml not found or outdated.' + Fore.LIGHTBLUE_EX + '\nLoading default settings...'); app_resolution = (820, 1300); app_port = (42434)
+    except Exception: print(Fore.RED + '\nFile \'config.yml\' not found or outdated.' + Fore.LIGHTBLUE_EX + '\nLoading default settings...'); app_resolution = (820, 1300); app_port = (42434)
+    # app_fullscreen = config['settings']['app']['fullscreen-enable']
     # if app_fullscreen == (True): app_fullscreen = ('–-start-fullscreen')
     # else: app_fullscreen = ('')
     eel.start('main.html', size=(app_resolution), position=(600, 50), disable_cache=True, port=(app_port), host='localhost', cmdline_args=['--disable-glsl-translator', '--fast-start', '--incognito', '--disable-infobars', '--disable-pinch', '--disable-extensions', '--force-tablet-mode'], close_callback=windowExit)
-except Exception as error: print('Unknown error!\n' + str(error))
+except Exception as error: print(Fore.RED + 'Unknown error!\n' + str(error))
 finally: print(Fore.LIGHTBLUE_EX + 'Ending process...' + Fore.YELLOW + '\nPlease check above for any errors.\n' + Fore.WHITE); sys.exit()
