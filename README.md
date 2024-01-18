@@ -90,13 +90,14 @@ servers: **this section contains all the servers even that, that are not enabled
 ### version 1.2.8
  - added 'force-port' section in 'servers.yml'
  - added 'config-files' section in 'servers.yml'
+ - removed 'global-color' section in 'config.yml'
 ### version 1.2.7
  - added app UI
  - fixed crashes with 'packer.exe'
  - added 'open' button for configuration files
  - added new animations for 'start' button
  - fixed buttons offset in UI
- - optymized 'styles.css' 
+ - cleaned 'styles.css' 
  - fixed 'nogui'
  - added 'open latest.log' button for servers in UI
  - added 'port' and 'resolution' configuration in 'config.yml'
