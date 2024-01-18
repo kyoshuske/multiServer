@@ -48,10 +48,6 @@ settings:
       enable: false
       filename: global-servername.jar
 
-    global-color: **this section when enabled, changes the color of the terminal**
-      enable: false
-      color: 2
-
     global-javafile: **this section when enabled, changes the java path for every server in 'servers.yml' to the given value**
       enable: true
       filename: java
