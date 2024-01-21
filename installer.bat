@@ -34,6 +34,7 @@ md %syn%\.multiServer
 md %syn%\.multiServer\assets
 md %syn%\.multiServer\web
 md %syn%\.multiServer\starts
+md %syn%\.multiServer\data
 cls
 )
 c:
