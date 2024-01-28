@@ -1,34 +1,57 @@
 body
 {
     background-color: var(--background);
-    transition: all 5s ease-in-out;
     background-size: cover;
     height: 100%;
-    max-height: 100%; 
+    max-height: 100%;
+}
+
+#loading
+{
+    height: 100vh;
+    width: 100vh;
+    left: auto;
+    right: auto;
+    margin-left: auto;
+    margin-right: auto;
+
+    background-color: var(--background);
+
+    font-size: 2000%;
+    position: absolute;
+
+    text-align: center;
+    display: table-cell;
+    font-family: 'Inconsolata', monospace, serif;
+    transform: scale(100vh);
+    animation: loading 2.6s forwards;
+}
+
+@keyframes loading {
+    40% { background: var(--background); }
+    100% { display: none; background: none; color: rgba(8, 8, 8, 0);}
+
 }
 
 
-/* width */
+/* Scroll Bar */
 ::-webkit-scrollbar {
     width: 12px;
-  }
+}
 
-  /* Track */
-  ::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     background: var(--bar-color);
-  }
+}
   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     border-radius: 20px;
     background-color: #474747;
 
-  }
+}
   
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
     background: #3b3b3b;
-  }
+}
 
 
 
@@ -41,7 +64,6 @@ body
     cursor: default;
 }
 
-
 .icon-logo
 {
     transition: all 0.4s ease-in-out;
@@ -53,7 +75,6 @@ body
 .bar-text-1
 {
     background-image: url("https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/background.png");
-    /* background-color: var(--bar-color); */
     background-position: left top;
     background-repeat: repeat;
     font-family: 'Outfit', sans-serif;
@@ -67,6 +88,7 @@ body
     border-bottom-style: solid;
     border-bottom-color: var(--ui-line);
 }
+
 .text-logo
 {
     transform: scale(0.2);
@@ -74,6 +96,7 @@ body
     margin-left: -650px;
     margin-top: -73px;
 }
+
 .bar-exit-button
 {
     background-color: #a1131f;
@@ -97,7 +120,6 @@ body
     margin-top: -70px;
     right: 10px; 
 }
-.bar-exit-button:hover {transform: scale(105%); opacity: 70%;}
 div#bar
 {
     background-image: url("https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/background.png");
@@ -138,82 +160,112 @@ div#bar-text-2
     width: 290px;
     text-align: center;
 }
+
 .files
 {
-    margin-left: 28px;
+    margin-left: -20px;
 }
+
+.checkbox, .button
+{
+    display: flex;
+    clear: both;
+
+    height: 35px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--ui-line);
+    border-radius: 5px;
+
+    background-color: #3d3d3d;
+    background-repeat: repeat;
+    background-position: center;
+
+    transition: all 0.3s ease-in-out;
+}
+
+.checkbox:hover, .button:hover, .bar-exit-button:hover
+{
+    cursor: pointer;
+
+    opacity: 70%;
+    transform: scale(105%);
+
+    transition: all 0.3s ease-in-out;
+}
+
+.checkbox
+{
+    width: 35px;
+}
+
 .button
 {
     font-family: 'Outfit', sans-serif;
-    font-size: 20px;
-    color: #131313;
-    width: 60px;
-    height: 20px;
-    padding-left: 4px;
-    padding-right: 4px;
-
-    padding-top: 1px;
-    padding-bottom: 5px;
-    border-style: solid;
-    border-width: 2px;
-    background-color: #3d3d3d;
-    border-color: var(--ui-line);
-    border-radius: 5px;
-    transition: all 0.3s ease-in-out;
-    background-repeat: repeat;
-    background-position: center;
+    font-size: 25px;
+    color: #080808;
     text-align: center;
-    margin-top: 20px;
-    margin-left: 68px;
-    transform: scale(125%);
-    clear: both;
-    margin-bottom: 50px;
+
+    padding-left: 10px;
+    padding-right: 8px;
+
+    width: 70px;
 }
-.button-text
+.button:active
+{
+    animation: clicked  0.5s ease;
+}
+
+@keyframes clicked {
+    30% { background-color: #e4e4e4; border-color: #adadad; }
+    100% { background-color: #3d3d3d; border-color: var(--ui-line); }
+
+}
+
+.text-all
 {
     color:#ffffff;
     font-size: 20px;
     font-family: 'Inconsolata', monospace, serif;
-    margin-top: 27px;
-    margin-left: 14px;
-}
-.button:hover
-{
-    cursor: pointer;
-    opacity: 70%;
-    transform: scale(129%);
+    text-align: center;
+    margin-top: 29px;
+    margin-left: 12px;
+    margin-right: 45px;
 }
 
-/* UI Scale */
+/* UI Offset */
 div#site-main
 {
     margin-top: 145px;
 }
 
-.categoryTitle1
+
+/* Custom Heading */
+.h1, .h2 {font-family: 'Outfit', sans-serif; border-left-width: 10px; border-left-style: solid; border-radius: 5px; padding-left: 5px;}
+
+.h1
 {
     color: #a7a7a7c2;
-    font-family: 'Outfit', sans-serif;
+    border-left-color: #696969c2;
     font-size: 50px;
     margin-top: 50px;
     margin-left: 15px;
-    border-left: 10px solid #a7a7a7c2;
-    border-radius: 5px;
 }
 
-.categoryTitle2
+.h2
 {
     color: #888888c2;
-    font-family: 'Outfit', sans-serif;
+    border-left-color: #4b4b4bc2;
     font-size: 28px;
     margin-bottom: 15px;
     margin-top: 25px;
     margin-left: 35px;
-    border-left: 10px solid #313131;
-    border-radius: 5px;
 }
 
-.categoryTitle3
+.h3
 {
     color: #d1d1d1c2;
     font-family: 'Inconsolata', monospace, serif;
@@ -230,67 +282,27 @@ div#site-main
     margin-left: -30px;
     clear: both;
 }
+.categorySplit-ud
+{
+    display: inline-block;
+    margin-left: -20px;   
+}
 .categorySplit-lr-server
 {
     margin-top: -4px;
     display: flex;
-    margin-left: -10px;
-}
-.categorySplit-ud
-{
-    display: inline-block;
-    margin-left: -20px;
-    
+    margin-left: 62px;
 }
 
-.box
-{
-    display: flex;
-    margin-top: 20px;
-    margin-left: 82px;
-    transform: scale(130%);
-    clear: both;
-    margin-bottom: 50px;
-}
 
-.box-text
-{
-    color:#ffffff;
-    font-size: 20px;
-    font-family: 'Inconsolata', monospace, serif;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 4px;
-}
 input[type="checkbox"] {
     display: none;
 }
 
-.checkbox
-{
-    width: 10px;
-    height: 20px;
-    padding: 3px 8px;
-    border-style: solid;
-    border-width: 2px;
-    background-color: #3d3d3d;
-    border-color: var(--ui-line);
-    border-radius: 5px;
-    transition: all 0.3s ease-in-out;
-    background-repeat: repeat;
-    background-position: center;
-}
 
-.checkbox:hover
-{
-    cursor: pointer;
-    transform: scale(105%);
-    opacity: 70%;
-}
 
 .checkbox.checked {
     background-repeat: no-repeat;
-    transition: all 0.3s ease-in-out;
     background-image: unset;
     background-image: url('https://cdn3.iconfinder.com/data/icons/random-icon-set/512/tick-512.png');
     background-size: 70% 70%;
@@ -298,9 +310,7 @@ input[type="checkbox"] {
     border-color: #1594bb;
 }
 
-.checkbox.checked:hover {
-    transform: scale(105%);
-}
+
 
 /* Link Styles */
 a:link
@@ -324,6 +334,17 @@ a:hover
     transition: all 0.2s ease-in-out
 }
 
+
+
+
+
+
+
+
+
+
+
+/* Start Button */
 .start-text-all:hover
 {
     opacity: 84%;
