@@ -5,7 +5,7 @@
 # Info:
 #  Created by: Kyoshuske
 #  Uploaded on: github.com/kyoshuske
-#  Last update: 04.01.2023 (dd.mm.yyyy)
+#  Last update: 25.01.2024 (dd.mm.yyyy)
 #  Version: 2.5 (version of this file not project)
 
 
@@ -21,6 +21,9 @@ def displayError():
     if errorCode == ('Unknown'): errorMessage = ('Unknown error!\n' + str(error) + '. (' + errorContent + ')')
     if errorCode == ('Custom'): errorMessage = errorContent
     print(Fore.RED + errorMessage); messagebox.showerror('multiServer', errorMessage); sys.exit()
+def savePort(port):
+    with open(ports_yml, 'a') as data_ports:
+        data_ports.write('    ' + server_name + ': ' + str(port) + '\n')
 try:
     try:
         import yaml
@@ -28,17 +31,21 @@ try:
         import os
         from subprocess import *
         from colorama import *
-        import configparser
-        import tkinter as tk; from tkinter import *; from tkinter import messagebox 
+        from configobj import ConfigObj
+        from tkinter import messagebox
+        #  import tkinter as tk; from tkinter import *; from tkinter import messagebox 
         print(Fore.LIGHTBLUE_EX + 'Loading configuration...\n')
     except Exception as error: errorContent = ('Module load'); errorCode = ('Classic'); displayError()
-
     directory_txt = ('C:\\multiServer\\directory.txt')
     processEndTerminal = ('\necho.\necho.\necho.\necho: ^[96m^Server closed.\necho: Press any key to exit console...\npause >NUL\necho: Are you sure you want to exit console? Press any key...\npause >NUL\nexit')
+
     try: infile = open(directory_txt, 'r')
     except Exception: errorContent = (directory_txt); errorCode = ('MissingFile'); displayError()
-    firstLine = infile.readline().strip()
 
+    firstLine = infile.readline().strip()
+    ports_yml = (firstLine + '\\.multiServer\\data\\ports.yml')
+    with open(ports_yml, 'w') as data_ports:
+        data_ports.write('ports:\n')
     config_yml = (firstLine + '\\.multiServer\\config.yml'); servers_yml = (firstLine + '\\.multiServer\\servers.yml')
     # print(Fore.GREEN + 'directory_txt = ' + '' + directory_txt + '' + '\nconfig_yml = ' + '' + config_yml + '' + '\nservers_yml = ' + '' + servers_yml + '\n')
 
@@ -96,45 +103,49 @@ try:
         if configGlobalJavaENABLE == (True): java = configGlobalJava
         else: java = (javafile)
 
-        if serverPortEnable == (True): prt = (' --port ' + str(port))
+        if serverPortEnable == (True):
+            prt = (' --port ' + str(port))
+            savePort(port)
         else: 
-            # properties = configparser.RawConfigParser()
-            # server_properties = (path + '\\server.properties')
-            # properties.read(server_properties)
-            # port = properties.get("server_port")
-            prt = (''); port = ('default' + ' (You can configure port for this server in \''+ firstLine + '\\.multiServer\\servers.yml\')')
-
+            
+            server_properties = (str(path + '\\server.properties'))
+            properties = ConfigObj(server_properties)
+            port = properties.get('server-port')
+            savePort(port)
+            prt = (''); port = (str(port) + ' (You can configure port for this server in \''+ firstLine + '\\.multiServer\\servers.yml\')')
 
 
 
         if file_bukkit == ('default'): bukkit = ('')
-        else: bukkit = (' --bukkit-settings ' + file_bukkit)
+        else: bukkit = (' --bukkit-settings "' + file_bukkit + '"')
 
         if file_properties == ('default'): properties = ('')
-        else: properties = (' --config ' + file_properties)
+        else: properties = (' --config "' + file_properties + '"')
 
         if file_spigot == ('default'): spigot = ('')
-        else: spigot = (' --spigot-settings ' + file_spigot)
+        else: spigot = (' --spigot-settings "' + file_spigot + '"')
 
         if file_paper == ('default'): paper = ('')
-        else: paper = (' --paper-settings ' + file_paper)
+        else: paper = (' --paper-settings "' + file_paper + '"')
 
 
         filepath = (path + '\\' + file)
-        exist = os.path.isfile(filepath)
+        exist = os.path.isfile (filepath)
         if exist == (True): exist = ('\necho:^[90m^Loading server with multiServer...\necho:^[92m^Loaded all the data successfully. Attempting to start the server...^[97m^ ')
         else: exist = ('\necho:^[90m^Loading server with multiServer...\necho:^[31m^Couldn\'t find \'' + file + '\'. Please check if \'path\' in the \''+ firstLine + '\\.multiServer\\servers.yml\' is correct.^[97m^ ')
 
+        filepath = ('"' + filepath + '"')
+
         
-        serverFile = (firstLine + '\\.multiServer\\starts\\' + str(numb) + '.cmd')
+        startFile = (firstLine + '\\.multiServer\\starts\\' + str(numb) + '.cmd')
         print(Fore.LIGHTBLUE_EX + 'Writting \'' + str(numb) + '.cmd\' with data format...')
         try:
-            with open(serverFile, 'w') as f:
-                fileFormat = ('@echo off\ntitle ' + str(title) + exist + '\necho:Starting server on port *:' + str(port) + '\n' + str(drive) + '\ncd ' + str(path) + '\n' + str(java) + ' -Xmx' + str(maxhs) + ' -jar ' + str(file) + properties + bukkit + spigot + str(prt) + ngi + processEndTerminal)
+            with open(startFile, 'w') as f:
+                fileFormat = ('@echo off\ntitle ' + str(title) + str(exist) + '\necho:Starting server on port *:' + str(port) + '\n' + str(drive) + '\ncd "' + str(path) + '"\n"' + str(java) + '" -Xmx' + str(maxhs) + ' -jar "' + str(file) + '"' + str(properties) + str(bukkit) + str(spigot) + str(prt) + str(ngi) + processEndTerminal)
                 f.write(fileFormat)
                 # print(fileFormat)
         except Exception as error: errorContent = ('Loading files error. ' + '(' + str(error) + ')'); errorCode = ('Custom'); displayError()
     # print(Fore.GREEN + '\nLoaded servers:')
     # for server_name in servers_config['server-list']: server = servers_config['servers'][server_name]; path = server['path']; print('  - ' + server_name + ' (' + path + ')')
 except Exception as error: errorCode = ('Unknown'); displayError()
-finally: print(Fore.LIGHTBLUE_EX + '\nStopping packer...' + Fore.YELLOW + '\nPlease check above for any errors.\n' + Fore.WHITE); sys.exit()
+finally: print(Fore.LIGHTBLUE_EX + '\nStopping packer...' + Fore.YELLOW + '\n' + Fore.WHITE); sys.exit()
