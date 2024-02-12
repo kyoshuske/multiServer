@@ -58,6 +58,8 @@ settings:
       height: 1500
 
     port: 42434 **this setting changes the port that on app is running. set it to the not unoccupied port**
+
+    mode: webbrowser **server start mode (webbrowser/subprocess)**
 ```
 ### servers.yml
 ```
