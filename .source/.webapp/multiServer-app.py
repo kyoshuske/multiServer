@@ -78,7 +78,7 @@ try:
             if app_mode == ('subprocess'):
                 win.restore()
                 win.moveTo(0, 0)
-                win.resizeTo(800, 600)
+                win.resizeTo(815, 600)
             else:
                 sys.exit()
 
@@ -181,7 +181,6 @@ try:
     # app_fullscreen = config['settings']['app']['fullscreen-enable']
     # if app_fullscreen == (True): app_fullscreen = ('–-start-fullscreen')
     # else: app_fullscreen = ('')
-    eel.start('main.html', size=(app_resolution), position=(600, 50), disable_cache=True, port=(app_port), host='localhost', cmdline_args=['--disable-glsl-translator', '--fast-start', '--incognito', '--disable-infobars', '--disable-pinch', '--disable-extensions', '--force-tablet-mode'], close_callback=windowExit, block=False)
-    gevent.get_hub().join()
+    eel.start('main.html', size=(app_resolution), position=(600, 50), disable_cache=True, port=(app_port), host='localhost', cmdline_args=['--disable-glsl-translator', '--fast-start', '--incognito', '--disable-infobars', '--disable-pinch', '--disable-extensions'], close_callback=windowExit)
 except Exception as error: print(Fore.RED + 'Unknown error!\n' + str(error))
 finally: print(Fore.LIGHTBLUE_EX + 'Ending process...' + Fore.YELLOW + '\nPlease check above for any errors.\n' + Fore.WHITE); webapp.close; sys.exit()
