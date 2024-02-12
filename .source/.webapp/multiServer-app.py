@@ -5,7 +5,7 @@
 # Info:
 #  Created by: Kyoshuske
 #  Uploaded on: github.com/kyoshuske
-#  Last update: 04.01.2023 (dd.mm.yyyy)
+#  Last update: 25.01.2024 (dd.mm.yyyy)
 #  Version: 1.4 (version of this file not project)
 
 
@@ -25,21 +25,27 @@ try:
     import eel
     os.system('cls')
     os.system('title ' + wintitle)
-    import sys; from sys import *
-    import yaml; from yaml import *
+    import sys
+    import yaml
     print(Fore.WHITE + '\n                  8   o   o .oPYo.                            \n                  8   8     8                                 \n   ooYoYo. o    o 8  o8P o8 `Yooo. .oPYo. o    o .oPYo. oPYo. \n   8\' 8  8 8    8 8   8   8     `8 8oooo8 Y.  .P 8oooo8 8  `\' \n   8  8  8 8    8 8   8   8      8 8.     `b..d\' 8.     8     \n   8  8  8 `YooP\' 8   8   8 `YooP\' `Yooo\'  `YP\'  `Yooo\' 8       github.com/kyoshuske/multiServer\n\n   _____________________________________________________________________________________________\n')
     print(Fore.LIGHTBLUE_EX + 'Loading app...\n')
-    import subprocess; from subprocess import *
+    import subprocess; from subprocess import Popen; from subprocess import *
     import webbrowser
-
-    from subprocess_maximize import Popen
+    import gevent
+    import time
     from psutil import *
     import pygetwindow
+    from ctypes import windll
+    import asyncio
     
     
     win = pygetwindow.getWindowsWithTitle(wintitle)[0]
-    # win.size = (0, 0)
-    
+    webapp = pygetwindow.getWindowsWithTitle('multiServer')[0]
+    win.resizeTo(0, 0)
+    # win.close()
+    win.moveTo(0, 0)
+    win.minimize()
+    process = {}
     directory_txt = ('C:\\multiServer\\directory.txt')
     infile = open(directory_txt, 'r')
     firstLine = infile.readline().strip()
@@ -50,7 +56,7 @@ try:
     servers_yml = (dir + '\\.multiServer\\servers.yml')
     web = (dir + '\\.multiServer\\web')
     print(Fore.GREEN + 'Loaded directories:' + '\n - dir = ' + dir + '\n - directory_txt = ' + directory_txt + '\n - config_yml = ' + config_yml + '\n - servers_yml = ' + '' + servers_yml + '\n - packer_exe = ' + packer_exe + '\n - starts = ' + starts + '\n - web = ' + web + '\n')
-    os.system('title ' + wintitle + ' - logs [PRESS \'F11\']')
+    os.system('title ' + wintitle + ' - logs [Console]')
     try:
         with open(servers_yml, 'r') as file: servers_config = yaml.safe_load(file)
 
@@ -64,10 +70,18 @@ try:
             server[serverNumb] = server_name
             print('  - ' + server_name + ' (' + str(serverNumb) + ')')
     except Exception as error: print(Fore.RED + '\nFile \'servers.yml\' not found or outdated.' + Fore.LIGHTBLUE_EX + '\nAttempting to start the app...')
+
+
     @eel.expose
     def windowExit(route, websockets):
         if not websockets:
-            sys.exit()
+            if app_mode == ('subprocess'):
+                win.restore()
+                win.moveTo(0, 0)
+                win.resizeTo(800, 600)
+            else:
+                sys.exit()
+
 
     @eel.expose
     def windowLoad():
@@ -75,6 +89,7 @@ try:
     @eel.expose
     def getServers():
         return { "enabledServers": enabledServers, "server": server }
+    
 
     @eel.expose
     def buttonClick(state, eid):
@@ -104,9 +119,9 @@ try:
                             print(Fore.LIGHTBLUE_EX + 'Opening ' + log_file + '...')
                         else:
                             print(Fore.RED + 'File \'' + log_file + '\' does not exist!')
+
                             
-
-
+                            
 
     @eel.expose
     def startClick():
@@ -120,8 +135,25 @@ try:
         else:
             print(Fore.LIGHTBLUE_EX + '\n' + 'Starting packer.exe...')
             subprocess.call(packer_exe)
+            print(Fore.WHITE + 'Ready')
+                # process[server].communicate(input='echo: test\n')[0]
+                # process[server].stdin.write('echo: test\n')
+                # process[server].stdin.write('cls\n' + starts + '\\' + str(server) + '.cmd\n')
+                # process[server].communicate(input='cls\n' + starts + '\\' + str(server) + '.cmd\n')[0]
+                
+                # webbrowser.open(starts + '\\' + str(server) + '.cmd')
             for server in enabledServers:
-                webbrowser.open(starts + '\\' + str(server) + '.cmd')
+                if app_mode == ('subprocess'):
+                    process[server] = subprocess.Popen([str(starts + '\\' + str(server) + '.cmd')], creationflags=CREATE_NEW_CONSOLE, text=True, close_fds=False, shell=False)
+                else:
+                    webbrowser.open(starts + '\\' + str(server) + '.cmd')
+                # subprocess.run(['C:\Users\sfpas\OneDrive\Pulpit\AreHaker\multiServer\server-panel\server.pyw -p ' + app_port + '-n ' + server + '-d ' + dir], stdout=PIPE, stderr=PIPE, universal_newlines=True)
+
+    async def startServers():
+        for server in enabledServers:
+            process[server] = await asyncio.create_subprocess_exec([str(starts + '\\' + str(server) + '.cmd')], creationflags=CREATE_NEW_CONSOLE, text=True, close_fds=True, shell=False)
+
+
 
     eel.init(web)
     if __name__ == "__main__":
@@ -140,11 +172,16 @@ try:
         app_resolution_width = config['settings']['app']['resolution']['width']
         app_resolution = (app_resolution_width, app_resolution_height)
         app_port = config['settings']['app']['port']
+        try:
+            app_mode = config['settings']['app']['mode']
+        except Exception:
+            app_mode = ('webbrowser')
 
     except Exception: print(Fore.RED + '\nFile \'config.yml\' not found or outdated.' + Fore.LIGHTBLUE_EX + '\nLoading default settings...'); app_resolution = (820, 1300); app_port = (42434)
     # app_fullscreen = config['settings']['app']['fullscreen-enable']
     # if app_fullscreen == (True): app_fullscreen = ('–-start-fullscreen')
     # else: app_fullscreen = ('')
-    eel.start('main.html', size=(app_resolution), position=(600, 50), disable_cache=True, port=(app_port), host='localhost', cmdline_args=['--disable-glsl-translator', '--fast-start', '--incognito', '--disable-infobars', '--disable-pinch', '--disable-extensions', '--force-tablet-mode'], close_callback=windowExit)
+    eel.start('main.html', size=(app_resolution), position=(600, 50), disable_cache=True, port=(app_port), host='localhost', cmdline_args=['--disable-glsl-translator', '--fast-start', '--incognito', '--disable-infobars', '--disable-pinch', '--disable-extensions', '--force-tablet-mode'], close_callback=windowExit, block=False)
+    gevent.get_hub().join()
 except Exception as error: print(Fore.RED + 'Unknown error!\n' + str(error))
-finally: print(Fore.LIGHTBLUE_EX + 'Ending process...' + Fore.YELLOW + '\nPlease check above for any errors.\n' + Fore.WHITE); sys.exit()
+finally: print(Fore.LIGHTBLUE_EX + 'Ending process...' + Fore.YELLOW + '\nPlease check above for any errors.\n' + Fore.WHITE); webapp.close; sys.exit()
