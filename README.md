@@ -8,7 +8,7 @@
 ###### _*[if you want to see logs select empty multiServer window and press F11](http://localhost:42439/main.html)*_
 # How to Setup?
 ## Install
-**You have to install or have install google chrome**.
+**You have to install or have install google chrome**.\
 Copy and paste code below into the **command prompt**.
 ```
 md C:\msfiles & C: & cd C:\msfiles & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/installer.bat -o in.bat & powershell Start -File "in.bat '/K %~f0 runas'" -Verb RunAs & exit & exit
