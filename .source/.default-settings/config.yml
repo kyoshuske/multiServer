@@ -30,4 +30,4 @@ settings:
       width: 820
       height: 1300
     port: 42434
-    mode: webbrowser # webbrowser/subprocess (use webbrowser)
+    mode: webbrowser # if you don't know what it does, don't change it (webbrowser/subprocess)
