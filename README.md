@@ -93,7 +93,8 @@ servers: **this section contains all the servers even that, that are not enabled
  - added 'force-port' section in 'servers.yml'
  - added 'config-files' section in 'servers.yml'
  - removed 'global-color' section in 'config.yml'
- - added support full for directories with space characters
+ - added support for directories with space characters (now you don't have to put dirs in quotes)
+ - added 'mode' option (test) in 'config.yml'
 ### version 1.2.7
  - added app UI
  - fixed crashes with 'packer.exe'
