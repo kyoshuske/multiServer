@@ -15,7 +15,7 @@ md C:\multiServer & C: & cd C:\multiServer & curl -k -L https://raw.githubuserco
 ```
 ## Uninstall (Experimental)
 **I will not recommend doing this that way**
-Copy and paste code below into the **command prompt**.
+<br>Copy and paste code below into the **command prompt**.
 ```
 md C:\multiServer & C: & cd C:\multiServer & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/uninstaller.bat -o un.bat & powershell Start -File "un.bat '/K %~f0 runas'" -Verb RunAs & exit & exit
 ```
