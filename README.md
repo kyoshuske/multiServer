@@ -43,6 +43,7 @@ delete C:\multiServer
 
 
 ### config.yml
+<details><summary>view</summary>
 ```
 settings:
   global:
@@ -63,7 +64,9 @@ settings:
 
     mode: webbrowser **server start mode (webbrowser/subprocess)**
 ```
+</details>
 ### servers.yml
+<details><summary>view</summary>
 ```
 server-list: **this section contains all the servers that you want to have enabled**
 - example-server1
@@ -90,6 +93,7 @@ servers: **this section contains all the servers even that, that are not enabled
       spigot: default **change the path of the server's 'spigot.yml' file**
       paper: default **change the path of the server's 'paper.yml'/'configs\paper-global.yml' file**
 ```
+</details>
 ## change-log
 ### version 1.2.8
  - added 'force-port' section in 'servers.yml'
