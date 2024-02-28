@@ -36,8 +36,7 @@ delete C:\multiServer
 - fast server selector in app
 - port section
 - java file for each server
-
-
+----
 # More
 ## Full configuration
 
@@ -102,12 +101,21 @@ servers: **this section contains all the servers even that, that are not enabled
 
 ## change-log
 ### version 1.2.8
+
+<details><summary>view</summary>
+  
  - added 'force-port' section in 'servers.yml'
  - added 'config-files' section in 'servers.yml'
  - removed 'global-color' section in 'config.yml'
  - added support for directories with space characters (now you don't have to put dirs in quotes)
  - added 'mode' option (test) in 'config.yml'
+
+</details>
+
 ### version 1.2.7
+
+<details><summary>view</summary>
+  
  - added app UI
  - fixed crashes with 'packer.exe'
  - added 'open' button for configuration files
@@ -117,3 +125,7 @@ servers: **this section contains all the servers even that, that are not enabled
  - fixed 'nogui'
  - added 'open latest.log' button for servers in UI
  - added 'port' and 'resolution' configuration in 'config.yml'
+   
+</details>
+
+----
