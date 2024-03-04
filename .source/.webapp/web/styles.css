@@ -4,35 +4,44 @@ body
     background-size: cover;
     height: 100%;
     max-height: 100%;
+    scroll-timeline-name: --squareTimeline;
+    overflow-y: scroll;
+    animation: loadingScrollbars 2.1s forwards;
+    
 }
+
 
 #loading
 {
     height: 100vh;
     width: 100vh;
-    left: auto;
-    right: auto;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
+    right: 2px;
 
     background-color: var(--background);
 
-    font-size: 2000%;
+    font-size: 400%;
+    color: #c2c2c2;
+    text-align: center;
+    font-family: 'Outfit', sans-serif;
     position: absolute;
 
-    text-align: center;
     display: table-cell;
     font-family: 'Inconsolata', monospace, serif;
     transform: scale(100vh);
-    animation: loading 2.6s forwards;
+    animation: loading 2s forwards;
+    z-index: 1;
 }
 
 @keyframes loading {
-    40% { background: var(--background); }
+    70% { background: var(--background); }
     100% { display: none; background: none; color: rgba(8, 8, 8, 0);}
-
 }
-
+@keyframes loadingScrollbars {
+    0% { overflow: hidden; display: hidden; }
+    99% { overflow: hidden; background: var(--background); }
+    100% { overflow: visible; }
+}
 
 /* Scroll Bar */
 ::-webkit-scrollbar {
@@ -149,6 +158,24 @@ div#bar
     border-color: #ffffff00;
 }
 
+
+.c
+{
+    view-timeline-name: --subjectReveal;
+    animation-timeline: --subjectReveal;
+  
+    animation-name: appear;
+    animation-fill-mode: both;
+    animation-duration: 1ms;
+  }
+  
+  @keyframes appear {
+    3%, 97% { opacity: 0; }
+  
+    80% { opacity: 1; }
+
+  }
+
 div#bar-text-2
 {
     color: #ffffff;
@@ -216,7 +243,7 @@ div#bar-text-2
 }
 .button:active
 {
-    animation: clicked  0.5s ease;
+    animation: clicked 0.5 ease-in;
 }
 
 @keyframes clicked {
@@ -224,6 +251,7 @@ div#bar-text-2
     100% { background-color: #3d3d3d; border-color: var(--ui-line); }
 
 }
+
 
 .text-all
 {
@@ -447,6 +475,7 @@ div#start-background
     padding: 83px;
     margin-bottom: -150px;
     margin-left: -20px;
+
 }
 
 div#end
@@ -474,6 +503,5 @@ div#footer
     width: 100%;
     border-top-style: solid;
     border-top-color: var(--ui-line);
-    z-index: 9;
     background-size: 40% 40%;
 }
