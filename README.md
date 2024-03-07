@@ -68,7 +68,8 @@ settings:
 
     port: 42434 **this setting changes the port that on app is running. set it to the not unoccupied port**
 
-    mode: webbrowser **console start mode (webbrowser/subprocess)**
+    mode: webbrowser **console start mode (webbrowser/subprocess/multiserver)**
+    console-refresh-rate: 0.2 **refresh rate of the console (only works if mode is set to 'multiserver')**
 ```
 
 </details>
