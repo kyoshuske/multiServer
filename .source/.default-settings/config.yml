@@ -30,4 +30,5 @@ settings:
       width: 820
       height: 1300
     port: 42434
-    mode: webbrowser # if you don't know what it does, don't change it (webbrowser/subprocess)
+    mode: webbrowser # if you don't know what it does, don't change it (webbrowser/subprocess/multiserver)
+    console-refresh-rate: 0.2
