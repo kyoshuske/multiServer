@@ -37,14 +37,18 @@ try:
     import pygetwindow
     from ctypes import windll
     import asyncio
+    import win32gui, win32con
+
+    the_program_to_hide = win32gui.GetForegroundWindow()
+    win32gui.ShowWindow(the_program_to_hide , win32con.SW_HIDE)
     
     
-    win = pygetwindow.getWindowsWithTitle(wintitle)[0]
-    webapp = pygetwindow.getWindowsWithTitle('multiServer')[0]
-    win.resizeTo(0, 0)
+    # win = pygetwindow.getWindowsWithTitle(wintitle)[0]
+    # webapp = pygetwindow.getWindowsWithTitle('multiServer')[0]
+    # win.resizeTo(0, 0)
     # win.close()
-    win.moveTo(0, 0)
-    win.minimize()
+    # win.moveTo(0, 0)
+    # win.minimize()
     process = {}
     directory_txt = ('C:\\multiServer\\directory.txt')
     infile = open(directory_txt, 'r')
@@ -76,10 +80,10 @@ try:
     def windowExit(route, websockets):
         if not websockets:
             if app_mode == ('subprocess'):
-                win.restore()
-                win.moveTo(0, 0)
-                win.resizeTo(815, 600)
-            else:
+            #     win.restore()
+            #     win.moveTo(0, 0)
+            #     win.resizeTo(815, 600)
+            # else:
                 sys.exit()
 
 
@@ -145,6 +149,9 @@ try:
             for server in enabledServers:
                 if app_mode == ('subprocess'):
                     process[server] = subprocess.Popen([str(starts + '\\' + str(server) + '.cmd')], creationflags=CREATE_NEW_CONSOLE, text=True, close_fds=False, shell=False)
+                if app_mode == ('experimental') or ('multiserver'):
+                    print(Fore.LIGHTBLUE_EX + 'Attempting to launch server in experimental mode...')
+                    os.system('start "' + dir + '\\server.exe' + '" "' + str(server) + '"')
                 else:
                     webbrowser.open(starts + '\\' + str(server) + '.cmd')
                 # subprocess.run(['C:\Users\sfpas\OneDrive\Pulpit\AreHaker\multiServer\server-panel\server.pyw -p ' + app_port + '-n ' + server + '-d ' + dir], stdout=PIPE, stderr=PIPE, universal_newlines=True)
@@ -155,7 +162,6 @@ try:
 
 
 
-    eel.init(web)
     if __name__ == "__main__":
         try:
             for filename in os.listdir('.'):
@@ -181,6 +187,8 @@ try:
     # app_fullscreen = config['settings']['app']['fullscreen-enable']
     # if app_fullscreen == (True): app_fullscreen = ('–-start-fullscreen')
     # else: app_fullscreen = ('')
-    eel.start('main.html', size=(app_resolution), position=(600, 50), disable_cache=True, port=(app_port), host='localhost', cmdline_args=['--disable-glsl-translator', '--fast-start', '--incognito', '--disable-infobars', '--disable-pinch', '--disable-extensions'], close_callback=windowExit)
+    eel.init(web)
+    eel.start('main.html', size=(app_resolution), position=(600, 50), port=(app_port), host='localhost', close_callback=windowExit, cmdline_args=['--disable-glsl-translator', '--fast-start', '--incognito', '--disable-infobars', '--disable-pinch', '--disable-extensions'], block=False)
+    gevent.get_hub().join()
 except Exception as error: print(Fore.RED + 'Unknown error!\n' + str(error))
-finally: print(Fore.LIGHTBLUE_EX + 'Ending process...' + Fore.YELLOW + '\nPlease check above for any errors.\n' + Fore.WHITE); webapp.close; sys.exit()
+finally: print(Fore.LIGHTBLUE_EX + 'Ending process...' + Fore.YELLOW + '\nPlease check above for any errors.\n' + Fore.WHITE); sys.exit()
