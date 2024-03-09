@@ -37,7 +37,7 @@ try:
         print(Fore.LIGHTBLUE_EX + 'Loading configuration...\n')
     except Exception as error: errorContent = ('Module load'); errorCode = ('Classic'); displayError()
     directory_txt = ('C:\\multiServer\\directory.txt')
-    processEndTerminal = ('\necho.\necho.\necho.\necho: ^[96m^Server closed.\necho: Press any key to exit console...\npause >NUL\necho: Are you sure you want to exit console? Press any key...\npause >NUL\nexit')
+    processEndTerminal = ('\necho.\necho.\necho.\necho: ^[96m^\nServer closed.\necho: Press any key to exit console...\npause >NUL\necho: Are you sure you want to exit console? Press any key...\npause >NUL\nexit')
 
     try: infile = open(directory_txt, 'r')
     except Exception: errorContent = (directory_txt); errorCode = ('MissingFile'); displayError()
@@ -131,7 +131,7 @@ try:
 
         filepath = (path + '\\' + file)
         exist = os.path.isfile (filepath)
-        if exist == (True): exist = ('\necho:^[90m^Loading server with multiServer...\necho:^[92m^Loaded all the data successfully. Attempting to start the server...^[97m^ ')
+        if exist == (True): exist = ('\necho:^[90m^ \necho:Loading server with multiServer...\necho:Loaded all the data successfully. Attempting to start the server...^[97m^ ')
         else: exist = ('\necho:^[90m^Loading server with multiServer...\necho:^[31m^Couldn\'t find \'' + file + '\'. Please check if \'path\' in the \''+ firstLine + '\\.multiServer\\servers.yml\' is correct.^[97m^ ')
 
         filepath = ('"' + filepath + '"')
