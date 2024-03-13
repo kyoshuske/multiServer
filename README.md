@@ -3,8 +3,8 @@
 
 
 # multiServer
-**multiServer**  is a free to use program for **Windows** that allows you to run multiple **Minecraft** servers from one app and configure them with only two **Yaml** files.
-    ⚠ **WARNING** ⚠ 
+**multiServer**  is a free to use program for **Windows** that allows you to run multiple **Minecraft** servers from one app and configure them with only two **Yaml** files.\
+    ⚠ **WARNING** ⚠ \
 **currently app is broken**
 
 # Instalation
