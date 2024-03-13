@@ -30,25 +30,8 @@ delete C:\multiServer
 ```
 ----
 # Configuration
-- [config.yml](#configyml)
-- [servers.yml](#serversyml)
-# Change log
-- [version 1.2.8](#version-128)
-- [version 1.2.7](#version-127)
-# Features
-- all in two files
-- modern app UI
-- advanced configuration
-- fast server selector in app
-- port section
-- java file for each server
-----
-# More
-## Full configuration
 
-
-### config.yml
-<details><summary>view</summary>
+<details><summary>config.yml</summary>
   
 ```
 settings:
@@ -74,8 +57,7 @@ settings:
 
 </details>
 
-### servers.yml
-<details><summary>view</summary>
+<details><summary>servers.yml</summary>
   
 ```
 server-list: **this section contains all the servers that you want to have enabled**
@@ -106,6 +88,19 @@ servers: **this section contains all the servers even that, that are not enabled
 
 </details>
 
+# Change log
+- [version 1.2.8](#version-128)
+- [version 1.2.7](#version-127)
+# Features
+- all in two files
+- modern app UI
+- advanced configuration
+- fast server selector in app
+- port section
+- java file for each server
+----
+# More
+## Full configuration
 ----
 ## changelog
 ### version 1.2.8
