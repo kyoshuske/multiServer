@@ -1,5 +1,5 @@
 > [!IMPORTANT]  
-> currently app is broken\
+> currently app is broken
 ![multiServer](assets/github-banner-new.png)
 
 
