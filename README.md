@@ -2,31 +2,16 @@
 
 
 
-# Welcome to multiServer
+# multiServer
 **multiServer**  is a free to use program for **Windows** that allows you to run multiple **Minecraft** servers from one app and configure them with only two **Yaml** files.
+    ⚠ **WARNING** ⚠ 
+**currently app is broken**
 
-###### _*[if you want to see logs select empty multiServer window and press F11](http://localhost:42439/main.html)*_
-# How to Setup?
-## Install
-**You have to install or have installed [google chrome](https://www.google.com/intl/en_en/chrome/)**.\
+# Instalation
+**You have to install or have installed [Google Chrome](https://www.google.com/intl/en_en/chrome/)**.\
 Copy and paste code below into the **command prompt**.
 ```
 md C:\multiServer & C: & cd C:\multiServer & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/installer.bat -o in.bat & powershell Start -File "in.bat '/K %~f0 runas'" -Verb RunAs & exit & exit
-```
-## Uninstall (Experimental)
-**I will not recommend doing that this way.**
-
-<details><summary>view</summary>
-  
-<br>Copy and paste code below into the **command prompt**.
-```
-md C:\multiServer & C: & cd C:\multiServer & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/uninstaller.bat -o un.bat & powershell Start -File "un.bat '/K %~f0 runas'" -Verb RunAs & exit & exit
-```
-</details>
-  
-Manual:
-```
-delete C:\multiServer
 ```
 ----
 # Configuration
@@ -88,24 +73,16 @@ servers: **this section contains all the servers even that, that are not enabled
 
 </details>
 
-# Change log
-- [version 1.2.8](#version-128)
-- [version 1.2.7](#version-127)
-# Features
-- all in two files
-- modern app UI
-- advanced configuration
-- fast server selector in app
-- port section
-- java file for each server
-----
-# More
-## Full configuration
-----
-## changelog
-### version 1.2.8
+# Changelog
 
-<details><summary>view</summary>
+<details><summary>v1.2.9</summary>
+  
+ - added console window (experimental)
+ - added new launch mode (experimental)
+
+</details>
+
+<details><summary>v1.2.8</summary>
   
  - added 'force-port' section in 'servers.yml'
  - added 'config-files' section in 'servers.yml'
@@ -115,9 +92,7 @@ servers: **this section contains all the servers even that, that are not enabled
 
 </details>
 
-### version 1.2.7
-
-<details><summary>view</summary>
+<details><summary>v1.2.7</summary>
   
  - added app UI
  - fixed crashes with 'packer.exe'
@@ -131,4 +106,11 @@ servers: **this section contains all the servers even that, that are not enabled
    
 </details>
 
+# Features
+- all in two files
+- modern app UI
+- advanced configuration
+- fast server selector in app
+- port section
+- java file for each server
 ----
