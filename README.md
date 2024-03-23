@@ -107,7 +107,7 @@ v1.2.9
 </details>
 
 # Features
-- all in two files
+- easy to configure
 - modern app UI
 - advanced configuration
 - fast server selector in app
