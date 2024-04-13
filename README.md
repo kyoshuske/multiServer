@@ -80,6 +80,7 @@ servers: **this section contains all the servers even that, that are not enabled
 <details open><summary>v1.2.9</summary>
 
   v1.2.9 BUGFIX #1:
+  
   - fixed 'subprocess' mode
   - removed active logs window
     
