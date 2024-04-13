@@ -1,6 +1,6 @@
 > [!CAUTION]
 > when using 'experimental' mode server won't shutdown when window closed\
-> you have to execute stop command to shut it down
+> you have to execute stop command to shut it down completly
 
 ![multiServer](assets/github-banner-new.png)
 
@@ -79,7 +79,7 @@ servers: **this section contains all the servers even that, that are not enabled
 
 <details open><summary>v1.2.9</summary>
 
-  v1.2.9 BUGFIX #1:
+  #### v1.2.9 BUGFIX #1
   
   - fixed 'subprocess' mode
   - removed active logs window
