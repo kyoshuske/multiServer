@@ -1,5 +1,6 @@
-> [!IMPORTANT]  
-> currently app is broken
+> [!CAUTION]
+> when using 'experimental' mode server won't shutdown when window closed
+> you have to execute stop command to shut it down
 
 ![multiServer](assets/github-banner-new.png)
 
@@ -76,11 +77,16 @@ servers: **this section contains all the servers even that, that are not enabled
 
 # Changelog
 
-v1.2.9
-  
+<details open><summary>v1.2.9</summary>
+
+  v1.2.9 BUGFIX #1:
+  - fixed 'subprocess' mode
+  - removed active logs window
+    
  - added console window (experimental)
  - added new launch mode (experimental)
 
+</details>
 
 <details><summary>v1.2.8</summary>
   
