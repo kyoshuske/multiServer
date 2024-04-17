@@ -1,5 +1,5 @@
 > [!CAUTION]
-> when using 'experimental' mode server won't shutdown when window closed\
+> if you are using 'experimental' mode server won't shutdown when window closes\
 > you have to execute stop command to shut it down completly
 
 ![multiServer](assets/github-banner-new.png)
