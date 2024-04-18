@@ -31,10 +31,10 @@ goto di
 ) else (
 !kym!
 md %syn%\.multiServer
-md %syn%\.multiServer\assets
-md %syn%\.multiServer\web
+md %syn%\.multiServer\app\assets
+md %syn%\.multiServer\app\web
 md %syn%\.multiServer\starts
-md %syn%\.multiServer\data
+md %syn%\.multiServer\app\data
 cls
 )
 c:
@@ -47,26 +47,31 @@ cd C:\multiServer
 (
 echo @echo off
 echo !kym!
-echo cd !syn!\.multiServer
-echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.packer/packer.exe -o packer.exe
-echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.webapp/multiServer-app.exe -o multiServer-app.exe
-echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.webapp-server/server.exe -o server.exe
+echo cd !syn!\.multiServer\app\scripts
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/scripts/packer.py -o packer.py
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/scripts/multiServer-app.py -o multiServer-app.py
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/scripts-server/server.py -o server.py
 
+echo cd !syn!\.multiServer
+
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/launcher/launcher.exe -o launcher.exe
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/config.yml -o config.yml
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/servers.yml -o servers.yml
 
-echo powershell "$s=(New-Object -COM WScript.Shell).CreateShortcut('!syn!\.start-servers.lnk');$s.TargetPath='!syn!\.multiServer\multiServer-app.exe';$s.Save()"
-echo powershell "$s=(New-Object -COM WScript.Shell).CreateShortcut('%appdata%\Microsoft\Windows\Start Menu\multiServer.lnk');$s.TargetPath='!syn!\.multiServer\multiServer-app.exe';$s.Save()"
-echo cd !syn!\.multiServer\assets
-echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/icon.ico -o icon.ico
-echo cd !syn!\.multiServer\web
-echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.webapp/web/main.css -o main.css
-echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.webapp/web/main.html -o main.html
-echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.webapp/web/main.js -o main.js
+echo powershell "$s=(New-Object -COM WScript.Shell).CreateShortcut('!syn!\.start-servers.lnk');$s.TargetPath='"!syn!\.multiServer\launcher.exe" "1" "false"';$s.Save()"
+echo powershell "$s=(New-Object -COM WScript.Shell).CreateShortcut('%appdata%\Microsoft\Windows\Start Menu\multiServer.lnk');$s.TargetPath='!syn!\.multiServer\launcher.exe';$s.Save()"
 
-echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.webapp-server/web/server.css -o server.css
-echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.webapp-server/web/server.html -o server.html
-echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.webapp-server/web/server.js -o server.js
+echo cd !syn!\.multiServer\app\assets
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/icon.ico -o icon.ico
+
+echo cd !syn!\.multiServer\app\web
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/web/main.css -o main.css
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/web/main.html -o main.html
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/web/main.js -o main.js
+
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/web/server.css -o server.css
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/web/server.html -o server.html
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/web/server.js -o server.js
 echo exit
 ) > update-files.bat
 
