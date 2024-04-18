@@ -78,8 +78,6 @@ servers: **this section contains all the servers even that, that are not enabled
 # Changelog
 
 <details open><summary>v1.2.9</summary>
-
-</details>
     
  - added console window (experimental)
  - added new launch mode (experimental)
