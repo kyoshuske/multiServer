@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>multiServer</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="main.css" type="text/css" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Outfit:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+    
+    <!-- javascript -->
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="eel.js"></script>
+
+
+    <!-- icon -->
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/icon.png">
+    
+</head>
+<body>
+    <div id="loading"></div>
+    <div id="bar">
+        <div class="bar-logo">
+            <img src="https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/icon.png" alt="multiServer-logo.ico" width="70" height="70" class="icon-logo">
+        </div>
+        
+        <div class="bar-text-1">
+            <!-- <div id="bar-text-2">multiServer</div> -->
+            <img src="https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/logo-text.png" alt="multiServer-logo-text.png" class="text-logo">
+        </div>
+        <!-- <div class="bar-exit-button" id="exit"></div> -->
+    </div>
+    
+    <div id="site-main">
+            <div class="h1 c">configuration</div>
+            <div class="h2 c">servers</div>
+            <div class="categorySplit-ud c">
+                <!-- style="display: none;" -->
+                <div class="server c" id="enabled-server" style="display: none;">
+                    <div class="h3" id="server-name">[server-name]</div>
+                    <div class="categorySplit-lr-server"><div class="box"><label id="server-id" class="checkbox"><input id="server-id" type="checkbox" name="customcheckbox" checked="checked"></label></div><div class="text-all">enable</div>                 <div id="server-id" class="button" onclick="openFile()">OPEN</div><div class="text-all">latest.log</div></div>
+                </div>
+            </div>
+            <div class="h2 c">config files</div>
+            <div class="files c"><div class="h3">main:</div></div>
+                <div class="categorySplit-lr">
+                    <div class="categorySplit-lr-server">
+                        <div id="config" class="button" onclick="openFile()">OPEN</div><div class="text-all">config.yml</div>
+                        <div id="servers" class="button" onclick="openFile()">OPEN</div><div class="text-all">servers.yml</div></div>
+                </div>
+    </div>
+    <div id="start">
+        <div id="start-background"></div>
+        <div class="start-text-all" onClick="startClick()">
+            <div class="start-text-main" id="start-text">start</div>
+            <div class="start-text-bottom" id="start-text-bottom">selected servers</div>
+        </div>
+    </div>
+
+    <div id="end"></div>
+    <div id="footer">
+        <div id="footerText">
+            multiServer created by Kyoshuske, version 1.2.7<br><a href="https://github.com/kyoshuske/multiServer">Click here</a> to visit GitHub page.
+        </div>
+    </div>
+</body>
+</html>

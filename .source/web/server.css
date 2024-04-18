@@ -1,0 +1,372 @@
+body
+{
+    background-color: var(--background);
+    background-size: cover;
+    height: 100%;
+    max-height: 100%;
+    
+}
+div#console {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+textarea:focus { 
+    outline-style: none;
+    opacity: 65%;
+}
+textarea:hover { 
+    outline-style: solid;
+    outline-offset: -2px;
+    outline-color: #3b3b3b;
+    outline-width: 2px;
+}
+textarea {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #292929;
+}
+
+#tools {
+    float: right;
+    clear: both;
+    top: 25px;
+    right: 90px;
+    position: relative;
+}
+.tool {
+    border-color: #2ba576;
+    border-width: 2px;
+    border-style: solid;
+    transition: all 0.25s ease-in-out;
+    height: 28px;
+    width: 28px;
+    position: absolute;
+    background-color: #36db9c;
+    border-radius: 10px;
+}
+
+.tool.checked {
+    border-color: #383838;
+    background-color: #4b4b4b;
+}
+
+.tool:hover {
+    cursor: pointer;
+    transform: scale(108%);
+    opacity: 88%;
+}
+
+#another {
+    margin-left: 40px
+}
+
+@keyframes loading {
+    70% { background: var(--background); }
+    100% { display: none; background: none; color: rgba(8, 8, 8, 0);}
+}
+/* Scroll Bar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bar-color);
+}
+  
+::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background-color: #474747;
+
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #3b3b3b;
+}
+
+
+
+
+
+:root {
+    --ui-line: #313131;
+    --background: #0e0e0e;
+    --bar-color: #1a1a1a;
+    cursor: default;
+}
+
+.icon-logo
+{
+    transition: all 0.4s ease-in-out;
+}
+.icon-logo:hover
+{
+    transform: scale(108%);
+}
+.bar-text-1
+{
+    background-image: url("https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/background.png");
+    background-position: left top;
+    background-repeat: repeat;
+    font-family: 'Outfit', sans-serif;
+    margin-bottom: 15px;
+    margin-top: -100px;
+    margin-left: 90px;
+    height: 112px;
+    position: fixed;
+    clear: both;
+    width: 100%;
+    border-bottom-style: solid;
+    border-bottom-color: var(--ui-line);
+}
+
+.text-logo
+{
+    transform: scale(0.2);
+    float: left;
+    margin-left: -650px;
+    margin-top: -73px;
+}
+
+div#bar
+{
+    background-image: url("https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/background.png");
+    /* background-color: var(--bar-color); */
+	padding: 20px;
+    background-position: left top;
+    border-radius: 10px;
+    background-repeat: repeat;
+    position: fixed;
+    max-width: 270px;
+    margin-left: -10px;
+    margin-top: -154px; /* +9 */
+    border-bottom-style: solid;
+    border-bottom-color: var(--ui-line);
+    z-index: 10;
+}
+
+.bar-logo
+{
+    transition: all 0.8s ease-in-out;
+}
+
+/* just cool animation for app logo*/
+.bar-logo:active
+{
+    transform: rotateZ(360deg) rotateX(0deg) rotateY(90deg) scaleX(150%) scaleY(60%) scale(150%);
+    border-color: #ffffff00;
+}
+
+
+.c
+{
+    view-timeline-name: --subjectReveal;
+    animation-timeline: --subjectReveal;
+
+  
+    animation-name: appear;
+    animation-fill-mode: both;
+    animation-duration: 1ms;
+  }
+  
+  @keyframes appear {
+    3%, 97% { opacity: 0; }
+  
+    80% { opacity: 1; }
+
+  }
+
+div#bar-text-2
+{
+    color: #ffffff;
+    font-size: 60px;
+    margin-top: 20px;
+    margin-left: 10px;
+    float: left;
+    /* border-right: 5px solid #494949; */
+    width: 290px;
+    text-align: center;
+}
+
+.checkbox, .button
+{
+    display: flex;
+    clear: both;
+
+    height: 35px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--ui-line);
+    border-radius: 5px;
+
+    background-color: #3d3d3d;
+    background-repeat: repeat;
+    background-position: center;
+
+    transition: all 0.3s ease-in-out;
+}
+
+.checkbox:hover, .button:hover, .bar-exit-button:hover
+{
+    cursor: pointer;
+
+    opacity: 70%;
+    transform: scale(105%);
+
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+.button
+{
+    font-family: 'Outfit', sans-serif;
+    font-size: 25px;
+    color: #080808;
+    text-align: center;
+
+    padding-left: 10px;
+    padding-right: 8px;
+
+    width: 70px;
+}
+.button:active
+{
+    animation: clicked 0.5 ease-in;
+}
+
+@keyframes clicked {
+    30% { background-color: #e4e4e4; border-color: #adadad; }
+    100% { background-color: #3d3d3d; border-color: var(--ui-line); }
+
+}
+
+
+/* .info, .warn, .error, .success, .none { margin-top: -10px; } */
+
+.info {
+    color: rgb(189, 189, 189);
+}
+.warn {
+    color: rgb(209, 190, 42);
+}
+.error {
+    color: rgb(212, 49, 49);
+}
+.success {
+    color: rgb(82, 163, 109);
+}
+.none {
+    display: none;
+}
+.unkown {
+    color: rgb(136, 136, 136);
+}
+
+
+
+.text-all
+{
+    color:#ffffff;
+    font-size: 20px;
+    font-family: 'Inconsolata', monospace, serif;
+    text-align: center;
+    margin-top: 29px;
+}
+
+/* UI Offset */
+div#site-main
+{
+    margin-top: 145px;
+}
+
+
+/* Custom Heading */
+.h1, .h2 {font-family: 'Outfit', sans-serif; margin-left:auto; margin-right:auto; text-align: center;}
+
+.h1
+{
+    color: #a7a7a7c2;
+    font-size: 50px;
+    margin-top: 50px;
+}
+
+.h2
+{
+    color: #888888c2;
+    font-size: 28px;
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+
+.h3
+{
+    color: #d1d1d1c2;
+    font-family: 'Inconsolata', monospace, serif;
+    font-size: 24px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.categorySplit-lr
+{
+    margin-top: -4px;
+    display: flex;
+    margin-left: -30px;
+    clear: both;
+}
+.categorySplit-ud
+{
+    display: inline-block;
+    margin-left: -20px;   
+}
+.categorySplit-lr-server
+{
+    margin-top: -4px;
+    display: flex;
+    margin-left: 62px;
+}
+
+
+
+/* Link Styles */
+div#end
+{
+    background-color: #0e0e0e00;
+    border-width: 6px;
+    border-color: #0e0e0e00;
+    top: 100px;
+    padding-bottom: 180px;
+}
+
+div#footer
+{
+    color: #e6e6e6;
+    margin-left: -7px;
+    margin-bottom: -6px;
+    background-color: var(--bar-color);
+	padding: 15px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    position: fixed;
+    bottom: 6px;
+    text-align: center;
+    clear: both;
+    width: 100%;
+    border-top-style: solid;
+    border-top-color: var(--ui-line);
+    background-size: 40% 40%;
+}
+#footerText {
+    background: #A6FF00;
+    background: linear-gradient(to left, #A6FF00 0%, #35F5FF 70%);
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 240%;
+}
