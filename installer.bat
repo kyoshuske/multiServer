@@ -33,6 +33,7 @@ goto di
 md %syn%\.multiServer
 md %syn%\.multiServer\app\assets
 md %syn%\.multiServer\app\web
+md %syn%\.multiServer\app\scripts
 md %syn%\.multiServer\starts
 md %syn%\.multiServer\app\data
 cls
