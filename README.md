@@ -79,17 +79,6 @@ servers: **this section contains all the servers even that, that are not enabled
 
 <details open><summary>v1.2.9</summary>
 
-<details><summary>v1.2.9 BUGFIX #2</summary>
-  
-    - added launcher
-
-</details>
-
-<details><summary>v1.2.9 BUGFIX #1</summary>
-  
-    - fixed 'subprocess' mode
-    - removed active logs window
-
 </details>
     
  - added console window (experimental)
