@@ -3,7 +3,7 @@
 > you have to execute stop command to shut it down completly
 
 # Instalation
-**You have to install or have installed [Google Chrome](https://www.google.com/intl/en_en/chrome/) to run gui**.\
+**You have to install or have installed [Google Chrome](https://www.google.com/intl/en_en/chrome/) to run app's gui**.\
 Copy and paste code below into the **command prompt**.
 ```
 md C:\multiServer & C: & cd C:\multiServer & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/installer.bat -o in.bat & powershell Start -File "in.bat '/K %~f0 runas'" -Verb RunAs & exit & exit
@@ -12,7 +12,7 @@ md C:\multiServer & C: & cd C:\multiServer & curl -k -L https://raw.githubuserco
 
 # Usage
 **main app**:
- - configure app with 'config.yml' and 'servers.yml' (you can read about configuration [here](#configuartion))
+ - configure app with 'config.yml' and 'servers.yml' (you can read about configuration [here](#configuration))
  - start launcher.exe
    
 **packer**: (python script that converts .yml syntax into .cmd file)
