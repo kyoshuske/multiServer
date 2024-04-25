@@ -18,11 +18,6 @@ md C:\multiServer & C: & cd C:\multiServer & curl -k -L https://raw.githubuserco
 **packer**: (python script that converts .yml syntax into .cmd file)
  - configure servers in 'server.yml' and 'config.yml'
  - start launcher.exe with this two parameters: "packer.py" "1"
-   
-**launcher**
-- copy 'launcher.exe' from '...\.multiServer' to directory you want
-- create in that directory folder 'app' and in it another folder 'scripts'
-- then you will need to change directory in 'c:\multiServer\directory.txt'
 ----
 
 # Configuration
