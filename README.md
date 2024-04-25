@@ -14,10 +14,12 @@ md C:\multiServer & C: & cd C:\multiServer & curl -k -L https://raw.githubuserco
 **main app**:
  - configure app with 'config.yml' and 'servers.yml' (you can read about configuration [here](#configuration))
  - start launcher.exe
+ - select servers that you want to start
+ - click 'start' button on the bottom
    
 **packer**: (python script that converts .yml syntax into .cmd file)
  - configure servers in 'server.yml' and 'config.yml'
- - start launcher.exe with this two parameters: "packer.py" "1"
+ - start launcher.exe with this two parameters: "packer.py" "0" ("launcher.exe" "packer.py" "0")
 ----
 
 # Configuration
