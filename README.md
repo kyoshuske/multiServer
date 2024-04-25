@@ -27,7 +27,7 @@ md C:\multiServer & C: & cd C:\multiServer & curl -k -L https://raw.githubuserco
 ```
 settings:
   global:
-    global-filename: **when enabled, will skip 'file' for every server in 'servers.yml' and set it to the given value**
+    global-filename: **when enabled 'filename' for every server will be set to given value**
       enable: false
       filename: global-servername.jar
 
@@ -36,7 +36,7 @@ settings:
       filename: java **('filename'/'path' depends on version that you are using)**
 
   app:
-    resolution: **this section changes the starting app window width and height**
+    resolution: **starting app window width and height**
       width: 1200
       height: 1500
 
