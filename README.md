@@ -91,7 +91,6 @@ servers: **all the servers even that, that are not in 'server-list'**
 
 # Features
 - easy to configure
-- modern app UI
 - advanced configuration
 - fast server selector in app
 - port section
