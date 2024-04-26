@@ -19,9 +19,6 @@ settings:
     global-filename:
       enable: false
       filename: global-servername.jar
-    global-color:
-      enable: false
-      color: 2
     global-javafile:
       enable: true
       filename: java
