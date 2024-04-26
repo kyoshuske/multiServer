@@ -2,16 +2,16 @@
 # Please read README.md on github before reporting a bug.
 #
 # To edit server list go to *\.multiServer\servers.yml
-# To run app start 'multiServer-app.exe'
+# To run app start 'launcher.exe'
 # 
 # Created by: Kyoshuske
-# Uploaded on: github.com/kyoshuske
-# Version: 1.2.9
+# Uploaded on: github.com/kyoshuske/multiServer
+# Version: 1.2.9 (if you are updating multiServer please backup your configuration) 
 # 
 # If you need help or if you want to report a bug,
 # join our discord server below and create a forum post.
 # 
-# GitHub: https://github.com/kyoshuske/multiServer
+# GitHub: @kyoshuske
 # Discord: @kyoshuske
 #
 settings:
