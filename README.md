@@ -19,7 +19,7 @@ md C:\multiServer & C: & cd C:\multiServer & curl -k -L https://raw.githubuserco
    
 **packer**: (python script that converts .yml syntax into .cmd file)
  - configure servers in 'server.yml' and 'config.yml'
- - start launcher.exe with this two parameters: "packer.py" "0" ("launcher.exe" "packer.py" "0")
+ - start launcher.exe with this two parameters: "multiServer" "packer.py" ("launcher.exe" "multiServer" "packer.py")
 ----
 
 # Configuration
