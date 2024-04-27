@@ -1,17 +1,14 @@
-import sys
-
-version = '1.2.9'
-
-# default:
+# default load settings:
 argument = 0
 debug = 0
-script = 'multiServer-app.py'
 
-def launcherExit(code):
-    print('')
-    sys.exit()
+# paths:
+main = 'c:\\launcher3'
+config = main + '\\config.yml'
+
 try:
     import os
+    import sys
     os.system('title launcher')
     
     from colorama import Fore; from colorama import *
@@ -38,56 +35,53 @@ try:
 
     import yaml
     from configobj import ConfigObj
+except Exception: print('Module load error.'); sys.exit()
 
+# load configuration:
+print('Loading configuration...')
+with open(config, 'r') as file: config = yaml.safe_load(file)
+apps = {}
+for app in config['apps']:
+    apps[app] = config['apps'][app]
 
-
-except Exception: print('Module load error (? not an executable ?)'); sys.exit()
-
-
-try:
-    directory_txt = ('C:\\multiServer\\directory.txt')
-    file_output = open(directory_txt, 'r')
-    directory = file_output.readline().strip()
-    scripts = directory + '\\.multiServer\\app\\scripts\\'
-    print('Working in directory: \"' + directory + '\\.multiServer\"')
+# try:
+#     directory_txt = ('C:\\multiServer\\directory.txt')
+#     file_output = open(directory_txt, 'r')
+#     directory = file_output.readline().strip()
+#     scripts = directory + '\\.multiServer\\app\\scripts\\'
+#     print('Working in directory: \"' + directory + '\\.multiServer\"')
     
-except Exception: print('File does not exist.'); sys.exit()
+# except Exception: print('Configuration file missing.'); sys.exit()
 
 def loadScript(file, arg):
-    os.system('title launcher: ' + script)
-    path = (scripts + file)
-    print('\nInitializing script: \"' + path + '\"...')
+    os.system('title launcher: ' + file)
+    scriptpath = (scripts + '\\' + file)
+    print('\nInitializing script: \"' + scriptpath + '\"...')
 
-    if '\\' in file: path = file
-    source = open(path).read()
+    if '\\' in file: scriptpath = file
+    source = open(scriptpath).read()
     print(Fore.WHITE)
-    if debug != True:
-        os.system('cls')
 
-    exec(source, { 'launch': { 'ver': version , 'sc': file , 'dir': directory , 'arg': arg } })
+    exec(source, { 'launch': { 'ver': version , 'sc': file , 'dir': path , 'arg': arg } })
 
 
-arg = {}
 if __name__ == "__main__":
-    if len(sys.argv)<2:
-        debug = True; loadScript('multiServer-app.py', '0')
-        # os.system('title launcher: default script')
-        # print('\nNo arguments.\nInitializing default script...'); subprocess.Popen(([(directory + '\\.multiServer\\launcher.exe'), 'multiServer-app.py', '0', '0'])); sys.exit()
-    else:
-        len = 0
+    try:
+        app = sys.argv[1]
+        version = apps[app]['version']
+        path = apps[app]['path']
+        scripts = path + apps[app]['scripts']
+        script = apps[app]['noscript']
+    except Exception: print('Invalid app config.'); sys.exit()
+    if len(sys.argv)<1:
         try:
-            for args in sys.argv:
-                len = int(len) + 1
+            debug = True; loadScript(script, '0')
+        except Exception as exception: print(exception); sys.exit()
+    else:
+        try:
+            script = sys.argv[2]
 
-
-            script = str(sys.argv[1])
-
-            argument = str(sys.argv[2])
-
-            debug = str(sys.argv[3])
-            if debug == '1' or 'true':
-                debug = True
-
+            argument = str(sys.argv[3])
 
         except Exception: pass
     try:
