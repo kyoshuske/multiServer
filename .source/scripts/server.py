@@ -4,7 +4,6 @@ try:
     script = launch['sc']
     server_number = int(launch['arg'])
 except Exception: print('Please launch this script with launcher.exe'); sys.exit()
-
 # libraries
 import sys
 import os
@@ -45,25 +44,25 @@ from configobj import ConfigObj
 
 os.system('title server: ' + str(server_number))
 
-cmd = {}
-#load commands:
-commands_yml = directory + '\\.multiServer\\commands.yml'
-try:
-    with open(commands_yml, 'r') as file: commands_yml = yaml.safe_load(file)
-    commands = commands_yml['commands']
-    print(commands)
-    for command in commands:
-        cmd[command] = commands[command]
+# cmd = {}
+# #load commands:
+# commands_yml = directory + '\\.multiServer\\commands.yml'
+# try:
+#     with open(commands_yml, 'r') as file: commands_yml = yaml.safe_load(file)
+#     commands = commands_yml['commands']
+#     print(commands)
+#     for command in commands:
+#         cmd[command] = commands[command]
         
-except Exception as r: print(r); time.sleep(2)
+# except Exception as r: print(r); time.sleep(2)
 
 
 # app_window = win32gui.GetForegroundWindow()
 # win32gui.ShowWindow(app_window , win32con.SW_HIDE)
 
-starts = (directory + '\\.multiServer\\starts')
-web = (directory + '\\.multiServer\\app\\web')
-config_yml = (directory + '\\.multiServer\\config.yml')
+starts = (directory + '\\starts')
+web = (directory + '\\app\\web')
+config_yml = (directory + '\\config.yml')
 numb = 0
 
 classes = {
@@ -129,15 +128,15 @@ def executeCommand(input):
             input = '' + input[1:]
         print('input received (\'' + input + '\')')
 
-    for command in cmd:
+    # for command in cmd:
         
-        if (cmd[command]['alias'] == input):
-            print('valid')
-            for action in cmd[command]['actions']:
-                print(action)
-                console.stdin.write(action + '\n')
-                console.stdin.flush()
-            return
+    #     if (cmd[command]['alias'] == input):
+    #         print('valid')
+    #         for action in cmd[command]['actions']:
+    #             print(action)
+    #             console.stdin.write(action + '\n')
+    #             console.stdin.flush()
+    #         return
     try:
         console.stdin.write(input + '\n')
         console.stdin.flush()

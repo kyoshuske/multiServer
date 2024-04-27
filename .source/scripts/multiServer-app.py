@@ -37,8 +37,8 @@ def appClose():
 
 
 # os.system('cls')
-launcher_exe = (directory + '\\.multiServer\\launcher.exe')
-wait = subprocess.Popen(([launcher_exe, 'packer.py', 'nopack', 'true']))
+launcher_exe = (directory + '\\launcher.exe')
+wait = subprocess.Popen(([launcher_exe, 'multiServer', 'packer.py', 'nopack']))
 wait.wait()
 os.system('cls')
 os.system('title multiServer v' + version)
@@ -51,10 +51,10 @@ server = {}
 enabledServers = []
         
 try: 
-    starts = (dir + '\\.multiServer\\starts')
-    config_yml = (dir + '\\.multiServer\\config.yml')
-    servers_yml = (dir + '\\.multiServer\\servers.yml')
-    web = (dir + '\\.multiServer\\app\\web')
+    starts = (dir + '\\starts')
+    config_yml = (dir + '\\config.yml')
+    servers_yml = (dir + '\\servers.yml')
+    web = (dir + '\\app\\web')
 
     print(Fore.GREEN + 'Working in: \"' + dir + '\"\n') 
     # print(Fore.GREEN + 'Loaded directories:' + '\n - dir = ' + dir + '\n - config_yml = ' + config_yml + '\n - servers_yml = ' + '' + servers_yml + '\n - launcer = ' + launcher_exe + '\n - starts = ' + starts + '\n - web = ' + web + '\n')
@@ -123,7 +123,7 @@ try:
 
         else:
             print(Fore.LIGHTBLUE_EX + '\n' + 'Starting packer script...')
-            wait = subprocess.Popen(([launcher_exe, 'packer.py', '0', 'true']))
+            wait = subprocess.Popen(([launcher_exe, 'multiServer', 'packer.py']))
             wait.wait()
             os.system('title multiServer v' + version)
             for server in enabledServers:
@@ -132,7 +132,7 @@ try:
                     process[server] = subprocess.Popen([str(starts + '\\' + str(random) + 'a.cmd')], creationflags=CREATE_NEW_CONSOLE, text=True, close_fds=False, shell=True)
                 if app_mode == ('experimental'):
                     print(Fore.LIGHTBLUE_EX + 'Attempting to launch servers in experimental mode...')
-                    webbrowser.open(dir + '\\.multiServer\\starts\\' + str(random) + 'b.cmd')
+                    webbrowser.open(dir + '\\starts\\' + str(random) + 'b.cmd')
                 else:
                     webbrowser.open(starts + '\\' + str(random) + 'a.cmd')
             print(Fore.WHITE + 'Ready')
