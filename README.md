@@ -90,11 +90,4 @@ servers: **all the servers even that, that are not in 'server-list'**
  - added new launch mode (experimental)
 
 </details>
-
-# Features
-- easy to configure
-- advanced configuration
-- fast server selector in app
-- port section
-- java file for each server
 ----
