@@ -1,1 +1,1 @@
-launcher.exe "multiServer"
+start launcher.exe "multiServer"
