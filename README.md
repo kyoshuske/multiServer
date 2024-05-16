@@ -4,7 +4,7 @@
 
 # Instalation
 **You have to install or have installed [Google Chrome](https://www.google.com/intl/en_en/chrome/) to run app's gui**.\
-step 1:\
+step 1:
  - Copy and paste code below into the **command prompt**.
 ```
 md C:\multiServer & C: & cd C:\multiServer & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/installer.bat -o in.bat & powershell Start -File "in.bat '/K %~f0 runas'" -Verb RunAs & exit & exit
