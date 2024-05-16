@@ -61,6 +61,8 @@ echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.so
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/config.yml -o config.yml
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/servers.yml -o servers.yml
 
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/multiServer-START_THIS.bat -o multiServer-START_THIS.bat
+
 echo powershell "$s=(New-Object -COM WScript.Shell).CreateShortcut('!syn!\.start-servers.lnk');$s.TargetPath='"!syn!\.multiServer\multiServer-START_THIS.bat"';$s.Save()"
 echo powershell "$s=(New-Object -COM WScript.Shell).CreateShortcut('%appdata%\Microsoft\Windows\Start Menu\multiServer.lnk');$s.TargetPath='!syn!\.multiServer\launcher.exe';$s.Save()"
 
