@@ -85,7 +85,7 @@ echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.so
 echo exit
 ) > update-files.bat
 
-echo: Installing...!\n! DO NOT CLOSE THIS OR ANY OF THE CMD WINDOWS
+echo: Installing...!\n! DO NOT CLOSE THIS OR ANY OF THE CMD WINDOW
 start /W /MIN update-files.bat
 
 (
