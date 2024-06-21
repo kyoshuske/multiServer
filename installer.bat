@@ -4,14 +4,14 @@ setlocal EnableDelayedExpansion
 (set \n=^
 %=Do not remove this line=%
 )
+set path=C:\Users\!USERNAME!\AppData\Local\multiServer
 set 2l=(
 set 2r=)
 set 2title=multiServer
 title !2title! installer
-if not exist "C:\multiServer\directory.txt" (
+if not exist "!path!\c.yml" (
 c:
-md C:\multiServer
-md C:\launcher3
+md !path!
 curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/launcher.config -o config.yml
 goto pr
 ) else (
@@ -41,11 +41,16 @@ md %syn%\.multiServer\app\data
 cls
 )
 c:
-cd C:\multiServer
+cd !path!
 
 (
-  echo !kym!
-) > kym.4c2U
+  echo:#configuration file for multiserver instalation
+  echo:config:
+  echo:   path: '%syn%'
+  echo:   disk: '%kym%'
+  echo:   0: 0
+) > c.yml
+
 
 (
 echo @echo off
@@ -80,7 +85,7 @@ echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.so
 echo exit
 ) > update-files.bat
 
-echo: Installing...!\n! Please wait.
+echo: Installing...!\n! DO NOT CLOSE THIS OR ANY OF THE CMD WINDOWS
 start /W /MIN update-files.bat
 
 (
@@ -94,7 +99,7 @@ pause >NUL
 exit
 :in
 cls
-echo: !2title! is already installed.!\n! If you want to uninstall !2title! visit "https://github.com/kyoshuske/multiServer",!\n! and execute command for uninstalling.
+echo: !2title! is already installed.!\n! If you want to uninstall !2title! visit "https://github.com/kyoshuske/multiServer",!\n! and follow intructions.
 pause >NUL
 )
 exit
