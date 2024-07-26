@@ -67,9 +67,6 @@ echo cd !syn!\.multiServer
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/config.yml -o config.yml
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/servers.yml -o servers.yml
 
-echo powershell "$s=(New-Object -COM WScript.Shell).CreateShortcut('!syn!\.start-servers.lnk');$s.TargetPath='"!syn!\.multiServer\multiServer-START_THIS.bat"';$s.Save()"
-echo powershell "$s=(New-Object -COM WScript.Shell).CreateShortcut('%appdata%\Microsoft\Windows\Start Menu\multiServer.lnk');$s.TargetPath='!syn!\.multiServer\launcher.exe';$s.Save()"
-
 echo cd !syn!\.multiServer\app\assets
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/icon.ico -o icon.ico
 
