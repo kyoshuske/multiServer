@@ -95,7 +95,7 @@ servers: **all the servers even that, that are not in 'server-list'**
 
 </details>
 
-<details open><summary>v1.2.9</summary>
+<details><summary>v1.2.9</summary>
 
  - new launcher for the python scripts
  - added console window (experimental)
