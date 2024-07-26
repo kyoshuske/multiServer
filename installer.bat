@@ -4,14 +4,14 @@ setlocal EnableDelayedExpansion
 (set \n=^
 %=Do not remove this line=%
 )
-set path=C:\Users\!USERNAME!\AppData\Local\multiServer
+set pathms=C:\Users\!USERNAME!\AppData\Local\multiServer
 set 2l=(
 set 2r=)
 set 2title=multiServer
 title !2title! installer
-if not exist "!path!\c.yml" (
+if not exist "!pathms!\c.yml" (
 c:
-md !path!
+md !pathms!
 curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/launcher.config -o config.yml
 goto pr
 ) else (
@@ -41,7 +41,7 @@ md %syn%\.multiServer\app\data
 cls
 )
 c:
-cd !path!
+cd !pathms!
 
 (
   echo:#configuration file for multiserver instalation
@@ -53,7 +53,7 @@ cd !path!
 
 
 C:
-cd !path!
+cd !pathms!
 (
 echo @echo off
 echo !kym!
@@ -89,7 +89,7 @@ echo exit
 
 
 C:
-cd !path!
+cd !pathms!
 cls
 echo: Installing files... !\n! DO NOT CLOSE THIS OR ANY OTHER CMD WINDOW
 start /W /MIN update-files.bat
