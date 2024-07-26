@@ -8,7 +8,7 @@ step 1:
  - Copy and paste code below into the **command prompt**.
 ```
 md C:\Users\%USERNAME%\AppData\Local\multiServer & C: & cd C:\Users\%USERNAME%\AppData\Local\multiServer & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/installer.bat -o in.bat & powershell Start -File "in.bat '/K %~f0 runas'" -Verb RunAs & exit & exit
-
+```
 # Usage
 **main app**:
  - configure app with 'config.yml' and 'servers.yml' (you can read about configuration [here](#configuration))
