@@ -87,6 +87,14 @@ servers: **all the servers even that, that are not in 'server-list'**
 
 # Changelog
 
+<details open><summary>v1.2.9 [FIX]</summary>
+
+ - updated launcher
+ - removed console window
+ - fixed all the issues with launcher and main app
+
+</details>
+
 <details open><summary>v1.2.9</summary>
 
  - new launcher for the python scripts
@@ -94,4 +102,3 @@ servers: **all the servers even that, that are not in 'server-list'**
  - added new launch mode (experimental)
 
 </details>
-----
