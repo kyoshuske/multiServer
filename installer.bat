@@ -53,6 +53,7 @@ cd !path!
 
 
 (
+echo title Installing configuration and scripts
 echo @echo off
 echo !kym!
 echo cd !syn!\.multiServer\app\scripts
@@ -62,11 +63,8 @@ echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.so
 
 echo cd !syn!\.multiServer
 
-echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/launcher/launcher.exe -o launcher.exe
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/config.yml -o config.yml
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/servers.yml -o servers.yml
-
-echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/multiServer-START_THIS.bat -o multiServer-START_THIS.bat
 
 echo powershell "$s=(New-Object -COM WScript.Shell).CreateShortcut('!syn!\.start-servers.lnk');$s.TargetPath='"!syn!\.multiServer\multiServer-START_THIS.bat"';$s.Save()"
 echo powershell "$s=(New-Object -COM WScript.Shell).CreateShortcut('%appdata%\Microsoft\Windows\Start Menu\multiServer.lnk');$s.TargetPath='!syn!\.multiServer\launcher.exe';$s.Save()"
@@ -85,12 +83,22 @@ echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.so
 echo exit
 ) > update-files.bat
 
-echo: Installing...!\n! DO NOT CLOSE THIS OR ANY OF THE CMD WINDOW
-start /W /MIN update-files.bat
 
 (
-  echo !syn!
-) > directory.txt
+echo title Installing launcher
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/launcher/launcher.exe -o launcher.exe
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/launcher/launcher-dev.exe -o launcher-dev.exe
+) > update-launcher.bat
+
+
+echo: Installing configuration and scripts... 2/2!\n! DO NOT CLOSE THIS OR ANY OTHER CMD WINDOW
+start /MIN update-files.bat
+
+cls
+
+echo: Installing launcher... 1/2!\n! DO NOT CLOSE THIS OR ANY OTHER CMD WINDOW
+start /W /MIN update-launcher.bat
+
 
 cls
 echo: !2title! has been succesfully installed in "!syn!\.multiServer\".
@@ -99,7 +107,7 @@ pause >NUL
 exit
 :in
 cls
-echo: !2title! is already installed.!\n! If you want to uninstall !2title! visit "https://github.com/kyoshuske/multiServer",!\n! and follow intructions.
+echo: !2title! is already installed.!\n! If you want to uninstall !2title! visit "https://github.com/kyoshuske/multiServer",!\n! and follow intructions or delete this directory: "C:\Users\%USERNAME%\AppData\Local\multiServer".
 pause >NUL
 )
 exit
