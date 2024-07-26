@@ -89,7 +89,7 @@ echo exit
 
 cls
 echo: Installing files... 1/1!\n! DO NOT CLOSE THIS OR ANY OTHER CMD WINDOW
-start /MIN update-files.bat
+start /W /MIN update-files.bat
 cls
 
 
