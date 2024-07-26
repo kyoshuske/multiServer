@@ -21,7 +21,7 @@ step 2:
  - select servers that you want to start
  - click 'start' button on the bottom
    
-**packer**: (python script that converts .yml syntax into .cmd file)
+**packer**: (python script that converts .yml config into .cmd file)
  - configure servers in 'server.yml' and 'config.yml'
  - start launcher.exe with this two parameters: "multiServer", "packer.py" ("launcher.exe" "multiServer" "packer.py")
 ----
