@@ -1,21 +1,17 @@
-# default load settings:
+# default:
 argument = 0
 debug = 0
-
-# paths:
-main = 'c:\\launcher3'
-config = main + '\\config.yml'
+script = 'multiServer-app.py'
 
 try:
-    import os
     import sys
+    import os
     os.system('title launcher')
     
     from colorama import Fore; from colorama import *
     import time
     print(Fore.LIGHTBLACK_EX + ' ')
-    print('-----------------------< launcher >-----------------------')
-    print('Loading python and all required libraries...')
+    print('-----------------------< launcher >-----------------------\nLoading python and all required libraries...')
 
     import subprocess; from subprocess import Popen; from subprocess import *
     import webbrowser
@@ -35,56 +31,58 @@ try:
 
     import yaml
     from configobj import ConfigObj
-except Exception: print('Module load error.'); sys.exit()
 
-# load configuration:
-print('Loading configuration...')
-with open(config, 'r') as file: config = yaml.safe_load(file)
-apps = {}
-for app in config['apps']:
-    apps[app] = config['apps'][app]
 
-# try:
-#     directory_txt = ('C:\\multiServer\\directory.txt')
-#     file_output = open(directory_txt, 'r')
-#     directory = file_output.readline().strip()
-#     scripts = directory + '\\.multiServer\\app\\scripts\\'
-#     print('Working in directory: \"' + directory + '\\.multiServer\"')
+
+
+except Exception: print('Module load error (not an executable ?)'); time.sleep(1); sys.exit()
+
+
+try:
+
+    config_path = os.path.expanduser('~') + "\\AppData\\Local\\multiServer"
+    config_yml = config_path + '\\c.yml'
+    with open(config_yml, 'r') as file: cfg = yaml.safe_load(file); cfg = cfg['config']
+    directory = cfg['path']
+
+
+    scripts = directory + '\\.multiServer\\app\\scripts\\'
+    print('Working in directory: \"' + directory + '\\.multiServer\"')
+    directory += "\\.multiServer\\"
     
-# except Exception: print('Configuration file missing.'); sys.exit()
+except Exception: print('File does not exist.'); sys.exit()
 
 def loadScript(file, arg):
-    os.system('title launcher: ' + file)
-    scriptpath = (scripts + '\\' + file)
-    print('\nInitializing script: \"' + scriptpath + '\"...')
+    path = (scripts + file)
+    print('initializing script: \"' + path + '\"...')
 
-    if '\\' in file: scriptpath = file
-    source = open(scriptpath).read()
+    source = open(path).read()
     print(Fore.WHITE)
+    exec(source, { 'launch': { 'sc': file , 'dir': directory , 'arg': arg } })
 
-    exec(source, { 'launch': { 'ver': version , 'sc': file , 'dir': path , 'arg': arg } })
-
-
+arg = {}
 if __name__ == "__main__":
-    try:
-        app = sys.argv[1]
-        version = apps[app]['version']
-        path = apps[app]['path']
-        scripts = path + apps[app]['scripts']
-        script = apps[app]['noscript']
-    except Exception: print('Invalid app config.'); sys.exit()
-    if len(sys.argv)<1:
-        try:
-            debug = True; loadScript(script, '0')
-        except Exception as exception: print(exception); sys.exit()
+    if len(sys.argv)<2:
+        print('No arguments.\nStaring default script...')
     else:
+        len = 0
         try:
-            script = sys.argv[2]
+            for args in sys.argv:
+                len = int(len) + 1
 
-            argument = str(sys.argv[3])
+
+            script = str(sys.argv[1])
+
+            argument = str(sys.argv[2])
+
+            debug = str(sys.argv[3])
+            if debug == '1' or 'true':
+                debug = True
+
+            os.system('title launcher: ' + script + ' \"' + argument + '\"')
 
         except Exception: pass
     try:
         loadScript(script , argument)
-    except FileNotFoundError: print('Script not found.')
+    except FileNotFoundError: print(Fore.RED + 'Script not found.' + Fore.WHITE)
     except Exception as ex: print(ex)
