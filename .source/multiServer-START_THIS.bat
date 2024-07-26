@@ -1,1 +1,0 @@
-start launcher.exe "multiServer"
