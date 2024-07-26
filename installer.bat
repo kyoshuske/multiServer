@@ -52,6 +52,8 @@ cd !path!
 ) > c.yml
 
 
+C:
+cd !path!
 (
 echo @echo off
 echo !kym!
@@ -86,9 +88,10 @@ echo exit
 
 
 
-
+C:
+cd !path!
 cls
-echo: Installing files... 1/1!\n! DO NOT CLOSE THIS OR ANY OTHER CMD WINDOW
+echo: Installing files... !\n! DO NOT CLOSE THIS OR ANY OTHER CMD WINDOW
 start /W /MIN update-files.bat
 cls
 
