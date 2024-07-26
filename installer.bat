@@ -64,6 +64,9 @@ echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.so
 
 echo cd !syn!\.multiServer
 
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/launcher/launcher.exe -o launcher.exe
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/launcher/launcher-dev.exe -o launcher-dev.exe
+
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/config.yml -o config.yml
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/servers.yml -o servers.yml
 
@@ -82,27 +85,14 @@ echo exit
 ) > update-files.bat
 
 
-(
-echo @echo off
-echo !kym!
-echo cd !syn!\.multiServer
-echo cls
-echo title multiServer installer process 2
-echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/launcher/launcher.exe -o launcher.exe
-echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/launcher/launcher-dev.exe -o launcher-dev.exe
-) > update-launcher.bat
 
 
-echo: Installing configuration and scripts... 2/2!\n! DO NOT CLOSE THIS OR ANY OTHER CMD WINDOW
+cls
+echo: Installing files... 1/1!\n! DO NOT CLOSE THIS OR ANY OTHER CMD WINDOW
 start /MIN update-files.bat
-
 cls
 
-echo: Installing launcher... 1/2!\n! DO NOT CLOSE THIS OR ANY OTHER CMD WINDOW
-start /W /MIN update-launcher.bat
 
-
-cls
 echo: !2title! has been succesfully installed in "!syn!\.multiServer\".
 explorer !syn!\.multiServer\
 pause >NUL
