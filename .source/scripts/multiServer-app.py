@@ -2,7 +2,6 @@ import sys
 try:
     directory = launch['dir']
     script = launch['sc']
-    version = launch['ver']
 except Exception: print('Please launch this script with launcher.exe'); sys.exit()
 
 # libraries
@@ -35,13 +34,12 @@ def appClose():
 
 
 
-
 # os.system('cls')
 launcher_exe = (directory + '\\launcher.exe')
-wait = subprocess.Popen(([launcher_exe, 'multiServer', 'packer.py', 'nopack']))
+wait = subprocess.Popen(([launcher_exe, 'packer.py', 'nopack']))
 wait.wait()
 os.system('cls')
-os.system('title multiServer v' + version)
+os.system('title multiServer ')
 print(Fore.WHITE + '\n                  8   o   o .oPYo.                            \n                  8   8     8                                 \n   ooYoYo. o    o 8  o8P o8 `Yooo. .oPYo. o    o .oPYo. oPYo. \n   8\' 8  8 8    8 8   8   8     `8 8oooo8 Y.  .P 8oooo8 8  `\' \n   8  8  8 8    8 8   8   8      8 8.     `b..d\' 8.     8     \n   8  8  8 `YooP\' 8   8   8 `YooP\' `Yooo\'  `YP\'  `Yooo\' 8       github.com/kyoshuske/multiServer\n\n   _____________________________________________________________________________________________\n')
 print(Fore.LIGHTBLUE_EX + 'Loading app...\n')
 dir = directory
@@ -123,9 +121,9 @@ try:
 
         else:
             print(Fore.LIGHTBLUE_EX + '\n' + 'Starting packer script...')
-            wait = subprocess.Popen(([launcher_exe, 'multiServer', 'packer.py']))
+            wait = subprocess.Popen(([launcher_exe, 'packer.py']))
             wait.wait()
-            os.system('title multiServer v' + version)
+            os.system('title multiServer')
             for server in enabledServers:
                 random = (((server * server * server) - server) * 2) + 1
                 if app_mode == ('subprocess'):

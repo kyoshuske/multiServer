@@ -124,7 +124,7 @@ try:
                     fileFormat = ('@echo off\ntitle ' + str(title) + str(exist) + '\necho:Starting server on port *:' + str(port) + '\n' + str(drive) + '\ncd "' + str(path) + '"\n"' + str(java) + '" -Xmx' + str(maxhs) + ' -jar "' + str(file) + '"' + str(properties) + str(bukkit) + str(spigot) + str(prt) + str(ngi) + processEndTerminal)
                     f.write(fileFormat)
                     # print(fileFormat)
-                with open(consoleStartFile, 'w') as f: f.write('start ' + directory + '\\launcher.exe \"multiServer\" \"server.py' + '\" \"' + str(numb) + '\"')
+                with open(consoleStartFile, 'w') as f: f.write('start ' + directory + '\\launcher.exe \"server.py' + '\" \"' + str(numb) + '\"')
             except Exception as error: displayError('Custom', 'Loading files error. ' + '(' + str(error) + ')')
         # print(Fore.GREEN + '\nLoaded servers:')
         # for server_name in servers_config['server-list']: server = servers_config['servers'][server_name]; path = server['path']; print('  - ' + server_name + ' (' + path + ')')
