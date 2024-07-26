@@ -2,13 +2,10 @@
 @shift /0
 setlocal EnableDelayedExpansion
 title multiServis uninstaller
-if exist "C:\multiServer\directory.txt" (
+if exist "C:\Users\%USERNAME%\AppData\Local\multiServer" (
 C:
-cd C:\multiServer
-for /f %%a in (directory.txt) do (
-  set out=%%a
-)
-del /S /Q C:\multiServer
+cd C:\Users\%USERNAME%\AppData\Local\multiServer
+del /S /Q C:\Users\%USERNAME%\AppData\Local\multiServer
 cls
 echo: multiServer has been uninstalled.
 pause >nul
