@@ -53,10 +53,11 @@ cd !path!
 
 
 (
-echo title Installing configuration and scripts
 echo @echo off
 echo !kym!
 echo cd !syn!\.multiServer\app\scripts
+echo cls
+echo title multiServer installer process 1
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/scripts/packer.py -o packer.py
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/scripts/multiServer-app.py -o multiServer-app.py
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/scripts-server/server.py -o server.py
@@ -85,7 +86,11 @@ echo exit
 
 
 (
-echo title Installing launcher
+echo @echo off
+echo !kym!
+echo cd !syn!\.multiServer
+echo cls
+echo title multiServer installer process 2
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/launcher/launcher.exe -o launcher.exe
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/launcher/launcher-dev.exe -o launcher-dev.exe
 ) > update-launcher.bat
