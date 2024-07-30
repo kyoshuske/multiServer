@@ -28,13 +28,13 @@ md C:\Users\%USERNAME%\AppData\Local\multiServer & C: & cd C:\Users\%USERNAME%\A
 ```
 settings:
   global:
-    global-filename: **when enabled 'filename' for every server will be set to given value**
-      enable: false
-      filename: global-servername.jar
-
-    global-javafile: **when enabled every server runs on given java file**
+    java: **when enabled every server runs on this java**
       enable: true
-      filename: java **('filename'/'path' depends on version that you are using)**
+      path: java **('filename'/'path' depends on version that you are using)**
+
+    plugins:
+      enable: true
+      directory: c:\example-plugins **plugins that
 
   app:
     resolution: **starting app window width and height**
@@ -43,7 +43,7 @@ settings:
 
     port: 42434 **changes the port that on app is running. set it to the not unoccupied port**
 
-    mode: webbrowser **console start mode (webbrowser/subprocess/experimental)**
+    mode: webbrowser **webbrowser/subprocess/experimental (just use webbrowser its the best option here)**
     console-refresh-rate: 0.2 **refresh rate of the console (only works on experimental console)**
 ```
 
@@ -52,30 +52,30 @@ settings:
 <details><summary>servers.yml</summary>
   
 ```
-server-list: **all the servers that you want to be displayed in the launcher**
+enabled-servers: **all the servers that you want to be displayed in the launcher**
 - example-server1
 
-servers: **all the servers even that, that are not in 'server-list'**
-  example-server1: **your server's name. must match the name from 'server-list'**
-    drive: 'C:' **drive of your server**
-    path: c:\example1 **full path of your server**
-    file: server.jar **engine file of your server (paper, spigot, purpur, bukkit, etc.)**
+servers: **all the servers even that, that are not in 'enabled-servers'**
+  example-server1: **name of the server (only used by multiserver)**
+    drive: 'C:' **drive**
+    path: c:\example1 **directory**
+    file: server.jar **.jar file (paper, spigot, bukkit, purpur etc.)**
     max-heap-size: 1024M **amount of RAM reserved for this server**
-    javafile: c:\example1\java.exe **only works if 'global-javafile' is disabled**
+    java-path: c:\example1\java.exe **java path only used by this server**
 
     visuals:
       nogui: false **disables the vanilla GUI**
       window-title: A minecraft server **window title of the console window**
 
-    force-port: **when enabled forces server to run on the given port**
+    force-port:
       enable: false
-      port: 25565
+      port: 25565 **server port (overrides port from server.properties)**
 
     config-files:
-      server-properties: default **path of the server's 'server.properties' file**
-      bukkit: default **path of the server's 'bukkit.yml' file**
-      spigot: default **path of the server's 'spigot.yml' file**
-      paper: default **path of the server's 'paper.yml' or 'configs\paper-global.yml' file**
+      server-properties: default **path of 'server.properties' file**
+      bukkit: default **path of 'bukkit.yml' file**
+      spigot: default **path of 'spigot.yml' file**
+      paper: default **path of 'paper.yml' or 'configs\paper-global.yml' file (check docs.papermc.io/paper/reference/global-configuration)**
 ```
 
 </details>
