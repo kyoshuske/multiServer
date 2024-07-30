@@ -18,7 +18,7 @@ md C:\Users\%USERNAME%\AppData\Local\multiServer & C: & cd C:\Users\%USERNAME%\A
    
 **packer**: (python script that converts .yml config into .cmd file)
  - configure servers in 'server.yml' and 'config.yml'
- - start launcher.exe with this two parameters: "multiServer", "packer.py" ("launcher.exe" "multiServer" "packer.py")
+ - start launcher.exe with this two parameters: "packer.py" ("launcher.exe" "packer.py")
 ----
 
 # Configuration
