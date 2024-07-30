@@ -18,7 +18,10 @@ settings:
   global:
     global-java:
       enable: false
-      path: global-servername.jar
+      path: java
+    plugins:
+      enable: false
+      directory: c:\plugins
   app:
     resolution:
       width: 820
