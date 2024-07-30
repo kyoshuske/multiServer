@@ -4,7 +4,7 @@
 # To edit global settings go to *\.multiServer\config.yml
 # To run servers start 'launcher.exe'
 #
-server-list:
+enabled-servers:
 - example-server1
 - example-server2
 servers:
