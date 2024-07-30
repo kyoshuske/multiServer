@@ -1,8 +1,7 @@
 # Main configuration file for multiServer.
-# Please read README.md on github before reporting a bug.
 #
-# To edit server list go to *\.multiServer\servers.yml
-# To run app start 'multiServer-START_THIS.bat'
+# To edit server list go to .\.multiServer\servers.yml
+# To run app start 'launcher.exe'
 # 
 # Created by: Kyoshuske
 # Uploaded on: github.com/kyoshuske/multiServer
@@ -16,12 +15,12 @@
 #
 settings:
   global:
-    global-java:
+    java:
       enable: false
       path: java
     plugins:
       enable: false
-      directory: c:\plugins
+      directory: c:\example-plugins
   app:
     resolution:
       width: 820
