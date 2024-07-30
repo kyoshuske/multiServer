@@ -1,8 +1,7 @@
 # Servers configuration file for multiServer.
-# Please read README.md on github before reporting a bug.
 #
-# To edit global settings go to *\.multiServer\config.yml
-# To run servers start 'launcher.exe'
+# To edit global and app settings go to .\.multiServer\config.yml
+# To run app start 'launcher.exe'
 #
 enabled-servers:
 - example-server1
