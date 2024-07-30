@@ -40,7 +40,7 @@ wait = subprocess.Popen(([launcher_exe, 'packer.py', 'nopack']))
 wait.wait()
 os.system('cls')
 os.system('title multiServer ')
-print(Fore.WHITE + '\n                  8   o   o .oPYo.                            \n                  8   8     8                                 \n   ooYoYo. o    o 8  o8P o8 `Yooo. .oPYo. o    o .oPYo. oPYo. \n   8\' 8  8 8    8 8   8   8     `8 8oooo8 Y.  .P 8oooo8 8  `\' \n   8  8  8 8    8 8   8   8      8 8.     `b..d\' 8.     8     \n   8  8  8 `YooP\' 8   8   8 `YooP\' `Yooo\'  `YP\'  `Yooo\' 8       github.com/kyoshuske/multiServer\n\n   _____________________________________________________________________________________________\n')
+print(Fore.WHITE + '\n                  8   o   o .oPYo.                                  \n                  8   8     8                                       \n   ooYoYo. o    o 8  o8P o8 `Yooo. .oPYo. oPYo. o    o .oPYo. oPYo. \n   8\' 8  8 8    8 8   8   8     `8 8oooo8 8  `\' Y.  .P 8oooo8 8  `\'\n   8  8  8 8    8 8   8   8      8 8.     8     `b..d\' 8.     8\n   8  8  8 `YooP\' 8   8   8 `YooP\' `Yooo\' 8      `YP\'  `Yooo\' 8       github.com/kyoshuske/multiServer\n\n   ___________________________________________________________________________________________________\n')
 print(Fore.LIGHTBLUE_EX + 'Loading app...\n')
 dir = directory
 process = {}
@@ -89,14 +89,15 @@ try:
         if state == ('checked'):
             enabledServers.append(int(eid))
         if state == ('none'):
-            print(Fore.LIGHTBLUE_EX + 'Opening ' + eid + '...')
-            if str(eid) == ('config'):
+            if str(eid) == 'config':
+                print(Fore.LIGHTBLUE_EX + 'Opening ' + eid + '...')
                 webbrowser.open_new_tab(config_yml)
-            if str(eid) == ('servers'):
+            if str(eid) == 'servers':
+                print(Fore.LIGHTBLUE_EX + 'Opening ' + eid + '...')
                 webbrowser.open_new_tab(servers_yml)
             else:
                 selected_server = server[int(eid)]
-                for server_name in servers_config['server-list']:
+                for server_name in servers_config['enabled-servers']:
                     if str(server_name) == str(selected_server):
                         current_server = servers_config['servers'][server_name]
                         path = current_server['path']
