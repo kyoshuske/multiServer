@@ -82,16 +82,18 @@ servers: **all the servers even that, that are not in 'server-list'**
 
 # Changelog
 
-<details open><summary>v1.2.9 [FIX]</summary>
+<details><summary>v1.2.9 [FIX]</summary>
 
- - updated launcher
  - removed console window
+ - changed the names of some properties
  - fixed all the issues with launcher and main app
 
 </details>
 
-<details><summary>v1.2.9</summary>
+<details open><summary>v1.2.9</summary>
 
+ - added 'global-plugins' to config.yml
+ - added 'noconsole' to servers.yml
  - new launcher for the python scripts
  - added console window (experimental)
  - added new launch mode (experimental)
