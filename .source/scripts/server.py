@@ -30,35 +30,7 @@ import win32gui, win32con, win32com.client
 
 import yaml
 from configobj import ConfigObj
-
-
-
-
-
-
-
-
-
-
-# server_number = sys.argv[2]
-
 os.system('title server: ' + str(server_number))
-
-# cmd = {}
-# #load commands:
-# commands_yml = directory + '\\.multiServer\\commands.yml'
-# try:
-#     with open(commands_yml, 'r') as file: commands_yml = yaml.safe_load(file)
-#     commands = commands_yml['commands']
-#     print(commands)
-#     for command in commands:
-#         cmd[command] = commands[command]
-        
-# except Exception as r: print(r); time.sleep(2)
-
-
-# app_window = win32gui.GetForegroundWindow()
-# win32gui.ShowWindow(app_window , win32con.SW_HIDE)
 
 starts = (directory + '\\starts')
 web = (directory + '\\app\\web')
@@ -84,19 +56,13 @@ def windowExit(route, websockets):
         print('webapp is not responing.')
         time.sleep(0.2)
         print('closing server...')
-        # console.stdin.write('save-all\nstop\nstop\nstop\nstop\nstop\nstop\n')
-        # console.stdin.flush()
         print('stopping script...')
-        # subprocess.Popen.kill(console)
-        # console.kill()
-
         sys.exit()
 
 @eel.expose
 def captureOutput():
     global numb
     numb = numb + 1
-    # print('refreshing... [' + str(numb) + ']')
     try: output = q.get_nowait()
     except Empty:
         return
@@ -107,17 +73,11 @@ def captureOutput():
         for type in classes:
             if type in teststring:
                 break
-
         if "For help, type \"help\"" in teststring:
             print("server loaded.")
-    # time.sleep(console_refresh)
     string = ('<div class=\"' + classes[type][0] + '\">' + str(output.strip()) + '</div>')
-    # string = (str(output.strip()))
     return { "output": string }
 
-# def webPrint(string, color2):
-#     print(Fore.LIGHTMAGENTA_EX + "" + color2 + string)
-#     # print(string)
 
 
 @eel.expose
@@ -127,16 +87,6 @@ def executeCommand(input):
         if (input[0] == ("/")):
             input = '' + input[1:]
         print('input received (\'' + input + '\')')
-
-    # for command in cmd:
-        
-    #     if (cmd[command]['alias'] == input):
-    #         print('valid')
-    #         for action in cmd[command]['actions']:
-    #             print(action)
-    #             console.stdin.write(action + '\n')
-    #             console.stdin.flush()
-    #         return
     try:
         console.stdin.write(input + '\n')
         console.stdin.flush()

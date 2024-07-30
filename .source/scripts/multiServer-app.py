@@ -55,12 +55,11 @@ try:
     web = (dir + '\\app\\web')
 
     print(Fore.GREEN + 'Working in: \"' + dir + '\"\n') 
-    # print(Fore.GREEN + 'Loaded directories:' + '\n - dir = ' + dir + '\n - config_yml = ' + config_yml + '\n - servers_yml = ' + '' + servers_yml + '\n - launcer = ' + launcher_exe + '\n - starts = ' + starts + '\n - web = ' + web + '\n')
     try:
         with open(servers_yml, 'r') as file: servers_config = yaml.safe_load(file)
 
         print(Fore.GREEN + 'Loaded servers:')
-        for server_name in servers_config['server-list']:
+        for server_name in servers_config['enabled-servers']:
             serverNumb = serverNumb + 1
             enabledServers.append(serverNumb)
             server[serverNumb] = server_name
@@ -125,44 +124,25 @@ try:
             wait.wait()
             os.system('title multiServer')
             for server in enabledServers:
-                random = (((server * server * server) - server) * 2) + 1
+                random = ((((server * server * server) - server) * 2) + 1)
                 if app_mode == ('subprocess'):
-                    process[server] = subprocess.Popen([str(starts + '\\' + str(random) + 'a.cmd')], creationflags=CREATE_NEW_CONSOLE, text=True, close_fds=False, shell=True)
+                    process[server] = subprocess.Popen([str(starts + '\\' + str(random) + 'a.cmd')], creationflags=CREATE_NEW_CONSOLE, text=True, close_fds=False)
                 if app_mode == ('experimental'):
                     print(Fore.LIGHTBLUE_EX + 'Attempting to launch servers in experimental mode...')
                     webbrowser.open(dir + '\\starts\\' + str(random) + 'b.cmd')
                 else:
                     webbrowser.open(starts + '\\' + str(random) + 'a.cmd')
             print(Fore.WHITE + 'Ready')
-                
-
-    # async def startServers():
-    #     for server in enabledServers:
-    #         process[server] = await asyncio.create_subprocess_exec([str(starts + '\\' + str(server) + '.cmd')], creationflags=CREATE_NEW_CONSOLE, text=True, close_fds=True, shell=False)
-
-
-
-
-
-
-    with open(config_yml, 'r') as file: config = yaml.safe_load(file) # load yaml/yml file (cofnig.yml)
+            
+    with open(config_yml, 'r') as file: config = yaml.safe_load(file) # load yaml/yml file (config.yml)
 
     try:
-        app_resolution_height = config['settings']['app']['resolution']['height']
-        app_resolution_width = config['settings']['app']['resolution']['width']
-        app_resolution = (app_resolution_width, app_resolution_height)
-        app_port = config['settings']['app']['port']
-        try:
-            app_mode = config['settings']['app']['mode']
-        except Exception:
-            app_mode = ('webbrowser')
+        app_resolution = (config['settings']['app']['resolution']['width'], config['settings']['app']['resolution']['height'])
+        app_mode = config['settings']['app']['mode']
 
     except Exception: print(Fore.RED + '\nFile \'config.yml\' not found or outdated.' + Fore.LIGHTBLUE_EX + '\nLoading default settings...'); app_resolution = (820, 1300); app_port = (42434)
-    # app_fullscreen = config['settings']['app']['fullscreen-enable']
-    # if app_fullscreen == (True): app_fullscreen = ('–-start-fullscreen')
-    # else: app_fullscreen = ('')
     eel.init(web)
-    eel.start('main.html', size=(app_resolution), position=(600, 50), port=(app_port), host='localhost', close_callback=windowExit, cmdline_args=['--disable-glsl-translator', '--fast-start', '--incognito', '--disable-infobars', '--disable-pinch', '--disable-extensions'], block=False)
+    eel.start('main.html', size=(app_resolution), position=(600, 50), port=(config['settings']['app']['port']), host='localhost', close_callback=windowExit, cmdline_args=['--disable-glsl-translator', '--fast-start', '--incognito', '--disable-infobars', '--disable-pinch', '--disable-extensions', '--resizable: false'], block=False)
     
     gevent.get_hub().join()
 except Exception as error: print(Fore.RED + 'Unknown error!\n' + str(error))
