@@ -34,7 +34,7 @@ settings:
 
     plugins:
       enable: true
-      directory: c:\example-plugins **plugins that
+      directory: c:\example-plugins **directory of the plugins that will be loaded on every server**
 
   app:
     resolution: **starting app window width and height**
