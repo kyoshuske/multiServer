@@ -16,12 +16,9 @@
 #
 settings:
   global:
-    global-filename:
+    global-java:
       enable: false
-      filename: global-servername.jar
-    global-javafile:
-      enable: true
-      filename: java
+      path: global-servername.jar
   app:
     resolution:
       width: 820
