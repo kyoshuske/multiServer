@@ -11,5 +11,4 @@ with os.scandir(path) as it:
             im = Image.open(entry.name)
             print('resizing \"'+entry.path+'\"',str(im.size),' --->  '+'\"'+end_file+'\"',str(size),'...')
             im_resized = im.resize(size, resample=Image.BOX)
-            # im_sharpened = im_resized.filter(ImageFilter.SHARPEN)
             im_resized.save(end_file,"png")
