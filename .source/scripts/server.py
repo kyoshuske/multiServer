@@ -3,6 +3,7 @@ try:
     directory = launch['dir']
     script = launch['sc']
     server_number = int(launch['arg'])
+    server_name = launch['arg2']
 except Exception: print('Please launch this script with launcher.exe'); sys.exit()
 # libraries
 import sys
@@ -13,23 +14,19 @@ from colorama import Fore; from colorama import *
 import time
 
 import subprocess; from subprocess import Popen; from subprocess import *
-import webbrowser
 
 from threading import Thread
 from queue import Queue, Empty
 
 import eel
-from tkinter import messagebox
 
 import gevent
 import asyncio
 
 from psutil import *
 from ctypes import windll
-import win32gui, win32con, win32com.client
 
 import yaml
-from configobj import ConfigObj
 os.system('title server: ' + str(server_number))
 
 starts = (directory + '\\starts')
@@ -62,7 +59,7 @@ def windowExit(route, websockets):
 @eel.expose
 def captureOutput():
     global numb
-    numb = numb + 1
+    numb+=1
     try: output = q.get_nowait()
     except Empty:
         return
@@ -95,7 +92,7 @@ def executeCommand(input):
 @eel.expose
 def windowLoad():
     print(Fore.WHITE + 'webapp responded')
-    return { "consoleInterval": console_refresh }
+    return { "consoleInterval": console_refresh, "serverName": server_name }
 
 async def appStart():
     eel.init(str(web))
@@ -125,8 +122,8 @@ def enqueueOutput(out, queue):
     out.close()
 
 numb = server_number
-random = str((((numb * numb * numb) - numb) * 2) + 1)
-start_file = str(starts + '\\' + str(random) + 'a.cmd')
+# random = str((((numb * numb * numb) - numb) * 2) + 1)
+start_file = str(starts + '\\' + str(numb) + 'a.cmd')
 print(start_file)
 console = Popen([start_file], creationflags=CREATE_NEW_CONSOLE, text=True, stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE, shell=True, close_fds=True)
 q = Queue()
