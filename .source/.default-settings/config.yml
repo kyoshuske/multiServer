@@ -5,7 +5,7 @@
 # 
 # Created by: Kyoshuske
 # Uploaded on: github.com/kyoshuske/multiServer
-# Version: 1.2.9 (if you are updating multiServer please backup all of your configuration files) 
+# Version: 1.3.0 (if you are updating multiServer please backup all of your configuration files)
 # 
 # If you need help or if you want to report a bug,
 # add me on discord and dm me.
@@ -16,15 +16,20 @@
 settings:
   global:
     java:
-      enable: false
+      enable: true
       path: java
     plugins:
       enable: false
       directory: c:\example-plugins
+      whitelist:
+        invert: false 
+        servers: 
+          - example-server2
   app:
     resolution:
       width: 820
       height: 1300
     port: 42434
-    mode: webbrowser # if you don't know what it does, don't change it (webbrowser/subprocess/experimental)
+    mode: system # changes how servers are being started [system/webbrowser/experimental, default: system]
+    reload-server-config: false # when true: reloads server's config everytime when start button is clicked [true/false, default: false]
     console-refresh-rate: 0.2
