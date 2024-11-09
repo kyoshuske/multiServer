@@ -68,18 +68,16 @@ echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.so
 echo cd !syn!\.multiServer
 
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/launcher/launcher.exe -o launcher.exe
-echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/launcher/launcher-dev.exe -o launcher-dev.exe
 
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/config.yml -o config.yml
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/.default-settings/servers.yml -o servers.yml
 
 echo cd !syn!\.multiServer\app\assets
-echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/icon.ico -o icon.ico
 
 echo cd !syn!\.multiServer\app\web
-echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/web/main.css -o main.css
-echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/web/main.html -o main.html
-echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/web/main.js -o main.js
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/web/app.css -o app.css
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/web/app.html -o app.html
+echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/web/app.js -o app.js
 
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/web/server.css -o server.css
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/web/server.html -o server.html
