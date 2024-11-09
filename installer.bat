@@ -13,14 +13,10 @@ if not exist "!pathms!\c.yml" (
 c:
 md !pathms!
 curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/launcher.config -o config.yml
-goto pr
+goto di
 ) else (
 goto in
 )
-:pr
-cls
-echo: Enter disk that on !2title! will be installed. !2l!for example: "D:" or "C:"!2r!
-set /p kym=">:"
 :di
 cls
 echo: Enter server directory. !2l!for example: "D:\myServers"!2r!
@@ -31,7 +27,7 @@ echo: This directory does not exist.!\n! Press any key to enter directory again.
 pause >NUL
 goto di
 ) else (
-!kym!
+cd /D !syn!\.multiServer\app\scripts
 md %syn%\.multiServer
 md %syn%\.multiServer\app\assets
 md %syn%\.multiServer\app\web
@@ -57,8 +53,7 @@ C:
 cd !pathms!
 (
 echo @echo off
-echo !kym!
-echo cd !syn!\.multiServer\app\scripts
+echo cd /D !syn!\.multiServer\app\scripts
 echo cls
 echo title multiServer installer process 1
 echo curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/.source/scripts/packer.py -o packer.py
