@@ -3,7 +3,7 @@
 > you have to execute stop command to shut it down completly
 
 # Instalation
-**You have to install or have installed [Google Chrome](https://www.google.com/intl/en_en/chrome/) to run app's gui**.\
+**You have to install or have installed [Google Chrome](https://www.google.com/intl/en_en/chrome/) to run app's gui**.
 
 Copy and paste code below into the **command prompt**. Than follow the instalation process. 
 ```
@@ -32,9 +32,12 @@ settings:
       enable: true
       path: java **('filename'/'path' depends on version that you are using)**
 
-    plugins:
+    plugins: **when enabled every server will run with these plugins**
       enable: true
-      directory: c:\example-plugins **directory of the plugins that will be loaded on every server**
+      directory: c:\example-plugins **directory containing only .jar plugins**
+      whitelist:
+        invert: false **enables blacklist**
+        servers: [] **list of servers**
 
   app:
     resolution: **starting app window width and height**
@@ -42,8 +45,8 @@ settings:
       height: 1500
 
     port: 42434 **changes the port that on app is running. set it to the not unoccupied port**
-
-    mode: webbrowser **webbrowser/subprocess/experimental (just use webbrowser its the best option here)**
+    mode: system **changes how servers are being started [system/webbrowser/experimental, default: system]**
+    reload-server-config: false **enables server's config reloades everytime when start button is clicked [true/false, default: false]**
     console-refresh-rate: 0.2 **refresh rate of the console (only works on experimental console)**
 ```
 
@@ -59,13 +62,14 @@ servers: **all the servers even that, that are not in 'enabled-servers'**
   example-server1: **name of the server (only used by multiserver)**
     drive: 'C:' **drive**
     path: c:\example1 **directory**
-    file: server.jar **.jar file (paper, spigot, bukkit, purpur etc.)**
+    jar-file: server.jar **.jar file (paper, spigot, bukkit, purpur etc.)**
     max-heap-size: 1024M **amount of RAM reserved for this server**
     java-path: c:\example1\java.exe **java path only used by this server**
 
     visuals:
       nogui: false **disables the vanilla GUI**
       window-title: A minecraft server **window title of the console window**
+      icon: item/crafting.png **icon displayed in app**
 
     force-port:
       enable: false
