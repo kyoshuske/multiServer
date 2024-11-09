@@ -70,9 +70,10 @@ async function display_servers() {
         editable.querySelector('.server-icon').src = servers.icon[id];
         editable.querySelector('.start-button').id = id;
         editable.querySelector('.button-logs').setAttribute( 'onClick', 'openFile('+id+')' );
-        console.log(editable)
-        console.log('---------------------------------------------------')
+        console.log(editable);
+        console.log('---------------------------------------------------');
     };
+    html.remove();
 }
 
 async function changeTab(x) {
