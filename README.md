@@ -11,14 +11,15 @@ md C:\Users\%USERNAME%\AppData\Local\multiServer & C: & cd C:\Users\%USERNAME%\A
 ```
 # Usage
 **main app**:
- - configure app with 'config.yml' and 'servers.yml' (you can read about configuration [here](#configuration))
+ - configure app in 'config.yml' and 'servers.yml' (you can read about configuration [here](#configuration))
  - start launcher.exe
- - select servers that you want to start
- - click 'start' button on the bottom
+ - when app loads start servers that you want
+ - you can also open log files by clicking document icons on the left
    
 **packer**: (python script that converts .yml config into .cmd file)
  - configure servers in 'server.yml' and 'config.yml'
- - start launcher.exe with this two parameters: "packer.py" ("launcher.exe" "packer.py")
+ - start launcher.exe with this one parameter: "packer.py" ("launcher.exe" "packer.py")
+ - now entire configuration should be packed into .cmd file in '.\.multiServer\starts'
 ----
 
 # Configuration
@@ -68,6 +69,7 @@ servers: **all the servers even that, that are not in 'enabled-servers'**
 
     visuals:
       nogui: false **disables the vanilla GUI**
+      noconsole: false **disable the console usage (might not work)**
       window-title: A minecraft server **window title of the console window**
       icon: item/crafting.png **icon displayed in app**
 
@@ -86,6 +88,16 @@ servers: **all the servers even that, that are not in 'enabled-servers'**
 
 # Changelog
 
+<details open><summary>v1.3.0 </summary>
+
+ - updated experimental console
+ - updated global-plugins
+ - reworked completly app ui
+ - added server icons
+ - fixed issues with global-java
+ - added reload-server-config for better user experience
+</details>
+
 <details><summary>v1.2.9 [FIX]</summary>
 
  - removed console window
@@ -94,10 +106,10 @@ servers: **all the servers even that, that are not in 'enabled-servers'**
 
 </details>
 
-<details open><summary>v1.2.9</summary>
+<details><summary>v1.2.9</summary>
 
- - added 'global-plugins' to config.yml
- - added 'noconsole' to servers.yml
+ - added global-plugins to config.yml
+ - added noconsole to servers.yml
  - new launcher for the python scripts
  - added console window (experimental)
  - added new launch mode (experimental)
