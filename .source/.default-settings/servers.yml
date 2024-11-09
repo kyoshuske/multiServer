@@ -14,7 +14,7 @@ servers:
       nogui: false
       noconsole: false
       window-title: A minecraft server
-      icon: item/crafting.png # pick icon from: github.com/kyoshuske/multiServer/tree/main/assets/icon
+      icon: block/crafting.png # pick icon from: github.com/kyoshuske/multiServer/tree/main/assets/icon
     force-port:
       enable: false
       port: 25565
@@ -33,7 +33,7 @@ servers:
       nogui: false
       noconsole: false
       window-title: A minecraft server
-      icon: item/cobblestone.png # pick icon from: github.com/kyoshuske/multiServer/tree/main/assets/icon
+      icon: block/cobblestone.png # pick icon from: github.com/kyoshuske/multiServer/tree/main/assets/icon
     force-port:
       enable: false
       port: 25565
