@@ -3,20 +3,18 @@
 # To edit global and app settings go to .\.multiServer\config.yml
 # To run app start 'launcher.exe'
 #
-enabled-servers:
-- example-server1
-- example-server2
 servers:
   example-server1:
     drive: 'C:'
     path: c:\example1
     jar-file: server.jar
     max-heap-size: 1024M
-    java-path: c:\example1\java.exe
+    java-path: c:\example1\java.exe # only works if settings:global:java:enable in config.yml is set to false
     visuals:
       nogui: false
       noconsole: false
       window-title: A minecraft server
+      icon: item/crafting.png # pick icon from: github.com/kyoshuske/multiServer/tree/main/assets/icon
     force-port:
       enable: false
       port: 25565
@@ -27,7 +25,7 @@ servers:
       paper: default
   example-server2:
     drive: 'C:'
-    path: c:\example2
+    path: c:\example2 # only works if settings:global:java:enable in config.yml is set to false
     jar-file: server.jar
     max-heap-size: 1024M
     java-path: c:\example2\java.exe
@@ -35,6 +33,7 @@ servers:
       nogui: false
       noconsole: false
       window-title: A minecraft server
+      icon: item/cobblestone.png # pick icon from: github.com/kyoshuske/multiServer/tree/main/assets/icon
     force-port:
       enable: false
       port: 25565
