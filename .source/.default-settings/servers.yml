@@ -14,7 +14,7 @@ servers:
       nogui: false
       noconsole: false
       window-title: A minecraft server
-      icon: block/crafting.png # pick icon from: github.com/kyoshuske/multiServer/tree/main/assets/icon
+      icon: block/crafting_table.png # pick icon from: github.com/kyoshuske/multiServer/tree/main/assets/icon
     force-port:
       enable: false
       port: 25565
