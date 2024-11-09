@@ -33,8 +33,8 @@ const initialize = async () => {
                 start_button.innerHTML="starting";
                 start_button.classList.add(CLICK_CLASS);
                 start_button.setAttribute('disabled', 'true');
+                console.log('clicked start-button: ' +  start_button.id);
                 eel.serverStartClick(id=(start_button.id))(function callback() {
-                
                     start_button.classList.remove(CLICK_CLASS);
                     start_button.setAttribute('disabled', 'true');
                     start_button.innerHTML="start";
