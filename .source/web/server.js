@@ -6,6 +6,7 @@ window.enablescroll = 1;
 
 const initialize = async () => {
     window.load = await eel.windowLoad()();
+    document.title = (window.load.serverName);
     await console_display();
 }
 

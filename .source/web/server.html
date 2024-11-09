@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
-<html>
+<html translate="no">
 <head>
-    <title>multiServer: server-console [experimental]</title>
+    <title>console - loading...</title>
 
     <!-- css -->
     <link rel="stylesheet" href="server.css" type="text/css" />
@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alata&family=Outfit:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+    <meta name="google" content="notranslate">
     
     <!-- javascript -->
     <script type="text/javascript" src="server.js"></script>
@@ -21,33 +22,13 @@
     
 </head>
 <body>
-    <div id="bar">
-        <div class="bar-logo">
-            <img src="https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/server-icon.png" alt="multiServer-logo.png" width="70" height="70" class="icon-logo">
-        </div>
-        <div class="bar-text-1">
-            <!-- <div id="bar-text-2">multiServer</div> -->
-            <img src="https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/logo-text.png" alt="multiServer-logo-text.png" class="text-logo">
-        </div>
-        <!-- <div class="bar-exit-button" id="exit"></div> -->
-    </div>
-    
-    <div id="site-main">
-            <div class="h1 c">console</div>
-            <div class="categorySplit-ud c">
-                <!-- style="display: none;" -->
-                <div id="tools">
-                    <div class="tool" id="scroll" onclick="buttonClick(event)"></div>
-                    <div class="tool" id="another" onclick="buttonClick(event)"></div>
-                </div>
-                <div name="textarea" id="console" style="width: 1280px; height: 450px; resize: none; background-color: #202020; margin-left: 58px; overflow: auto; font-family: 'Inconsolata', monospace, serif; font-size: 88%; padding-top: 10px; padding-left: 10px;" disabled></div>                    
-                <textarea onkeydown="executeCommand(event)" id="consoleInput" spellcheck="false" autocapitalize="off" autocorrect="off" placeholder="/<command>" autofocus rows="1" cols="20000" style="color:aliceblue; overflow: hidden; text-overflow: ellipsis; padding-right: 8px; resize: none; width: 1280px; height: 30px; margin-left: 58px; font-family: 'Inconsolata', monospace, serif; font-size: 140%; border-style: hidden;"></textarea>
-            </div>
-    </div>
-
-    <div id="end"></div>
-    <div id="footer">
-        <div id="footerText">EXPERIMENTAL</div>
+    <div class="console">
+        <!-- <div class="tools">
+            <div class="tool" id="scroll" onclick="buttonClick(event)"></div>
+            <div class="tool" id="another" onclick="buttonClick(event)"></div>
+        </div> -->
+        <div name="textarea" id="console" disabled></div>                    
+        <textarea onkeydown="executeCommand(event)" id="consoleInput" spellcheck="false" autocapitalize="off" autocorrect="off" placeholder="/<command>" autofocus rows="1" cols="20000"></textarea>
     </div>
 </body>
 </html>
