@@ -61,8 +61,7 @@ enabled-servers: **all the servers that you want to be displayed in the launcher
 
 servers: **all the servers even that, that are not in 'enabled-servers'**
   example-server1: **name of the server (only used by multiserver)**
-    drive: 'C:' **drive**
-    path: c:\example1 **directory**
+    path: c:\example1 **server's directory**
     jar-file: server.jar **.jar file (paper, spigot, bukkit, purpur etc.)**
     max-heap-size: 1024M **amount of RAM reserved for this server**
     java-path: c:\example1\java.exe **java path only used by this server**
@@ -77,7 +76,7 @@ servers: **all the servers even that, that are not in 'enabled-servers'**
       enable: false
       port: 25565 **server port (overrides port from server.properties)**
 
-    config-files:
+    config-files: # can be an empty list: [] instead
       server-properties: default **path of 'server.properties' file**
       bukkit: default **path of 'bukkit.yml' file**
       spigot: default **path of 'spigot.yml' file**
