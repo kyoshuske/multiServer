@@ -25,6 +25,9 @@ settings:
         invert: false 
         servers: 
           - example-server2
+    # By changing the setting below to TRUE or any other value listed below you are indicating your agreement to mojang's EULA (https://account.mojang.com/documents/minecraft_eula).
+    # [y, Y, yes, Yes, YES, true, True, TRUE, on, On, ON]
+    eula: true
   app:
     resolution:
       width: 820
