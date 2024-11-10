@@ -44,7 +44,7 @@ classes = {
     'ERROR]: ': ["error", Fore.LIGHTRED_EX],
     'WARN]: ': ["warn", Fore.LIGHTYELLOW_EX],
     'HOST]: ': ["warn", Fore.LIGHTCYAN_EX],
-    'NONE]: ': ["unkown", Fore.LIGHTBLACK_EX],
+    'NONE]: ': ["unkown", Fore.LIGHTBLACK_EX]
 }
 
 @eel.expose

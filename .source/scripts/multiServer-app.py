@@ -2,6 +2,7 @@ import sys
 try:
     directory = launch['dir']
     script = launch['sc']
+    c = launch['color-format']
 except Exception: print('Please launch this script with launcher.exe'); sys.exit()
 
 # libraries
@@ -22,20 +23,12 @@ from ctypes import windll
 
 import yaml
 
-
-c = {
-    'none': Fore.WHITE,
-    'dur': Fore.LIGHTBLUE_EX,
-    'su': Fore.GREEN,
-    'end': Fore.YELLOW
-}
-
 launcher_exe = (directory + '\\launcher.exe')
 
 def appClose():
     sys.exit()
 def startPacker():
-    print(c['dur'] + '\n' + ' Starting packer.py...')
+    print(c['dur'] + '\n' + ' Starting packer.py...'+c['none'])
     wait = subprocess.Popen(([launcher_exe, 'packer.py']))
     wait.wait()
     os.system('title multiServer')
