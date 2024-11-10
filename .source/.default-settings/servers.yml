@@ -32,3 +32,4 @@ servers:
       enable: false
       port: 25565
     config-files: []
+    custom-parameters: []
