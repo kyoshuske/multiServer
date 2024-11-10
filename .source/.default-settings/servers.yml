@@ -18,6 +18,7 @@ servers:
       enable: false
       port: 25565
     config-files: []
+    custom-parameters: []
   example-server2:
     path: c:\example2 # only works if settings:global:java:enable in config.yml is set to false
     jar-file: server.jar
