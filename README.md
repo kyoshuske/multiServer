@@ -39,6 +39,7 @@ settings:
       whitelist:
         invert: false **enables blacklist**
         servers: [] **list of servers**
+    eula: true **when enabled means that you have agreed to mojang's eula**
 
   app:
     resolution: **starting app window width and height**
@@ -76,11 +77,15 @@ servers: **all the servers even that, that are not in 'enabled-servers'**
       enable: false
       port: 25565 **server port (overrides port from server.properties)**
 
-    config-files: # can be an empty list: [] instead
+    config-files: **can be an empty list: [] instead**
       server-properties: default **path of 'server.properties' file**
       bukkit: default **path of 'bukkit.yml' file**
       spigot: default **path of 'spigot.yml' file**
       paper: default **path of 'paper.yml' or 'configs\paper-global.yml' file (check docs.papermc.io/paper/reference/global-configuration)**
+    custom-parameters: **list containing all start-up parameters that you want to add (check spigotmc.org/wiki/start-up-parameters) can be an empty list: [] instead**
+      - '--help' **example parameter**
+      - '--version' **example parameter**
+      - '--safeMode' **example parameter**
 ```
 
 </details>
@@ -89,6 +94,8 @@ servers: **all the servers even that, that are not in 'enabled-servers'**
 
 <details open><summary>v1.3.0 </summary>
 
+ - added eula agreement to configuration
+ - added custom-startup-parameters
  - updated experimental console
  - updated global-plugins
  - reworked completly app ui
