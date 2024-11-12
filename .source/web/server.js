@@ -1,5 +1,7 @@
 const CHECKED_CLASS = 'checked';
 const CLICK_CLASS = 'clicked';
+const HIDDEN_CLASS = 'hidden';
+const LOG_CLASSES = ["info", "warn", "error"];
 window.lastcommand = '';
 window.enablescroll = 1;
 
@@ -26,13 +28,15 @@ async function console_display() {
             const newoutput = output.output
             const textarea = document.getElementById('console');
             const content = textarea.innerHTML || textarea.textContent;
-            const newcontent = `${content}\n${newoutput}`.split('\n').slice(-2137).join('\n')
-            textarea.innerHTML = newcontent;
+            const newelement = parseHTML(newoutput);
+            textarea.appendChild(newelement)
+            // const newcontent = `${content}\n${newoutput}`.split('\n').slice(-2137).join('\n')
+            // textarea.innerHTML = newcontent;
             if (window.enablescroll == 1) {
                 textarea.scrollTop = textarea.scrollHeight;
             }
         }
-    , (window.load.consoleInterval * 600));
+    , (window.load.consoleInterval * 300));
 }
 
 async function executeCommand(event) {
@@ -59,13 +63,39 @@ async function executeCommand(event) {
 async function buttonClick(event) {
     console.log(event)
     button = event.target
-    if (event.target.id == "scroll") {
+    if (button.classList.contains(CHECKED_CLASS)) {
+        button.classList.remove(CHECKED_CLASS);
+    } else {
+        button.classList.add(CHECKED_CLASS);
+    };
+    if (button.id == "scroll") {
         if (window.enablescroll == 0){
-            button.classList.remove(CHECKED_CLASS);
             window.enablescroll = 1;
         } else {
-            button.classList.add(CHECKED_CLASS);
             window.enablescroll = 0;
         };
+    } else {
+        const id = button.id.replace('sort_','')
+
+        for (const log_type of LOG_CLASSES) {
+            if (id.includes(log_type)) {
+                const elements = document.querySelectorAll('.'+log_type);
+                console.log(log_type)
+                if (button.classList.contains(CHECKED_CLASS)) {
+                    for (element of elements) {
+                        element.classList.add(HIDDEN_CLASS);
+                    };
+                } else {
+                    for (element of elements) {
+                        element.classList.remove(HIDDEN_CLASS);
+                    };
+                };
+            };
+        };
     };
+};
+function parseHTML(html) {
+    var t = document.createElement('template');
+    t.innerHTML = html;
+    return t.content;
 };

@@ -18,16 +18,26 @@
     <script type="text/javascript" src="eel.js"></script>
 
     <!-- icon -->
-    <link rel="shortcut icon" href="https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/online-server.png">
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/server-icon.png">
     
 </head>
 <body>
-    <div class="console">
-        <!-- <div class="tools">
-            <div class="tool" id="scroll" onclick="buttonClick(event)"></div>
-            <div class="tool" id="another" onclick="buttonClick(event)"></div>
-        </div> -->
-        <div name="textarea" id="console" disabled></div>                    
+    <div class="everything">
+        <div class="tools">
+            <!-- <path stroke-width="0" d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/> -->
+            <svg class="tool" id="sort_info" onclick="buttonClick(event)" width="28" height="28" viewBox="0 0 16 16"></svg>
+            <!-- <path stroke-width="0" d="M7.005 3.1a1 1 0 1 1 1.99 0l-.388 6.35a.61.61 0 0 1-1.214 0zM7 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0"/> -->
+            <svg class="tool" id="sort_warn" onclick="buttonClick(event)" width="28" height="28" viewBox="0 0 16 16"></svg>
+            <!-- <path stroke-width="0" d="M18 17h-.09c.058-.33.088-.665.09-1v-1h1a1 1 0 0 0 0-2h-1.09a5.97 5.97 0 0 0-.26-1H17a2 2 0 0 0 2-2V8a1 1 0 1 0-2 0v2h-.54a6.239 6.239 0 0 0-.46-.46V8a3.963 3.963 0 0 0-.986-2.6l.693-.693A1 1 0 0 0 16 4V3a1 1 0 1 0-2 0v.586l-.661.661a3.753 3.753 0 0 0-2.678 0L10 3.586V3a1 1 0 1 0-2 0v1a1 1 0 0 0 .293.707l.693.693A3.963 3.963 0 0 0 8 8v1.54a6.239 6.239 0 0 0-.46.46H7V8a1 1 0 0 0-2 0v2a2 2 0 0 0 2 2h-.65a5.97 5.97 0 0 0-.26 1H5a1 1 0 0 0 0 2h1v1a6 6 0 0 0 .09 1H6a2 2 0 0 0-2 2v2a1 1 0 1 0 2 0v-2h.812A6.012 6.012 0 0 0 11 21.907V12a1 1 0 0 1 2 0v9.907A6.011 6.011 0 0 0 17.188 19H18v2a1 1 0 0 0 2 0v-2a2 2 0 0 0-2-2Zm-4-8.65a5.922 5.922 0 0 0-.941-.251l-.111-.017a5.52 5.52 0 0 0-1.9 0l-.111.017A5.925 5.925 0 0 0 10 8.35V8a2 2 0 1 1 4 0v.35Z"/> -->
+            <svg class="tool" id="sort_error" onclick="buttonClick(event)" width="28" height="28" viewBox="0 0 24 22"></svg>
+            <!-- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19V5m0 14-4-4m4 4 4-4"/> -->
+             <svg class="tool" id="scroll" onclick="buttonClick(event)" width="28" height="28" viewBox="0 0 24 22"></svg>
+        </div>
+        <div id="console" disabled>
+            <!-- <div class=warn>Launching server in experimental mode... Please note that this is an experimental feature and it might not work correctly</div> -->
+            <div class=warn>WARNING! : SERVER WILL NOT STOP IF YOU CLOSE THIS WINDOW!</div>
+            <div class=warn>WARNING! : YOU HAVE TO EXECUTE '/stop' COMMAND TO STOP IT!</div>
+        </div>
         <textarea onkeydown="executeCommand(event)" id="consoleInput" spellcheck="false" autocapitalize="off" autocorrect="off" placeholder="/<command>" autofocus rows="1" cols="20000"></textarea>
     </div>
 </body>
