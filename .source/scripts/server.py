@@ -16,6 +16,7 @@ import time
 import subprocess; from subprocess import Popen; from subprocess import *
 
 from threading import Thread
+import traceback
 from queue import Queue, Empty
 
 import eel
@@ -33,13 +34,17 @@ starts = (directory + '\\starts')
 web = (directory + '\\app\\web')
 config_yml = (directory + '\\config.yml')
 numb = 0
+last_type = 'INFO]: '
 
 classes = {
-    '[90m': ["none", Fore.LIGHTCYAN_EX],
-    '[92m': ["none", Fore.LIGHTCYAN_EX],
-    '[96m': ["none", Fore.LIGHTCYAN_EX],
-    '[31m': ["error", Fore.LIGHTCYAN_EX],
-    'Done': ["success", Fore.LIGHTCYAN_EX],
+
+    # 'Done': ["success", Fore.LIGHTCYAN_EX],
+    # 'successfully': ["success", Fore.LIGHTCYAN_EX],
+    # 'Loaded': ["success", Fore.LIGHTCYAN_EX],
+    # 'loaded': ["success", Fore.LIGHTCYAN_EX],
+    # 'Registered': ["success", Fore.LIGHTCYAN_EX],
+    # 'registered': ["success", Fore.LIGHTCYAN_EX],
+
     'INFO]: ': ["info", Fore.WHITE],
     'ERROR]: ': ["error", Fore.LIGHTRED_EX],
     'WARN]: ': ["warn", Fore.LIGHTYELLOW_EX],
@@ -58,28 +63,33 @@ def windowExit(route, websockets):
 
 @eel.expose
 def captureOutput():
-    global numb
-    numb+=1
-    try: output = q.get_nowait()
-    except Empty:
-        return
-    type = 'NONE]: '
-    if output:
-        teststring = str(output.strip())
-        type = classes['INFO]: ']
-        for type in classes:
-            if type in teststring:
-                break
-        if "For help, type \"help\"" in teststring:
-            print("server loaded.")
-    string = ('<div class=\"' + classes[type][0] + '\">' + str(output.strip()) + '</div>')
-    return { "output": string }
+    try:
+        global numb
+        global last_type
+        try: output = q.get_nowait()
+        except Empty:
+            return
+        type = 'NONE]: '
+        if output:
+            teststring = str(output.strip())
+            type = classes['INFO]: ']
+            for type in classes:
+                if type in teststring:
+                    last_type = type
+                    numb+=1
+                    break
+            if "For help, type \"help\"" in teststring:
+                print("server loaded.")
+            if type == 'NONE]: ':
+                type = last_type
 
+            string = ('<div class=\"' + classes[type][0]+ '\">' + str(output.strip()) + '</div>')
+            return { "output": string }
+    except Exception: return { "output": '<div class=\"' + classes['INFO]: '][0]+ '\">' + str(traceback.format_exc()) + '</div>' }
 
 
 @eel.expose
 def executeCommand(input):
-
     if input != '':
         if (input[0] == ("/")):
             input = '' + input[1:]
@@ -91,6 +101,7 @@ def executeCommand(input):
 
 @eel.expose
 def windowLoad():
+
     print(Fore.WHITE + 'webapp responded')
     return { "consoleInterval": console_refresh, "serverName": server_name }
 
@@ -121,11 +132,9 @@ def enqueueOutput(out, queue):
         queue.put(line)
     out.close()
 
-numb = server_number
-# random = str((((numb * numb * numb) - numb) * 2) + 1)
-start_file = str(starts + '\\' + str(numb) + 'a.cmd')
+start_file = str(starts + '\\' + str(server_number) + 'a.cmd')
 print(start_file)
-console = Popen([start_file], creationflags=CREATE_NEW_CONSOLE, text=True, stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE, shell=True, close_fds=True)
+console = Popen([start_file], creationflags=CREATE_NEW_CONSOLE, text=True, stdout=subprocess.PIPE, stdin=subprocess.PIPE, shell=True, stderr=subprocess.PIPE, close_fds=True)
 q = Queue()
 t = Thread(target=enqueueOutput, args=(console.stdout, q))
 t.daemon = True
