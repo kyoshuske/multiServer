@@ -49,7 +49,9 @@ settings:
     port: 42434 **changes the port that on app is running. set it to the not unoccupied port**
     mode: system **changes how servers are being started [system/webbrowser/experimental, default: system]**
     reload-server-config: false **enables server's config reloades everytime when start button is clicked [true/false, default: false]**
-    console-refresh-rate: 0.2 **refresh rate of the console (only works on experimental console)**
+    experimental-mode:
+      console-refresh-rate: 0.1 **refresh rate of the console (only works on experimental console)**
+      max-console-output: 1800 **max amount of lines displayed in console (only works on experimental console)**
 ```
 
 </details>
@@ -57,9 +59,6 @@ settings:
 <details><summary>servers.yml</summary>
   
 ```
-enabled-servers: **all the servers that you want to be displayed in the launcher**
-- example-server1
-
 servers: **all the servers even that, that are not in 'enabled-servers'**
   example-server1: **name of the server (only used by multiserver)**
     path: c:\example1 **server's directory**
