@@ -27,29 +27,29 @@ md C:\Users\%USERNAME%\AppData\Local\multiServer & C: & cd C:\Users\%USERNAME%\A
 ```yaml
 settings:
   global:
-    java: **when enabled every server runs on this java**
+    java: # when enabled every server runs on this java
       enable: true
-      path: java **('filename'/'path' depends on version that you are using)**
+      path: java # ('filename'/'path' depends on version that you are using)
 
-    plugins: **when enabled every server will run with these plugins**
+    plugins: # when enabled every server will run with these plugins
       enable: true
-      directory: c:\example-plugins **directory containing only .jar plugins**
+      directory: c:\example-plugins # directory containing only .jar plugins
       whitelist:
-        invert: false **enables blacklist**
-        servers: [] **list of servers**
-    eula: true **when enabled means that you have agreed to mojang's eula**
+        invert: false # enables blacklist
+        servers: [] # list of servers
+    eula: true # when enabled means that you have agreed to mojang's eula
 
   app:
-    resolution: **starting app window width and height**
+    resolution: # starting app window width and height
       width: 1200
       height: 1500
 
-    port: 42434 **changes the port that on app is running. set it to the not unoccupied port**
-    mode: system **changes how servers are being started [system/subprocess/webbrowser/experimental, default: system]**
-    reload-server-config: false **enables server's config reloades everytime when start button is clicked [true/false, default: false]**
+    port: 42434 # changes the port that on app is running. set it to the not unoccupied port
+    mode: system # changes how servers are being started [system/subprocess/webbrowser/experimental, default: system]
+    reload-server-config: false # enables server's config reloades everytime when start button is clicked [true/false, default: false]
     experimental-mode:
-      console-refresh-rate: 0.1 **refresh rate of the console (only works on experimental console)**
-      max-console-output: 1800 **max amount of lines displayed in console (only works on experimental console)**
+      console-refresh-rate: 0.1 # refresh rate of the console (only works on experimental console)
+      max-console-output: 1800 # max amount of lines displayed in console (only works on experimental console)
 ```
 
 </details>
@@ -57,32 +57,32 @@ settings:
 <details><summary>servers.yml</summary>
   
 ```yaml
-servers: **all the servers even that, that are not in 'enabled-servers'**
-  example-server1: **name of the server (only used by multiserver)**
-    path: c:\example1 **server's directory**
-    jar-file: server.jar **.jar file (paper, spigot, bukkit, purpur etc.)**
-    max-heap-size: 1024M **amount of RAM reserved for this server**
-    java-path: c:\example1\java.exe **java path only used by this server**
+servers: # all the servers even that, that are not in 'enabled-servers'
+  example-server1: # name of the server (only used by multiserver)
+    path: c:\example1 # server's directory
+    jar-file: server.jar # .jar file (paper, spigot, bukkit, purpur etc.)
+    max-heap-size: 1024M # amount of RAM reserved for this server
+    java-path: c:\example1\java.exe # java path only used by this server
 
     visuals:
-      nogui: false **disables the vanilla GUI**
-      noconsole: false **disable the console usage (might not work)**
-      window-title: A minecraft server **window title of the console window**
-      icon: item/crafting.png **icon displayed in app**
+      nogui: false # disables the vanilla GUI
+      noconsole: false # disable the console usage (might not work)
+      window-title: A minecraft server # window title of the console window
+      icon: item/crafting.png # icon displayed in app
 
     force-port:
       enable: false
-      port: 25565 **server port (overrides port from server.properties)**
+      port: 25565 # server port (overrides port from server.properties)
 
-    config-files: **can be an empty list: [] instead**
-      server-properties: default **path of 'server.properties' file**
-      bukkit: default **path of 'bukkit.yml' file**
-      spigot: default **path of 'spigot.yml' file**
-      paper: default **path of 'paper.yml' or 'configs\paper-global.yml' file (check docs.papermc.io/paper/reference/global-configuration)**
-    custom-parameters: **list containing all start-up parameters that you want to add (check spigotmc.org/wiki/start-up-parameters) can be an empty list: [] instead**
-      - '--help' **example parameter**
-      - '--version' **example parameter**
-      - '--safeMode' **example parameter**
+    config-files: # can be an empty list instead
+      server-properties: default # path of 'server.properties' file
+      bukkit: default # path of 'bukkit.yml' file
+      spigot: default # path of 'spigot.yml' file
+      paper: default # path of 'paper.yml' or 'configs\paper-global.yml' file (check docs.papermc.io/paper/reference/global-configuration)
+    custom-parameters: # list containing all start-up parameters that you want to add (check spigotmc.org/wiki/start-up-parameters) can be an empty list: [] instead
+      - '--help' # example parameter
+      - '--version' # example parameter
+      - '--safeMode' # example parameter
 ```
 
 </details>
