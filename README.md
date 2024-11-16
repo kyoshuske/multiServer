@@ -4,7 +4,7 @@
 **You have to install or have installed [Google Chrome](https://www.google.com/intl/en_en/chrome/) to run app's gui**.
 
 Copy and paste code below into the **command prompt**. Than follow the instalation process. (i know its a bad way to make installer)
-```
+```bat
 md C:\Users\%USERNAME%\AppData\Local\multiServer & C: & cd C:\Users\%USERNAME%\AppData\Local\multiServer & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/installer.bat -o in.bat & powershell Start -File "in.bat '/K %~f0 runas'" -Verb RunAs & exit & exit
 ```
 # Usage
@@ -24,7 +24,7 @@ md C:\Users\%USERNAME%\AppData\Local\multiServer & C: & cd C:\Users\%USERNAME%\A
 
 <details><summary>config.yml</summary>
   
-```
+```yaml
 settings:
   global:
     java: **when enabled every server runs on this java**
@@ -56,7 +56,7 @@ settings:
 
 <details><summary>servers.yml</summary>
   
-```
+```yaml
 servers: **all the servers even that, that are not in 'enabled-servers'**
   example-server1: **name of the server (only used by multiserver)**
     path: c:\example1 **server's directory**
