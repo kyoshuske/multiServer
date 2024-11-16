@@ -1,6 +1,3 @@
-> [!CAUTION]
-> if you are using 'experimental' mode server won't shutdown when window closes\
-> you have to execute stop command to shut it down completly
 
 # Instalation
 **You have to install or have installed [Google Chrome](https://www.google.com/intl/en_en/chrome/) to run app's gui**.
