@@ -1,7 +1,7 @@
 # Preview
 ![multiServer](assets/github-banner.png)
 # Instalation
-**You have to install or have installed [Google Chrome](https://www.google.com/intl/en_en/chrome/) to run app's gui**.
+**You have to install or have installed [Google Chrome](https://www.google.com/intl/en_en/chrome "Google Chrome instalation page") to run app's gui**.
 
 Copy and paste code below into the **command prompt**. Than follow the instalation process. (i know its a bad way to make installer)
 ```bat
