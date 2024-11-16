@@ -132,13 +132,13 @@ try:
                 server['id'] = str(id)
                 print(f'{c['dur']}  - \"{server_name}\" server... ({server['id']})')
                 server['file-a'] = f'{directory}\\starts\\{server['id']}a.cmd'
-                server['file-b'] = f'{directory}\\starts\\{server['id']}b.cmd'
+                # server['file-b'] = f'{directory}\\starts\\{server['id']}b.cmd'
                 # server['file-c'] = f'{directory}\\starts\\{server['id']}c.cmd'
                 server['arguments'] = f'cd /D \"{server['path']}\"\n\"{java}\" -Xmx{str(server['max-heap-size'])}{eula} -jar \"{server['jar-file']}\"{str(prt)}{visual['nogui']}{visual['noconsole']}{file['server-properties']}{file['bukkit']}{file['spigot']}{file['paper']}{server['plugins']}{server['custom-args']}'
                 server['process-end'] = f'echo.\necho: Server closed.\necho: Saved logs to {server['path']}\\logs\\latest.log\necho: Press any key to exit console...\npause > NUL\necho:Console closed.\nexit'
                 server['file'] = f'@echo off\ntitle {visual['window-title']}\necho:^[90m^Loading server with multiServer...\n{server['exist']}\necho:Starting server on port *:{port}\n{server['arguments']}\n{server['process-end']}'
                 with open(server['file-a'], 'w') as f: f.write(server['file'])
-                with open(server['file-b'], 'w') as f: f.write(f'start {directory}\\launcher.exe \"server.py\" \"{server['id']}\" {server_name}\"')
+                # with open(server['file-b'], 'w') as f: f.write(f'start {directory}\\launcher.exe \"server.py\" \"{server['id']}\" {server_name}\"\nexit')
                 # with open(server['file-c'], 'w') as f: f.write(server['arguments'])
             except Exception as error: displayError('Custom', 'Creating files. '+'(' + error + ')')
         time = getTimeBetween(time_before, datetime.now())

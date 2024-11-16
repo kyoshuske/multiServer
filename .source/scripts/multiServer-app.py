@@ -67,16 +67,21 @@ try:
 
     def startServer(id: int):
         file_directory = starts+'\\'+str(id)
+        start_file = f'{file_directory}a.cmd'
         if app_mode == 'subprocess':
-            process[server] = subprocess.Popen([file_directory+'a.cmd'], creationflags=CREATE_NEW_CONSOLE, text=True, close_fds=False)
+            process[str(server)] = Popen([start_file], creationflags=CREATE_NEW_CONSOLE)
+            
         elif app_mode == 'experimental':
             print(c['dur'] + ' Attempting to launch server in experimental mode...')
-            webbrowser.open(file_directory+'b.cmd')
-        elif app_mode == 'system':
-            os.system('start ' + file_directory+'a.cmd')
+            os.system(f'start {directory}\\launcher.exe \"server.py\" \"{str(id)}\" {server[id]}\"')
+
+        elif app_mode == 'webbrowser':
+            webbrowser.open(start_file)
+
         else:
-            webbrowser.open(file_directory+'a.cmd')
-        print(c['su'] + ' Server successfully started')
+            os.system(f'start {start_file}')
+
+        print(f'{c['su']} Server successfully started')
 
 
     @eel.expose
@@ -87,7 +92,7 @@ try:
 
     @eel.expose
     def windowLoad():
-        print('\n' + c['none'], 'Loaded app')
+        print(f'\n{c['none']} Loaded app')
 
     @eel.expose
     def getServers():

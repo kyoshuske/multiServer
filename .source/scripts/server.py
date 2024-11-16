@@ -138,7 +138,7 @@ def enqueueOutput(out, queue):
         queue.put(line)
     out.close()
 
-start_file = str(starts + '\\' + str(server_number) + 'a.cmd')
+start_file = f'{starts}\\{str(server_number)}a.cmd'
 print(start_file)
 console = Popen([start_file], text=True, stdout=subprocess.PIPE, stdin=subprocess.PIPE, shell=True, stderr=subprocess.PIPE, close_fds=True)
 q = Queue()
