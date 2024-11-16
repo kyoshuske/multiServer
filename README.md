@@ -46,6 +46,8 @@ settings:
     port: 42434 # changes the port that on app is running. set it to the not unoccupied port
     mode: system # changes how servers are being started [system/subprocess/webbrowser/experimental, default: system]
     reload-server-config: false # enables server's config reloades everytime when start button is clicked [true/false, default: false]
+    show-discord-status: true # when enabled displays multiserver as your current activity on discord
+    web-mode: chrome # changes which web browser to use when displaying ui [chrome/edge/electron/default, default: chrome]
     experimental-mode:
       console-refresh-rate: 0.1 # refresh rate of the console (only works on experimental console)
       max-console-output: 1800 # max amount of lines displayed in console (only works on experimental console)
