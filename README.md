@@ -44,7 +44,7 @@ settings:
       height: 1500
 
     port: 42434 **changes the port that on app is running. set it to the not unoccupied port**
-    mode: system **changes how servers are being started [system/webbrowser/experimental, default: system]**
+    mode: system **changes how servers are being started [system/subprocess/webbrowser/experimental, default: system]**
     reload-server-config: false **enables server's config reloades everytime when start button is clicked [true/false, default: false]**
     experimental-mode:
       console-refresh-rate: 0.1 **refresh rate of the console (only works on experimental console)**
