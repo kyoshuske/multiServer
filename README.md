@@ -1,4 +1,4 @@
-
+[multiServer](.github/assets/github-banner.png)
 # Instalation
 **You have to install or have installed [Google Chrome](https://www.google.com/intl/en_en/chrome/) to run app's gui**.
 
