@@ -9,12 +9,13 @@ except Exception: print('Please launch this script with launcher.exe'); sys.exit
 import os
 
 from colorama import Fore; from colorama import *
-import time
 
 import subprocess; from subprocess import Popen; from subprocess import *
 import webbrowser
 
 import eel
+import discordrpc
+from discordrpc.utils import timestamp
 
 import gevent
 import traceback
@@ -44,6 +45,7 @@ process = {}
 server = {}
 icon = {}
 enabledServers = []
+serverNames = ''
 try: 
     starts = dir + '\\starts'
     config_yml = dir + '\\config.yml'
@@ -59,6 +61,7 @@ try:
         for server_name in servers_config['servers']:
             x+=1
             enabledServers.append(x)
+            serverNames+=server_name+' '
             server[x] = server_name
             print('  -', server_name + ' (' + str(x) + ')')
             icon[x] = ('https://raw.githubusercontent.com/kyoshuske/multiServer/main/assets/icon/' + servers_config['servers'][server_name]['visuals']['icon'])
@@ -165,10 +168,20 @@ try:
         app_resolution = config['settings']['app']['resolution']['width'], config['settings']['app']['resolution']['height']
         app_mode = config['settings']['app']['mode']
         fast_start = config['settings']['app']['reload-server-config']
+        enable_rpc = config['settings']['app']['show-discord-status']
 
-    except Exception: print(f'{c['err']}\n File \'config.yml\' not found or outdated.{c['dur']}\n Loading default settings...'); app_resolution = (1220, 1100); app_port = (42434)
+    except Exception: print(f'{c['err']}\n File \'config.yml\' not found or outdated.{c['dur']}\n Loading default settings...'); app_resolution = (1220, 1100); app_port = (42434); enable_rpc=False
+    if enable_rpc == True:
+        rpc = discordrpc.RPC(app_id=1307420925775315025)
+        rpc.set_activity(
+            details=f"Loaded servers: {str(len(enabledServers))}",
+            ts_start=timestamp, # Timestamp start
+            ts_end=1752426021 # Timestamp end
+        )
     eel.init(web)
-    eel.start('app.html', mode='chrome', size=(app_resolution), position=(600, 50), port=(config['settings']['app']['port']), host='localhost', close_callback=windowExit, cmdline_args=['--resizable: false', '--disable-glsl-translator', '--fast-start', '--incognito', '--disable-infobars', '--disable-pinch', '--disable-extensions'], block=False)
+    eel.start('app.html', mode=config['settings']['app']['web-mode'], size=(app_resolution), position=(600, 50), port=(config['settings']['app']['port']), host='localhost', close_callback=windowExit, cmdline_args=['--resizable: false', '--disable-glsl-translator', '--fast-start', '--incognito', '--disable-infobars', '--disable-pinch', '--disable-extensions'], block=False)
     gevent.get_hub().join()
+    if enable_rpc == True:
+        rpc.run(4)
 except Exception as error: print(c['err'] + '\nUnknown error!\n' + traceback.format_exc())
 finally: print(c['dur'], '\n Ending process...', c['end'], '\n Please check above for any errors.' + c['none']); sys.exit()

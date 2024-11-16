@@ -11,7 +11,7 @@ import os
 os.system('title launcher')
 
 from colorama import Fore; from colorama import *
-import time
+import datetime
 
 import subprocess; from subprocess import Popen; from subprocess import *
 
@@ -58,7 +58,6 @@ def windowExit(route, websockets):
     if not websockets:
         print('webapp is not responing.')
         print(console.pid)
-        time.sleep(0.2)
         print('closing server...')
         for proc in console.children(True):
             proc.kill()
@@ -88,7 +87,7 @@ def captureOutput():
             if type == 'NONE]: ':
                 type = last_type
 
-            string = ('<div class=\"' + classes[type][0]+ '\"> <span class=\"line\">[' + str(numb)+ ']</span> '+str(output.strip()) + '</div>')
+            string = ('<div class=\"' + classes[type][0]+ '\"> <span class=\"line\">[' + str(numb)+ '] </span>'+str(output.strip()) + '</div>')
             return { "output": string }
     except Exception: return { "output": '<div class=\"' + classes['INFO]: '][0]+ '\"> [' + str(numb)+ '] '+str(traceback.format_exc()) + '</div>' }
 
@@ -112,7 +111,7 @@ def windowLoad():
 
 async def appStart():
     eel.init(str(web))
-    eel.start('server.html', size=(1400, 920), position=(600, 50), disable_cache=True, port=(int(web_port) + int(server_number)), host='localhost', close_callback=windowExit, cmdline_args=['--disable-glsl-translator', '--fast-start', '--incognito', '--disable-infobars', '--disable-pinch', '--disable-extensions', '--force-tablet-mode'], block=True)
+    eel.start('server.html', mode=web_mode, size=(1400, 920), position=(600, 50), disable_cache=True, port=(int(web_port)), host='localhost', close_callback=windowExit, cmdline_args=['--resizable: false', '--disable-glsl-translator', '--fast-start', '--incognito', '--disable-infobars', '--disable-pinch', '--disable-extensions'], block=True)
     gevent.get_hub().join()
     print('test')
 
@@ -124,6 +123,7 @@ try:
     app_port = config['settings']['app']['port']
     console_refresh = config['settings']['app']['experimental-mode']['console-refresh-rate']
     max_console_output = config['settings']['app']['experimental-mode']['max-console-output']
+    web_mode = config['settings']['app']['web-mode']
 except Exception: print('Uknown port.'); app_port = (42434); console_refresh = 0.02
 
 
