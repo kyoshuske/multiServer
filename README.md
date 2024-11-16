@@ -18,7 +18,6 @@ md C:\Users\%USERNAME%\AppData\Local\multiServer & C: & cd C:\Users\%USERNAME%\A
  - configure servers in 'server.yml' and 'config.yml'
  - start launcher.exe with this one parameter: "packer.py" ("launcher.exe" "packer.py")
  - now entire configuration should be packed into .cmd file in '.\.multiServer\starts'
-----
 
 # Configuration
 
