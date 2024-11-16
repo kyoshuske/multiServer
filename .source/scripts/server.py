@@ -20,6 +20,7 @@ import traceback
 from queue import Queue, Empty
 
 import eel
+import signal
 
 import gevent
 import asyncio
@@ -56,8 +57,12 @@ classes = {
 def windowExit(route, websockets):
     if not websockets:
         print('webapp is not responing.')
+        print(console.pid)
         time.sleep(0.2)
         print('closing server...')
+        for proc in console.children(True):
+            proc.kill()
+        console.kill()
         print('stopping script...')
         sys.exit()
 
@@ -79,13 +84,13 @@ def captureOutput():
                     numb+=1
                     break
             if "For help, type \"help\"" in teststring:
-                print("server loaded.")
+                print("server loaded.\n"+Fore.LIGHTYELLOW_EX+"While this window is open the server is running.\n"+Fore.WHITE)
             if type == 'NONE]: ':
                 type = last_type
 
-            string = ('<div class=\"' + classes[type][0]+ '\">' + str(output.strip()) + '</div>')
+            string = ('<div class=\"' + classes[type][0]+ '\"> <span class=\"line\">[' + str(numb)+ ']</span> '+str(output.strip()) + '</div>')
             return { "output": string }
-    except Exception: return { "output": '<div class=\"' + classes['INFO]: '][0]+ '\">' + str(traceback.format_exc()) + '</div>' }
+    except Exception: return { "output": '<div class=\"' + classes['INFO]: '][0]+ '\"> [' + str(numb)+ '] '+str(traceback.format_exc()) + '</div>' }
 
 
 @eel.expose
@@ -103,7 +108,7 @@ def executeCommand(input):
 def windowLoad():
 
     print(Fore.WHITE + 'webapp responded')
-    return { "consoleInterval": console_refresh, "serverName": server_name }
+    return { "consoleInterval": console_refresh, "serverName": server_name, "maxLines": max_console_output }
 
 async def appStart():
     eel.init(str(web))
@@ -117,7 +122,8 @@ with open(config_yml, 'r') as file: config = yaml.safe_load(file) # load yaml/ym
 
 try:
     app_port = config['settings']['app']['port']
-    console_refresh = config['settings']['app']['console-refresh-rate']
+    console_refresh = config['settings']['app']['experimental-mode']['console-refresh-rate']
+    max_console_output = config['settings']['app']['experimental-mode']['max-console-output']
 except Exception: print('Uknown port.'); app_port = (42434); console_refresh = 0.02
 
 
@@ -134,7 +140,7 @@ def enqueueOutput(out, queue):
 
 start_file = str(starts + '\\' + str(server_number) + 'a.cmd')
 print(start_file)
-console = Popen([start_file], creationflags=CREATE_NEW_CONSOLE, text=True, stdout=subprocess.PIPE, stdin=subprocess.PIPE, shell=True, stderr=subprocess.PIPE, close_fds=True)
+console = Popen([start_file], text=True, stdout=subprocess.PIPE, stdin=subprocess.PIPE, shell=True, stderr=subprocess.PIPE, close_fds=True)
 q = Queue()
 t = Thread(target=enqueueOutput, args=(console.stdout, q))
 t.daemon = True

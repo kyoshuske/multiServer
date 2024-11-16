@@ -17,6 +17,7 @@ import webbrowser
 import eel
 
 import gevent
+import traceback
 
 from psutil import *
 from ctypes import windll
@@ -28,7 +29,7 @@ launcher_exe = (directory + '\\launcher.exe')
 def appClose():
     sys.exit()
 def startPacker():
-    print(c['dur'] + '\n' + ' Starting packer.py...'+c['none'])
+    print(c['dur'] + '\n' + ' Starting packer.py...\n'+c['none'])
     wait = subprocess.Popen(([launcher_exe, 'packer.py']))
     wait.wait()
     os.system('title multiServer')
@@ -64,13 +65,12 @@ try:
     except Exception as error: print(error)
 
 
-    def startServer(id):
-        id=int(id)
+    def startServer(id: int):
         file_directory = starts+'\\'+str(id)
         if app_mode == 'subprocess':
             process[server] = subprocess.Popen([file_directory+'a.cmd'], creationflags=CREATE_NEW_CONSOLE, text=True, close_fds=False)
         elif app_mode == 'experimental':
-            print(c['dur'] + ' Attempting to launch servers in experimental mode...')
+            print(c['dur'] + ' Attempting to launch server in experimental mode...')
             webbrowser.open(file_directory+'b.cmd')
         elif app_mode == 'system':
             os.system('start ' + file_directory+'a.cmd')
@@ -94,8 +94,8 @@ try:
         return { "id": enabledServers, "name": server, "icon": icon, "enabledServers": enabledServers, "server": server}
     
     @eel.expose
-    def serverFileClick(id):
-        print(c['dur'], '\n Opening log file... ('+str(id)+')')
+    def serverFileClick(id: int):
+        print(f'{c['dur']}\n Opening log file... ({str(id)})')
 
         # get server_name by server_id
         server_name = server[id]
@@ -106,14 +106,14 @@ try:
         if file_exists == True:
             os.system(file_path)
             # webbrowser.open_new_tab(server_path+ '\\logs\\latest.log')
-            print(c['dur']+' Opening', file_path+'...')
+            print(f'{c['dur']} Opening {file_path}...')
         
     @eel.expose
-    def serverStartClick(id):
-        print(c['dur'], '\n Starting server... ('+id+')')
+    def serverStartClick(id: str):
+        print(f'{c['dur']}\n Starting server... ({id})')
         if fast_start == True:
             startPacker()
-        startServer(id)
+        startServer(int(id))
 
     # @eel.expose
     # def buttonClick(state, eid):
@@ -161,9 +161,9 @@ try:
         app_mode = config['settings']['app']['mode']
         fast_start = config['settings']['app']['reload-server-config']
 
-    except Exception: print(Fore.RED + '\n File \'config.yml\' not found or outdated.' + c['dur'] + '\n Loading default settings...'); app_resolution = (1220, 1100); app_port = (42434)
+    except Exception: print(f'{c['err']}\n File \'config.yml\' not found or outdated.{c['dur']}\n Loading default settings...'); app_resolution = (1220, 1100); app_port = (42434)
     eel.init(web)
-    eel.start('app.html', mode='chrome', size=(app_resolution), position=(600, 50), port=(config['settings']['app']['port']), host='localhost', close_callback=windowExit, cmdline_args=['--disable-glsl-translator', '--fast-start', '--incognito', '--disable-infobars', '--disable-pinch', '--disable-extensions', '--resizable: false'], block=False)
+    eel.start('app.html', mode='chrome', size=(app_resolution), position=(600, 50), port=(config['settings']['app']['port']), host='localhost', close_callback=windowExit, cmdline_args=['--resizable: false', '--disable-glsl-translator', '--fast-start', '--incognito', '--disable-infobars', '--disable-pinch', '--disable-extensions'], block=False)
     gevent.get_hub().join()
-except Exception as error: print(Fore.RED + 'Unknown error!\n' + str(error))
-finally: print(c['dur'], '\n Ending process...', c['end'], '\n Please check above for any errors.\n' + c['none']); sys.exit()
+except Exception as error: print(c['err'] + '\nUnknown error!\n' + traceback.format_exc())
+finally: print(c['dur'], '\n Ending process...', c['end'], '\n Please check above for any errors.' + c['none']); sys.exit()

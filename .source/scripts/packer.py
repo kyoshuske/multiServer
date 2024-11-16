@@ -10,6 +10,7 @@ except Exception: print('Please launch this script with launcher.exe'); sys.exit
 import os
 
 from colorama import Fore; from colorama import *
+from datetime import datetime
 
 from tkinter import messagebox
 
@@ -26,23 +27,28 @@ def displayError(code, content):
     print(c['err'] + message[code]); messagebox.showerror('multiServer', message[code]); sys.exit()
 def savePort(port):
     with open(ports_yml, 'a') as data_ports: # load yml file (app\data\ports.yml)
-        data_ports.write('    ' + server_name + ': ' + str(port) + '\n') 
-parameters = { 
+        data_ports.write(f'    {server_name}: {str(port)}\n')
+def getTimeBetween(before, after):
+    return round((after-before).total_seconds()*10, 2)
+parameters = {
 'bukkit': '--bukkit-settings',
 'server-properties': '--config',
 'spigot': '--spigot-settings',
 'paper': '--paper-settings',
 'nogui': '--nogui',
 'noconsole': '--noconsole',
-'eula': '-Dcom.mojang.eula.agree=true'
+'eula': '-Dcom.mojang.eula.agree=true',
+'port': '--port'
 }
 config_files = {'bukkit', 'server-properties', 'spigot', 'paper'}
 config_visuals = {'nogui', 'noconsole'}
 try:
     print(c['dur']+' Loading configuration...')
-    ports_yml = (directory + '\\app\\data\\ports.yml')
+    time_before = datetime.now()
+    ports_yml = f'{directory}\\app\\data\\ports.yml'
+    config_yml = f'{directory}\\config.yml'
+    servers_yml = f'{directory}\\servers.yml'
     with open(ports_yml, 'w') as data_ports: data_ports.write('ports:\n')
-    config_yml = (directory + '\\config.yml'); servers_yml = (directory + '\\servers.yml')
     try:
         with open(config_yml, 'r') as file: config = yaml.safe_load(file) # load yml file (config.yml)
         plugins = ''
@@ -51,8 +57,8 @@ try:
             plugins_dir = pl['directory']
             plmode = pl['whitelist']['invert']
             for plugin in os.listdir(plugins_dir):
-                plugin=plugins_dir+'\\'+plugin
-                plugins+=' --add-plugin \"'+plugin+'\"'
+                plugin=f'{plugins_dir}\\{plugin}'
+                plugins+=f' --add-plugin \"{plugin}\"'
         eula = ''
         if config['settings']['global']['eula']:
             if config['settings']['global']['eula'] == True:
@@ -63,6 +69,7 @@ try:
         with open(servers_yml, 'r') as file: servers_config = yaml.safe_load(file) # load yml file (servers.yml)
     except FileNotFoundError as error: displayError('MissingFile', 'servers.yml')
     if arg != 'nopack':
+        print('\n Creating start files for:')
         id = 0
         for server in servers_config['servers']:
             id+=1
@@ -77,15 +84,15 @@ try:
             else: java = server['java-path']
 
             if server['force-port']['enable'] == True:
-                prt = ' --port ' + str(server['force-port']['port'])
+                prt = f' --port {server['force-port']['port']}'
                 port = server['force-port']['port']
                 savePort(server['force-port']['port'])
             else: 
-                server_properties = server['path'] + '\\server.properties'
+                server_properties = f'{server['path']}\\server.properties'
                 properties = ConfigObj(server_properties)
                 port = properties.get('server-port')
                 savePort(port)
-                prt = ''; port = (str(port) + ' (You can configure port for this server in \''+ directory + '\\servers.yml\')')
+                prt = ''; port = f'{str(port)} (You can configure port for this server in \'{directory}\\servers.yml\')'
             # configuration files parameters
             if not file:
                 file={}
@@ -110,8 +117,8 @@ try:
                 for key in c_params:
                     server['custom-args'] += ' '+key
             exist = os.path.isfile(server['path'] + '\\' + server['jar-file'])
-            if exist == True: server['exist'] = '\necho:^[90m^ \necho:Loading server with multiServer...\necho:Loaded all the data successfully. Attempting to start the server...^[97m^ '
-            else: server['exist'] = '\necho:^[90m^Loading server with multiServer...\necho:^[31m^Couldn\'t find \'' + server['jar-file'] + '\'. Please check if \'path\' in \''+ directory + '\\servers.yml\' is valid.^[97m^ '
+            if exist == True: server['exist'] = 'echo:Loaded all the data successfully. Attempting to start the server...^[97m^ '
+            else: server['exist'] = f'echo:^[31m^Couldn\'t find \'{server['jar-file']}\'. Please check if \'path\' in \'{directory}\\servers.yml\' is valid.^[97m^ '
             server['plugins'] = plugins
             if pl['enable'] == True:
                 # if in blacklist: do not start with plugins
@@ -123,16 +130,18 @@ try:
                         server['plugins'] = ''
             try:
                 server['id'] = str(id)
-                print(c['dur'] + '  - Creating start files for \"' + server_name + '\" server... ('+server['id']+')')
-                server['file-a'] = directory + '\\starts\\' + server['id'] + 'a.cmd'
-                server['file-b'] = directory + '\\starts\\' + server['id'] + 'b.cmd'
-                server['arguments'] = 'cd /D "' + server['path'] + '"\n"' + java + '" -Xmx' + str(server['max-heap-size']) + eula + ' -jar "' + server['jar-file'] + '"' + str(prt) + visual['nogui'] + visual['noconsole'] + file['server-properties'] + file['bukkit'] + file['spigot'] + file['paper'] + server['plugins'] + server['custom-args']
-                server['process-end'] = '\necho.\necho.\necho.\necho: ^[96m^ \necho: Server closed.\necho: Saved logs to ' + server['path'] + '\\logs\\latest.log\necho: Press any key to exit console...\npause >NUL\necho: Are you sure you want to exit console? Press any key... \npause >NUL \necho:Console closed. (not waiting for response from the server) \nexit'
-                server['file'] = '@echo off\ntitle ' + visual['window-title'] + server['exist'] + '\necho:Starting server on port *:' + str(port) + '\n' + server['arguments'] + server['process-end']
+                print(f'{c['dur']}  - \"{server_name}\" server... ({server['id']})')
+                server['file-a'] = f'{directory}\\starts\\{server['id']}a.cmd'
+                server['file-b'] = f'{directory}\\starts\\{server['id']}b.cmd'
+                # server['file-c'] = f'{directory}\\starts\\{server['id']}c.cmd'
+                server['arguments'] = f'cd /D \"{server['path']}\"\n\"{java}\" -Xmx{str(server['max-heap-size'])}{eula} -jar \"{server['jar-file']}\"{str(prt)}{visual['nogui']}{visual['noconsole']}{file['server-properties']}{file['bukkit']}{file['spigot']}{file['paper']}{server['plugins']}{server['custom-args']}'
+                server['process-end'] = f'echo.\necho: Server closed.\necho: Saved logs to {server['path']}\\logs\\latest.log\necho: Press any key to exit console...\npause > NUL\necho:Console closed.\nexit'
+                server['file'] = f'@echo off\ntitle {visual['window-title']}\necho:^[90m^Loading server with multiServer...\n{server['exist']}\necho:Starting server on port *:{port}\n{server['arguments']}\n{server['process-end']}'
                 with open(server['file-a'], 'w') as f: f.write(server['file'])
-                with open(server['file-b'], 'w') as f: f.write('start ' + directory + '\\launcher.exe \"server.py' + '\" \"' + server['id'] + '\" ' + server_name + '\"')
-                # pprint.pp(server)
+                with open(server['file-b'], 'w') as f: f.write(f'start {directory}\\launcher.exe \"server.py\" \"{server['id']}\" {server_name}\"')
+                # with open(server['file-c'], 'w') as f: f.write(server['arguments'])
             except Exception as error: displayError('Custom', 'Creating files. '+'(' + error + ')')
-        print('\n'+c['none']+' Task done (packer.py)')
+        time = getTimeBetween(time_before, datetime.now())
+        print(f'\n{c['none']} Task done in {time}s (packer.py)')
 except Exception as error: displayError('Unknown', '0')
-finally: print(c['none']); sys.exit()
+finally: print(c['none'])
