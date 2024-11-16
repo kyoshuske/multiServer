@@ -33,10 +33,10 @@
             <!-- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19V5m0 14-4-4m4 4 4-4"/> -->
              <svg class="tool" id="scroll" onclick="buttonClick(event)" width="28" height="28" viewBox="0 0 24 22"></svg>
         </div>
-        <div id="console" disabled>
+        <div id="console">
             <!-- <div class=warn>Launching server in experimental mode... Please note that this is an experimental feature and it might not work correctly</div> -->
-            <div class=warn>WARNING! : SERVER WILL NOT STOP IF YOU CLOSE THIS WINDOW!</div>
-            <div class=warn>WARNING! : YOU HAVE TO EXECUTE '/stop' COMMAND TO STOP IT!</div>
+            <div class=warn><span class="line">[0]</span> WARNING! : YOU ARE RUNNING THIS SERVER IN EXPERIMENTAL MODE,</div>
+            <div class=warn><span class="line">[0]</span> WARNING! : PLEASE MIND THAT SOME FEATURES MIGHT NOT WORK.</div>
         </div>
         <textarea onkeydown="executeCommand(event)" id="consoleInput" spellcheck="false" autocapitalize="off" autocorrect="off" placeholder="/<command>" autofocus rows="1" cols="20000"></textarea>
     </div>

@@ -24,7 +24,7 @@ async function console_display() {
             const output = await eel.captureOutput()();
             if(!output) {
                 return;
-            }
+            };
             const newoutput = output.output
             const textarea = document.getElementById('console');
             const content = textarea.innerHTML || textarea.textContent;
@@ -34,7 +34,12 @@ async function console_display() {
             // textarea.innerHTML = newcontent;
             if (window.enablescroll == 1) {
                 textarea.scrollTop = textarea.scrollHeight;
-            }
+            };
+            const lines_count = document.querySelectorAll(".info").length + document.querySelectorAll(".warn").length + document.querySelectorAll(".error").length;
+            // console.log(lines_count);
+            if (lines_count > window.load.maxLines) {
+                document.getElementById("console").children[0].remove();
+            };
         }
     , (window.load.consoleInterval * 300));
 }
@@ -49,9 +54,6 @@ async function executeCommand(event) {
             consoleinput.value = "";
             // await eel.executeCommand(input=(command))();
             await eel.executeCommand(input=command)();
-            if (window.enablescroll == 1) {
-                textarea.scrollTop = textarea.scrollHeight;
-            };
         };
         if (event.key === "Tab") {
             event.preventDefault();
@@ -61,7 +63,6 @@ async function executeCommand(event) {
     };
 };
 async function buttonClick(event) {
-    console.log(event)
     button = event.target
     if (button.classList.contains(CHECKED_CLASS)) {
         button.classList.remove(CHECKED_CLASS);
@@ -80,7 +81,6 @@ async function buttonClick(event) {
         for (const log_type of LOG_CLASSES) {
             if (id.includes(log_type)) {
                 const elements = document.querySelectorAll('.'+log_type);
-                console.log(log_type)
                 if (button.classList.contains(CHECKED_CLASS)) {
                     for (element of elements) {
                         element.classList.add(HIDDEN_CLASS);
