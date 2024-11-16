@@ -34,6 +34,8 @@ settings:
       height: 1300
     port: 42434
     reload-server-config: false # when true: reloads server's config everytime when start button is clicked [true/false, default: false]
+    show-discord-status: true
+    web-mode: chrome # changes which web browser to use when displaying ui [chrome/edge/electron/default, default: chrome]
     mode: system # changes how servers are being started [system/subprocess/webbrowser/experimental, default: system]
     experimental-mode:
       console-refresh-rate: 0.00001
