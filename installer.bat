@@ -43,9 +43,7 @@ cd !pathms!
 (
   echo:#configuration file for multiserver instalation
   echo:config:
-  echo:   path: '%syn%'
-  echo:   disk: '%kym%'
-  echo:   0: 0
+  echo:   path: %syn%
 ) > c.yml
 
 
