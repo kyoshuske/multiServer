@@ -99,7 +99,6 @@ hr {
 
 
 
-
 @media (max-resolution: 200dpi), (min-resolution: 20dpi) {
     .navbar {
         width: 650px;
@@ -136,12 +135,16 @@ hr {
     .page-content {
         width: 650px !important;
     }
+    .server {
+        animation: loading-page 2s normal;
+    }
 }
 @media (max-width: 710px){
     .grid-wrapper {
         grid-template-columns: auto !important;
     }
     .page-content, .bar, .navbar {
+        transition: 250ms;
         width: 390px !important;
         margin-left: auto;
         margin-right: auto;
