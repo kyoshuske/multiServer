@@ -17,7 +17,7 @@ md C:\Users\%USERNAME%\AppData\Local\multiServer & C: & cd C:\Users\%USERNAME%\A
  - when app loads start servers that you want
  - you can also open log files for each server by clicking document icons on the left
    
-**packer**: (python script that converts .yml config into .cmd file)
+**packer**: (python script that makes .cmd file for each server)
  - configure servers in server.yml and config.yml
  - start launcher.exe with this parameter: 'packer.py'
  - now entire configuration should be packed into .cmd file in ...\.multiServer\starts
