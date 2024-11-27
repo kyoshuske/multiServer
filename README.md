@@ -1,26 +1,26 @@
 > [!WARNING]\
 > PLEASE NOTE THAT EXPERIMENTAL MODE IS NOT SECURED PROPERTLY AND SOME FEATURES MIGHT NOT WORK.
-> USE EXPERIMENTAL MODE RESPONSIBLY
+> USE EXPERIMENTAL MODE AT YOUR OWN RISK
 # Preview
 ![multiServer](assets/github-banner.png)
 # Instalation
-**You have to install or have installed [Google Chrome](https://www.google.com/intl/en_en/chrome "Google Chrome instalation page") to run app's gui**.
+**You have to have installed [Google Chrome](https://www.google.com/intl/en_en/chrome "Google Chrome instalation page") in order to run app**.
 
-Copy and paste code below into the **command prompt**. Than follow the instalation process. (i know its a bad way to make installer)
+Copy and paste code below into the **command prompt**. Than follow the instalation process. (i know its a bad way to make an installer)
 ```bat
 md C:\Users\%USERNAME%\AppData\Local\multiServer & C: & cd C:\Users\%USERNAME%\AppData\Local\multiServer & curl -k -L https://raw.githubusercontent.com/kyoshuske/multiServer/main/installer.bat -o in.bat & powershell Start -File "in.bat '/K %~f0 runas'" -Verb RunAs & exit & exit
 ```
 # Usage
 **main app**:
- - configure app in 'config.yml' and 'servers.yml' (you can read about configuration [here](#configuration))
+ - configure app in config.yml and servers in servers.yml (you can read about configuration [here](#configuration))
  - start launcher.exe
  - when app loads start servers that you want
- - you can also open log files by clicking document icons on the left
+ - you can also open log files for each server by clicking document icons on the left
    
 **packer**: (python script that converts .yml config into .cmd file)
- - configure servers in 'server.yml' and 'config.yml'
- - start launcher.exe with this one parameter: "packer.py" ("launcher.exe" "packer.py")
- - now entire configuration should be packed into .cmd file in '.\.multiServer\starts'
+ - configure servers in server.yml and config.yml
+ - start launcher.exe with this parameter: 'packer.py'
+ - now entire configuration should be packed into .cmd file in ...\.multiServer\starts
 
 # Configuration
 
@@ -61,7 +61,7 @@ settings:
 <details><summary>servers.yml</summary>
   
 ```yaml
-servers: # all the servers even that, that are not in 'enabled-servers'
+servers: # all the servers
   example-server1: # name of the server (only used by multiserver)
     path: c:\example1 # server's directory
     jar-file: server.jar # .jar file (paper, spigot, bukkit, purpur etc.)
@@ -83,7 +83,7 @@ servers: # all the servers even that, that are not in 'enabled-servers'
       bukkit: default # path of 'bukkit.yml' file
       spigot: default # path of 'spigot.yml' file
       paper: default # path of 'paper.yml' or 'configs\paper-global.yml' file (check docs.papermc.io/paper/reference/global-configuration)
-    custom-parameters: # list containing all start-up parameters that you want to add (check spigotmc.org/wiki/start-up-parameters) can be an empty list: [] instead
+    custom-parameters: # list containing all start-up parameters that you want to add (check spigotmc.org/wiki/start-up-parameters) can be an empty list instead
       - '--help' # example parameter
       - '--version' # example parameter
       - '--safeMode' # example parameter
@@ -103,6 +103,7 @@ servers: # all the servers even that, that are not in 'enabled-servers'
  - added server icons
  - fixed issues with global-java
  - added reload-server-config for better user experience
+
 </details>
 
 <details><summary>v1.2.9 [FIX]</summary>
