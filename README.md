@@ -36,6 +36,7 @@ settings:
     plugins: # when enabled every server will run with these plugins
       enable: true
       directory: c:\example-plugins # directory containing only .jar plugins
+      mode: jar # 'jar': only shares the jars, 'config': shares configuration and jars [jar/config, default: jar]
       whitelist:
         invert: false # enables blacklist
         servers: [] # list of servers
