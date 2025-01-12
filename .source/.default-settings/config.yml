@@ -21,7 +21,7 @@ settings:
     plugins:
       enable: false
       directory: c:\example-plugins
-      mode: jar # [jar/config+jar, default: jar]
+      mode: jar # [jar/directory, default: jar]
       whitelist:
         invert: false 
         servers: 
