@@ -11,7 +11,7 @@ import os
 
 from colorama import Fore; from colorama import *
 from datetime import datetime
-
+import traceback
 from tkinter import messagebox
 
 import yaml
@@ -38,10 +38,14 @@ parameters = {
 'nogui': '--nogui',
 'noconsole': '--noconsole',
 'eula': '-Dcom.mojang.eula.agree=true',
-'port': '--port'
+'port': '--port',
+'plugins_jar': '--add-plugin',
+'plugins_config': '--plugins'
 }
 config_files = {'bukkit', 'server-properties', 'spigot', 'paper'}
 config_visuals = {'nogui', 'noconsole'}
+plugins = ''
+eula = ''
 try:
     print(c['dur']+' Loading configuration...')
     time_before = datetime.now()
@@ -51,15 +55,18 @@ try:
     with open(ports_yml, 'w') as data_ports: data_ports.write('ports:\n')
     try:
         with open(config_yml, 'r') as file: config = yaml.safe_load(file) # load yml file (config.yml)
-        plugins = ''
+        # global plugins
         pl = config['settings']['global']['plugins']
         if pl['enable'] == True:
             plugins_dir = pl['directory']
             plmode = pl['whitelist']['invert']
-            for plugin in os.listdir(plugins_dir):
-                plugin=f'{plugins_dir}\\{plugin}'
-                plugins+=f' --add-plugin \"{plugin}\"'
-        eula = ''
+            if pl['mode'] == 'jar':
+                for plugin in os.listdir(plugins_dir):
+                    if plugin.endswith('.jar') == True:
+                        plugin=f'{plugins_dir}\\{plugin}'
+                        plugins+=f' {parameters["plugins_jar"]} \"{plugin}\"'
+            else:
+                plugins=f' {parameters["plugins_config"]} {plugins_dir}'
         if config['settings']['global']['eula']:
             if config['settings']['global']['eula'] == True:
                 eula = ' '+parameters['eula']
@@ -130,16 +137,12 @@ try:
                         server['plugins'] = ''
             try:
                 server['id'] = str(id)
-                print(f'{c['dur']}  - \"{server_name}\" server... ({server['id']})')
+                print(f'{c['dur']}  - {server_name}... ({server['id']})')
                 server['file-a'] = f'{directory}\\starts\\{server['id']}a.cmd'
-                # server['file-b'] = f'{directory}\\starts\\{server['id']}b.cmd'
-                # server['file-c'] = f'{directory}\\starts\\{server['id']}c.cmd'
                 server['arguments'] = f'cd /D \"{server['path']}\"\n\"{java}\" -Xmx{str(server['max-heap-size'])}{eula} -jar \"{server['jar-file']}\"{str(prt)}{visual['nogui']}{visual['noconsole']}{file['server-properties']}{file['bukkit']}{file['spigot']}{file['paper']}{server['plugins']}{server['custom-args']}'
-                server['process-end'] = f'echo.\necho: Server closed.\necho: Saved logs to {server['path']}\\logs\\latest.log\necho: Press any key to exit console...\npause > NUL\necho:Console closed.\nexit'
+                server['process-end'] = f'echo.\necho: Console closed.\necho: Latest.log: {server['path']}\\logs\\latest.log\necho: Press any key to exit console...\npause > NUL\necho: Console closed.\nexit'
                 server['file'] = f'@echo off\ntitle {visual['window-title']}\necho:^[90m^Loading server with multiServer...\n{server['exist']}\necho:Starting server on port *:{port}\n{server['arguments']}\n{server['process-end']}'
                 with open(server['file-a'], 'w') as f: f.write(server['file'])
-                # with open(server['file-b'], 'w') as f: f.write(f'start {directory}\\launcher.exe \"server.py\" \"{server['id']}\" {server_name}\"\nexit')
-                # with open(server['file-c'], 'w') as f: f.write(server['arguments'])
             except Exception as error: displayError('Custom', 'Creating files. '+'(' + error + ')')
         time = getTimeBetween(time_before, datetime.now())
         print(f'\n{c['none']} Task done in {time}s (packer.py)')
