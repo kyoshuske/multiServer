@@ -1,6 +1,10 @@
 > [!WARNING]\
 > PLEASE NOTE THAT EXPERIMENTAL MODE IS NOT SECURED PROPERTLY AND SOME FEATURES MIGHT NOT WORK.
 > USE EXPERIMENTAL MODE AT YOUR OWN RISK
+# Project Closed...
+Today on 22nd day of january 2025 im archiving this repo as im not gonna be updating this project anymore.
+This project has all the features that i needed so i don't see any reason for maintaing it.
+If you are interested in using it... i will just say it was made really poorly and you can probably find a project that does the same job but just a lot better.
 # Preview
 ![multiServer](assets/github-banner.png)
 # Instalation
@@ -96,7 +100,7 @@ servers: # all the servers
 
 <details open><summary>v1.3.0 </summary>
 
- - added eula agreement to configuration
+ - added eula agreement to configuration (i hope its not illegal)
  - added custom-startup-parameters
  - updated experimental console
  - updated global-plugins
