@@ -110,6 +110,8 @@ servers: # all the servers
  - added server icons
  - fixed issues with global-java
  - added reload-server-config for better user experience
+ - added proxy support (xd)
+ - added global plugins config
 
 </details>
 
