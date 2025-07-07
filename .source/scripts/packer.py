@@ -131,8 +131,11 @@ try:
                 if pl['use-plugin-config'] == True:
                     pl['plugin-config-dir'] = directory + "\\plugin_config"
                     for dir in os.listdir(pl['plugin-config-dir']):
-                        print(dir)
-                        shutil.copytree(pl['plugin-config-dir'] + "\\" + dir, f"{server['path']}\\plugins\\{dir}", dirs_exist_ok=True)
+                        try:
+                            print(dir)
+                            shutil.copytree(pl['plugin-config-dir'] + "\\" + dir, f"{server['path']}\\plugins\\{dir}", dirs_exist_ok=True)
+                        except Exception:
+                            print("Probably .multiServer\plugin_config does contain a unexpected file. Maybe check it?")
                 # if in blacklist: do not start with plugins
                 if server_name in pl['whitelist']['servers'] and plmode == True:
                     server['plugins'] = ''
