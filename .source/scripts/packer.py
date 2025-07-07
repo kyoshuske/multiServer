@@ -13,7 +13,7 @@ from colorama import Fore; from colorama import *
 from datetime import datetime
 import traceback
 from tkinter import messagebox
-
+import shutil
 import yaml
 from configobj import ConfigObj
 # import pprint
@@ -128,6 +128,11 @@ try:
             else: server['exist'] = f'echo:^[31m^Couldn\'t find \'{server['jar-file']}\'. Please check if \'path\' in \'{directory}\\servers.yml\' is valid.^[97m^ '
             server['plugins'] = plugins
             if pl['enable'] == True:
+                if pl['use-plugin-config'] == True:
+                    pl['plugin-config-dir'] = directory + "\\plugin_config"
+                    for dir in os.listdir(pl['plugin-config-dir']):
+                        print(dir)
+                        shutil.copytree(pl['plugin-config-dir'] + "\\" + dir, f"{server['path']}\\plugins\\{dir}", dirs_exist_ok=True)
                 # if in blacklist: do not start with plugins
                 if server_name in pl['whitelist']['servers'] and plmode == True:
                     server['plugins'] = ''

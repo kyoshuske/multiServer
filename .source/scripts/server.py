@@ -70,7 +70,7 @@ def captureOutput():
     try:
         global numb
         global last_type
-        try: output = q.get_nowait()
+        try: output = q.get(block=False, timeout=None)
         except Empty:
             return
         type = 'NONE]: '
