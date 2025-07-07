@@ -238,7 +238,16 @@ hr {
     background-color: #3d3d3d;
 }
 
+.proxy-button {
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+.proxy-button:hover {
+    transform: scale(110%);
+    opacity: 80%;
+    rotate: -7deg;
 
+}
 .checkbox
 {
     width: 35px;

@@ -4,27 +4,6 @@ const CLICK_CLASS = 'clicked';
 const initialize = async () => {
     await eel.windowLoad()();
     await display_servers();
-    const checkboxes = document.querySelectorAll(".checkbox");
-    for (const checkbox of checkboxes) {
-        checkbox.classList.add(CHECKED_CLASS)
-        checkbox.addEventListener("click", function (event) {
-            event.stopPropagation();
-            event.preventDefault();
-            const isChecked = checkbox.classList.contains(CHECKED_CLASS);
-            if (process == 0) {
-                if (isChecked) {
-                    checkbox.classList.remove(CHECKED_CLASS);
-                    eel.buttonClick(state=('unchecked'), eid=(event.target.id))
-
-                } else {
-                    checkbox.classList.add(CHECKED_CLASS);
-                    eel.buttonClick(state=('checked'), eid=(event.target.id))
-                };
-            } else {
-                alert("can't change this settings while the servers are starting!")
-            }
-        });
-    }
 
     const server_start_buttons = document.querySelectorAll(".start-button");
     for (const start_button of server_start_buttons) {
@@ -42,9 +21,13 @@ const initialize = async () => {
             }
         });
     }
+    const proxy_start_button = document.querySelector(".proxy-button");
+    proxy_start_button.addEventListener("click", function (event) {
+        eel.startProxy()
+    });
 };
 if (document.readyState === "loading") {
-    process = 0
+    process = 0;
     document.addEventListener("DOMContentLoaded", initialize);
   } else {
     initialize();
@@ -52,19 +35,15 @@ if (document.readyState === "loading") {
 
 async function display_servers() {
     const servers = await eel.getServers()();
-    const html = document.getElementById('server-id');
-    html.style.display = 'none';
+    const server_template = document.getElementById('server-id');
+    server_template.style.display = 'none';
     for (const id of servers.id) {
-        const cloned = html.cloneNode(true);
-        const clonedId = `server-id-${id}`
-        console.log('Loaded server. Data: [id: ' + id + ', name: ' + servers.name[id] + ', icon: ' + servers.icon[id] + ']')
-
-
+        const cloned = server_template.cloneNode(true);
+        const clonedId = `server-id-${id}`;
+        console.log('Loaded server. Data: [id: ' + id + ', name: ' + servers.name[id] + ', icon: ' + servers.icon[id] + ']');
         cloned.id = clonedId;
         cloned.style.display = '';
-
-
-        html.parentElement.append(cloned)
+        server_template.parentElement.append(cloned);
         const editable = document.querySelector(`#${clonedId}`);
         editable.querySelector('p.text-server').textContent = servers.name[id];
         editable.querySelector('.server-icon').src = servers.icon[id];
@@ -73,7 +52,7 @@ async function display_servers() {
         console.log(editable);
         console.log('---------------------------------------------------');
     };
-    html.remove();
+    server_template.remove();
 }
 
 async function changeTab(x) {
@@ -82,7 +61,7 @@ async function changeTab(x) {
     console.log('clicked tab-button: ' +  x);
     const tabs = document.querySelectorAll(".navbar-tab");
     for (const tab_to_hide of tabs) {
-        const ret = tab_to_hide.id.replace('tab-','')
+        const ret = tab_to_hide.id.replace('tab-','');
         const content = document.querySelector('.page-' + ret);
         content.style.display = tab_to_change !== tab_to_hide ? "none" : '';
         if (tab_to_change !== tab_to_hide) {
@@ -90,6 +69,23 @@ async function changeTab(x) {
         }
     };
 }
+async function python(code) {
+    await eel.executePythonCode(code)();
+}
 async function openFile(x) {
-    eel.serverFileClick(id=x)
+    // const server_template = document.getElementById('server-id-1');
+    // server_template.id = 'server-id'
+    // for (const element of server_template.parentElement.childNodes) {
+    //     element.remove();
+    //     console.log('test: '+element+'/'+server_template.parentElement.childNodes.length)
+    //     if (`#${element.id}`.includes('server-id') == true) {
+    //         if (element !== server_template) {
+    //             element.remove();
+    //         };
+    //     };
+
+
+    // };
+    // display_servers();
+    eel.serverFileClick(id=x);
 };
