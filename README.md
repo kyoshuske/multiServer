@@ -5,6 +5,8 @@
 Today on 22nd day of january 2025 im archiving this repo as im not gonna be updating this project anymore.
 This project has all the features that i needed so i don't see any reason for maintaing it.
 If you are interested in using it... i will just say it was made really poorly and you can probably find a project that does the same job but just a lot better.
+
+It's july 7 and i added something. Idc i archived this project
 # Preview
 ![multiServer](assets/github-banner.png)
 # Instalation
