@@ -20,6 +20,7 @@ settings:
       path: java
     plugins:
       enable: false
+      use-plugin-config: false
       directory: c:\example-plugins
       mode: jar # [jar/directory, default: jar]
       whitelist:
